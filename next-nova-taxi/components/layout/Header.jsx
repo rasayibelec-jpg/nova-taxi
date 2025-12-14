@@ -6,8 +6,13 @@ import { useState, useEffect } from "react";
 const navItems = [
   { href: "/", label: "Startseite" },
   { href: "#services", label: "Dienstleistungen" },
+  { href: "/flughafentransfer", label: "Flughafentransfer" },
+  { href: "/business", label: "Business" },
+  { href: "/kurierfahrten", label: "Kurierfahrten" },
+  { href: "/preise", label: "Preise" },
   { href: "#areas", label: "Servicegebiete" },
-  { href: "#contact", label: "Kontakt" }
+  { href: "/ueber-uns", label: "Über uns" },
+  { href: "/kontakt", label: "Kontakt" }
 ];
 
 export default function Header() {
@@ -43,15 +48,15 @@ export default function Header() {
           </div>
         </Link>
 
-        <nav className="hidden md:flex items-center gap-8 text-sm text-gray-200">
+        <nav className="hidden md:flex items-center gap-6 text-sm text-gray-200">
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.href}
               href={item.href}
               className="hover:text-white transition-colors"
             >
               {item.label}
-            </a>
+            </Link>
           ))}
           <a
             href="tel:+41766113131"
@@ -79,14 +84,14 @@ export default function Header() {
         <div className="md:hidden border-t border-white/10 bg-black/90 backdrop-blur">
           <div className="container py-4 space-y-3 text-sm text-gray-100">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.href}
                 href={item.href}
                 className="block py-1"
                 onClick={() => setMenuOpen(false)}
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
             <a
               href="tel:+41766113131"
