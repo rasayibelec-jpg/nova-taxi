@@ -21,7 +21,7 @@ export default function ContactStrip() {
               href="tel:+41766113131"
               className="block rounded-full bg-nova-gold px-5 py-3 text-center font-semibold text-black hover:bg-nova-gold-soft transition-colors"
             >
-              24/7 Telefon: 076 611 31 31
+              Telefon: 076 611 31 31
             </a>
             <a
               href="mailto:info@nova-taxi.com"

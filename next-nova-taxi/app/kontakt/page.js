@@ -27,7 +27,7 @@ export default function KontaktPage() {
               Kontaktmöglichkeiten
             </h2>
             <p>
-              <strong>Telefon (24/7):</strong> 076 611 31 31
+              <strong>Telefon:</strong> 076 611 31 31
             </p>
             <p>
               <strong>E-Mail:</strong> info@nova-taxi.com
