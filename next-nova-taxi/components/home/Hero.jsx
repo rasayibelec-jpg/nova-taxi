@@ -13,7 +13,7 @@ export default function Hero() {
           priority
           className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-black via-black/85 to-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/30" />
       </div>
 
       <div className="container grid gap-10 md:grid-cols-[1.1fr,0.9fr] items-center relative z-10">
