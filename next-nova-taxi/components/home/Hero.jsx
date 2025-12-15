@@ -7,8 +7,8 @@ export default function Hero() {
       {/* Background image */}
       <div className="absolute inset-0 -z-20">
         <Image
-          src="https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=1600&q=80"
-          alt="Nachtaufnahme eines modernen Taxis in der Stadt"
+          src="https://customer-assets.emergentagent.com/job_taxi-nextjs/artifacts/d7vtjiwn_2224057D-3241-432A-AA5B-D7EABEF441A0_1_105_c.jpeg"
+          alt="Nova Taxi Fahrzeug vor dem Bahnhof"
           fill
           priority
           className="object-cover object-center"
