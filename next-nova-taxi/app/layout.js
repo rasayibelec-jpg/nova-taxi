@@ -2,6 +2,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import WhatsAppFloating from "@/components/layout/WhatsAppFloating";
 
 const inter = Inter({ subsets: ["latin"], display: "swap" });
 
@@ -9,7 +10,7 @@ export const metadata = {
   metadataBase: new URL("https://www.nova-taxi.com"),
   title: {
     default: "Nova Taxi | Premium Taxi-Service in der Zentralschweiz",
-    template: "%s | Nova Taxi"
+    template: "%s | Nova Taxi",
   },
   description:
     "Nova Taxi – moderner Premium Taxi-Service in der Zentralschweiz. Flughafentransfer, Businessfahrten, Kurierfahrten und mehr. 24/7 erreichbar unter 076 611 31 31.",
@@ -20,14 +21,14 @@ export const metadata = {
     title: "Nova Taxi | Premium Taxi-Service in der Zentralschweiz",
     description:
       "Nova Taxi – moderner Premium Taxi-Service in der Zentralschweiz. Flughafentransfer, Businessfahrten, Kurierfahrten und mehr.",
-    url: "https://www.nova-taxi.com/"
+    url: "https://www.nova-taxi.com/",
   },
   twitter: {
     card: "summary_large_image",
     title: "Nova Taxi | Premium Taxi-Service in der Zentralschweiz",
     description:
-      "Nova Taxi – moderner Premium Taxi-Service in der Zentralschweiz. Flughafentransfer, Businessfahrten, Kurierfahrten und mehr."
-  }
+      "Nova Taxi – moderner Premium Taxi-Service in der Zentralschweiz. Flughafentransfer, Businessfahrten, Kurierfahrten und mehr.",
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -38,6 +39,7 @@ export default function RootLayout({ children }) {
           <Header />
           <main>{children}</main>
           <Footer />
+          <WhatsAppFloating />
         </div>
       </body>
     </html>

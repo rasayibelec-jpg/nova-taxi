@@ -3,16 +3,25 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
-const navItems = [
+const mainNavItems = [
   { href: "/", label: "Startseite" },
   { href: "#services", label: "Dienstleistungen" },
   { href: "/flughafentransfer", label: "Flughafentransfer" },
   { href: "/business", label: "Business" },
   { href: "/kurierfahrten", label: "Kurierfahrten" },
   { href: "/preise", label: "Preise" },
-  { href: "#areas", label: "Servicegebiete" },
+  { href: "/galerie", label: "Galerie" },
   { href: "/ueber-uns", label: "Über uns" },
-  { href: "/kontakt", label: "Kontakt" }
+  { href: "/kontakt", label: "Kontakt" },
+];
+
+const serviceAreaItems = [
+  { href: "/ort/arth-goldau", label: "Arth-Goldau" },
+  { href: "/ort/luzern", label: "Luzern" },
+  { href: "/ort/zug", label: "Zug" },
+  { href: "/ort/weggis", label: "Weggis" },
+  { href: "/ort/vitznau", label: "Vitznau" },
+  { href: "/ort/schwyz", label: "Schwyz" },
 ];
 
 export default function Header() {
@@ -49,7 +58,7 @@ export default function Header() {
         </Link>
 
         <nav className="hidden md:flex items-center gap-6 text-sm text-gray-200">
-          {navItems.map((item) => (
+          {mainNavItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
@@ -82,17 +91,38 @@ export default function Header() {
 
       {menuOpen && (
         <div className="md:hidden border-t border-white/10 bg-black/90 backdrop-blur">
-          <div className="container py-4 space-y-3 text-sm text-gray-100">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="block py-1"
-                onClick={() => setMenuOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
+          <div className="container py-4 space-y-4 text-sm text-gray-100">
+            <div className="space-y-2">
+              {mainNavItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="block py-1"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+
+            <div className="pt-2 border-t border-white/10 space-y-2">
+              <p className="text-[11px] uppercase tracking-[0.3em] text-nova-muted">
+                Servicegebiete
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {serviceAreaItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="rounded-full border border-white/20 bg-white/5 px-3 py-1 text-[11px]"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
             <a
               href="tel:+41766113131"
               className="inline-flex items-center justify-center rounded-full bg-nova-gold px-4 py-2 text-xs font-semibold text-black hover:bg-nova-gold-soft transition-colors"

@@ -1,9 +1,22 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="section-padding border-b border-white/10 bg-gradient-to-b from-black to-nova-bg-soft">
-      <div className="container grid gap-10 md:grid-cols-[1.1fr,0.9fr] items-center">
+    <section className="relative section-padding border-b border-white/10 overflow-hidden min-h-[520px] md:min-h-[620px]">
+      {/* Background image */}
+      <div className="absolute inset-0 -z-20">
+        <Image
+          src="https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=1600&q=80"
+          alt="Nachtaufnahme eines modernen Taxis in der Stadt"
+          fill
+          priority
+          className="object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-black via-black/85 to-black/60" />
+      </div>
+
+      <div className="container grid gap-10 md:grid-cols-[1.1fr,0.9fr] items-center relative z-10">
         <div className="space-y-8">
           <p className="text-xs uppercase tracking-[0.4em] text-nova-muted">
             Premium Taxi-Service
@@ -13,9 +26,9 @@ export default function Hero() {
               Nova Taxi – moderne Fahrten in der gesamten Zentralschweiz.
             </h1>
             <p className="text-sm md:text-base text-gray-300 max-w-xl leading-relaxed">
-              Flughafentransfer, Businessfahrten, Kurierfahrten oder die Fahrt nach
-              Hause – Nova Taxi bringt Sie sicher und pünktlich ans Ziel. 24/7
-              erreichbar, mit persönlichem Service.
+              Flughafentransfer, Businessfahrten, Kurierfahrten oder die Fahrt
+              nach Hause – Nova Taxi bringt Sie sicher und pünktlich ans Ziel.
+              24/7 erreichbar, mit persönlichem Service.
             </p>
           </div>
 
@@ -34,21 +47,23 @@ export default function Hero() {
             </a>
           </div>
 
-          <div className="flex flex-wrap items-center gap-4 text-[11px] text-gray-400">
+          <div className="flex flex-wrap items-center gap-4 text-[11px] text-gray-300">
             <span className="inline-flex items-center gap-2">
               <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
               Sofort verfügbar in Arth-Goldau, Luzern, Zug & Umgebung
             </span>
-            <span>Flughafentransfer • Business • Kurier • Lokal</span>
+            <span className="text-gray-400">
+              Flughafentransfer • Business • Kurier • Lokal
+            </span>
           </div>
         </div>
 
-        <div className="relative">
-          <div className="absolute inset-0 -z-10 rounded-3xl bg-gradient-to-tr from-nova-gold/10 via-transparent to-nova-gold/30 blur-2xl" />
-          <div className="relative rounded-3xl border border-white/10 bg-white/5 p-5 shadow-2xl shadow-black/60">
+        <div className="relative mt-4 md:mt-0">
+          <div className="absolute inset-0 -z-10 rounded-3xl bg-gradient-to-tr from-nova-gold/15 via-transparent to-nova-gold/40 blur-2xl" />
+          <div className="relative rounded-3xl border border-white/10 bg-black/60 p-5 shadow-2xl shadow-black/70 backdrop-blur">
             <div className="mb-4 flex items-center justify-between text-xs text-gray-300">
               <span>Beispiel-Fahrt</span>
-              <span className="rounded-full bg-black/50 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-nova-gold">
+              <span className="rounded-full bg-black/70 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-nova-gold">
                 Nova Taxi
               </span>
             </div>
@@ -70,7 +85,7 @@ export default function Hero() {
                 <span className="font-medium text-white">45–55 Minuten</span>
               </div>
             </div>
-            <div className="mt-5 rounded-2xl bg-black/60 px-4 py-3 text-xs text-gray-300 flex items-center justify-between gap-3">
+            <div className="mt-5 rounded-2xl bg-black/70 px-4 py-3 text-xs text-gray-300 flex items-center justify-between gap-3">
               <div>
                 <div className="text-[11px] uppercase tracking-[0.25em] text-nova-muted">
                   Unverbindliche Anfrage

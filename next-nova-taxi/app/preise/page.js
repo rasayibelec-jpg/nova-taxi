@@ -1,3 +1,5 @@
+import PriceCalculator from "@/components/common/PriceCalculator";
+
 export const metadata = {
   title: "Preise & Richtwerte | Nova Taxi",
   description:
@@ -7,7 +9,7 @@ export const metadata = {
 export default function PreisePage() {
   return (
     <section className="section-padding">
-      <div className="container space-y-8">
+      <div className="container space-y-10">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.4em] text-nova-muted">
             Preise
@@ -16,12 +18,14 @@ export default function PreisePage() {
             Faire Preise mit klarer Kommunikation.
           </h1>
           <p className="text-sm md:text-base text-gray-300 leading-relaxed">
-            Jede Fahrt ist individuell – dennoch ist Transparenz bei den
-            Kosten wichtig. Deshalb informieren wir Sie vor der Fahrt über den
+            Jede Fahrt ist individuell – dennoch ist Transparenz bei den Kosten
+            wichtig. Deshalb informieren wir Sie vor der Fahrt über den
             voraussichtlichen Preis und berücksichtigen Distanz, Tageszeit und
             besondere Wünsche.
           </p>
         </div>
+
+        <PriceCalculator />
 
         <div className="grid gap-6 md:grid-cols-2 text-sm md:text-base text-gray-300 leading-relaxed">
           <div className="space-y-3">
