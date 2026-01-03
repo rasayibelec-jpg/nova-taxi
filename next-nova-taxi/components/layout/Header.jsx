@@ -45,16 +45,14 @@ export default function Header() {
     >
       <div className="container flex items-center justify-between py-4">
         <Link href="/" className="flex items-center gap-3">
-          <div className="h-9 w-9 rounded-full bg-nova-gold flex items-center justify-center text-black font-extrabold text-lg">
-            N
-          </div>
-          <div className="leading-tight">
-            <div className="text-base font-bold tracking-[0.25em] text-nova-gold">
-              NOVA
-            </div>
-            <div className="text-xs uppercase tracking-[0.35em] text-gray-300">
-              TAXI
-            </div>
+          <div className="relative h-12 w-32 md:h-14 md:w-40">
+            <Image
+              src="https://customer-assets.emergentagent.com/job_taxi-nextjs/artifacts/eb2153av_Screenshot_20251016_185940_WhatsApp.jpg"
+              alt="Nova Taxi Logo"
+              fill
+              className="object-contain"
+              priority
+            />
           </div>
         </Link>
 
