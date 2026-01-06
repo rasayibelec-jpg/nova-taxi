@@ -6,8 +6,18 @@ export default function Hero() {
     <section className="relative section-padding border-b border-white/10 overflow-hidden min-h-[520px] md:min-h-[620px]">
       {/* Background image */}
       <div className="absolute inset-0 -z-20 overflow-hidden">
+        {/* Mobile: statisches Bild, Desktop: Video-Hintergrund */}
+        <div className="absolute inset-0 block md:hidden">
+          <Image
+            src="https://customer-assets.emergentagent.com/job_taxi-nextjs/artifacts/d7vtjiwn_2224057D-3241-432A-AA5B-D7EABEF441A0_1_105_c.jpeg"
+            alt="Nova Taxi Fahrzeug vor dem Bahnhof"
+            fill
+            priority
+            className="object-cover object-center"
+          />
+        </div>
         <video
-          className="h-full w-full object-cover object-center"
+          className="hidden md:block h-full w-full object-cover object-center"
           autoPlay
           loop
           muted
