@@ -5,14 +5,16 @@ export default function Hero() {
   return (
     <section className="relative section-padding border-b border-white/10 overflow-hidden min-h-[520px] md:min-h-[620px]">
       {/* Background image */}
-      <div className="absolute inset-0 -z-20">
-        <Image
-          src="https://customer-assets.emergentagent.com/job_taxi-nextjs/artifacts/d7vtjiwn_2224057D-3241-432A-AA5B-D7EABEF441A0_1_105_c.jpeg"
-          alt="Nova Taxi Fahrzeug vor dem Bahnhof"
-          fill
-          priority
-          className="object-cover object-center"
-        />
+      <div className="absolute inset-0 -z-20 overflow-hidden">
+        <video
+          className="h-full w-full object-cover object-center"
+          autoPlay
+          loop
+          muted
+          playsInline
+        >
+          <source src="https://customer-assets.emergentagent.com/job_taxi-nextjs/artifacts/ehna9gxy_8344931-uhd_3840_2160_25fps.mp4" type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/30" />
       </div>
 
