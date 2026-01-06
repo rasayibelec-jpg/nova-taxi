@@ -7,9 +7,9 @@ export const locations = {
     intro:
       "Mit Nova Taxi erreichen Sie Arth-Goldau, Luzern, Zug und den Flughafen Zürich komfortabel und zuverlässig – rund um die Uhr.",
     highlightPoints: [
-      "24/7 verfügbar – auch nachts und an Wochenenden",
-      "Direkte Verbindung zum Bahnhof Arth-Goldau und zu den umliegenden Gemeinden",
-      "Komfortable Fahrzeuge mit viel Platz für Gepäck"
+      "Verlässliche Fahrten zwischen Arth-Goldau und den wichtigsten Verkehrsknoten",
+      "Ideale Lage für Fahrten Richtung Luzern, Zug und Innerschweiz",
+      "Praktisch für Pendler, Reisende und Ausflüge in die Region Rigi"
     ]
   },
   luzern: {
@@ -20,9 +20,9 @@ export const locations = {
     intro:
       "Ob Altstadt, Bahnhof oder Seeufer – Nova Taxi bringt Sie in Luzern sicher und entspannt ans Ziel.",
     highlightPoints: [
-      "Schnelle Abholung im Raum Luzern",
-      "Direkte Flughafentransfers nach Zürich und Basel",
-      "Ideale Lösung für Geschäfts- und Privatkunden"
+      "Flexibler Taxi-Service im gesamten Stadtgebiet",
+      "Direkte Verbindungen zu Hotels, Restaurants und Event-Locations",
+      "Perfekt für Touristinnen, Geschäftsreisende und Einheimische"
     ]
   },
   zug: {
@@ -33,11 +33,232 @@ export const locations = {
     intro:
       "Für Geschäfts- und Privatkunden in Zug – Nova Taxi verbindet Sie mit Flughafen, Meetings und Nachbarorten.",
     highlightPoints: [
-      "Diskrete Businessfahrten",
-      "Planbare Transfers zu Flughäfen und Bahnhöfen",
-      "Komfortable Fahrzeuge für Einzelpersonen und Gruppen"
+      "Diskrete Businessfahrten im Wirtschaftsraum Zug",
+      "Planbare Transfers zu Flughäfen und wichtigen Bahnhöfen",
+      "Angenehme Fahrten für Kundentermine und Abendveranstaltungen"
     ]
-  }
+  },
+  schwyz: {
+    title: "Taxi Schwyz | Nova Taxi",
+    metaDescription:
+      "Nova Taxi – Ihr Taxi in Schwyz und Umgebung. Fahrten ins Ortszentrum, zu Bahnhöfen, Hotels und Ausflugszielen.",
+    h1: "Taxi in Schwyz",
+    intro:
+      "Ob Dorfzentrum, Mythenregion oder umliegende Gemeinden – Nova Taxi bringt Sie in Schwyz bequem von A nach B.",
+    highlightPoints: [
+      "Regionale Fahrten in und um Schwyz",
+      "Anschluss an wichtige Zug- und Busverbindungen",
+      "Ideal für Alltagswege, Ausflüge und Abendfahrten"
+    ]
+  },
+  goldau: {
+    title: "Taxi Goldau | Nova Taxi",
+    metaDescription:
+      "Nova Taxi – Taxi-Service in Goldau. Schnell verfügbar für Fahrten zum Bahnhof Arth-Goldau, in Nachbardörfer und zum Flughafen.",
+    h1: "Taxi in Goldau",
+    intro:
+      "Von Goldau aus sind Sie mit Nova Taxi bestens mit Bahnhof, Rigi-Region und den umliegenden Orten verbunden.",
+    highlightPoints: [
+      "Kurze Wege zum Bahnhof Arth-Goldau",
+      "Praktisch für Pendler und Tagesgäste",
+      "Flexible Fahrten auch am Abend und Wochenende"
+    ]
+  },
+  vitznau: {
+    title: "Taxi Vitznau | Nova Taxi",
+    metaDescription:
+      "Nova Taxi – Ihr Taxi in Vitznau. Fahrten entlang des Vierwaldstättersees, zu Hotels, Schiffstation und Rigi-Bahn.",
+    h1: "Taxi in Vitznau",
+    intro:
+      "In Vitznau begleitet Nova Taxi Sie zu Hotels, Kurorten und zur Rigi-Bahn – entspannt am Vierwaldstättersee unterwegs.",
+    highlightPoints: [
+      "Transfers zu Seehotels und Wellness-Angeboten",
+      "Anschluss an Schiff und Bergbahn",
+      "Angenehme Rückfahrten nach Events und Abendessen"
+    ]
+  },
+  weggis: {
+    title: "Taxi Weggis | Nova Taxi",
+    metaDescription:
+      "Nova Taxi – Taxi-Service in Weggis. Ideal für Hotelgäste, Ausflüge und Fahrten Richtung Luzern und Küssnacht.",
+    h1: "Taxi in Weggis",
+    intro:
+      "Zwischen See und Rigi – Nova Taxi bringt Sie von Weggis aus komfortabel zu Ihren Zielen in der Zentralschweiz.",
+    highlightPoints: [
+      "Transfers zu Hotels und Ferienwohnungen",
+      "Fahrten zu Schiffsstationen und Aussichtspunkten",
+      "Gute Verbindung nach Luzern, Küssnacht und Arth-Goldau"
+    ]
+  },
+  kuessnacht: {
+    title: "Taxi Küssnacht am Rigi | Nova Taxi",
+    metaDescription:
+      "Nova Taxi – zuverlässiger Taxi-Service in Küssnacht am Rigi. Fahrten nach Luzern, Weggis, Arth-Goldau und in die Region.",
+    h1: "Taxi in Küssnacht am Rigi",
+    intro:
+      "Ob Seeufer, Dorfzentrum oder Nachbarorte – Nova Taxi verbindet Küssnacht mit Luzern, Weggis, Arth-Goldau und mehr.",
+    highlightPoints: [
+      "Schnelle Verbindungen entlang des Vierwaldstättersees",
+      "Praktische Fahrten zu Arbeitsorten und Schulen",
+      "Angenehme Abend- und Wochenendfahrten"
+    ]
+  },
+  root: {
+    title: "Taxi Root | Nova Taxi",
+    metaDescription:
+      "Nova Taxi – Taxi-Service in Root und Umgebung. Fahrten nach Luzern, Zug, Ebikon und an wichtige Verkehrsknoten.",
+    h1: "Taxi in Root",
+    intro:
+      "Von Root aus bringt Nova Taxi Sie zügig nach Luzern, Zug oder zu umliegenden Gemeinden und Bahnhöfen.",
+    highlightPoints: [
+      "Ideal für Pendler zwischen Luzern und Zug",
+      "Anbindung an Industrie- und Gewerbezonen",
+      "Flexible Fahrten frühmorgens und abends"
+    ]
+  },
+  meggen: {
+    title: "Taxi Meggen | Nova Taxi",
+    metaDescription:
+      "Nova Taxi – Ihr Taxi in Meggen. Bequeme Fahrten nach Luzern, an den See und zu Wohn- und Geschäftsadressen.",
+    h1: "Taxi in Meggen",
+    intro:
+      "Zwischen Dorfkern, See und Stadt Luzern – Nova Taxi sorgt in Meggen für entspannte Fahrten im Alltag.",
+    highlightPoints: [
+      "Kurzstrecken innerhalb von Meggen",
+      "Schnelle Transfers nach Luzern und Umgebung",
+      "Komfortable Fahrten für Familien und Berufstätige"
+    ]
+  },
+  gersau: {
+    title: "Taxi Gersau | Nova Taxi",
+    metaDescription:
+      "Nova Taxi – Taxi-Service in Gersau. Fahrten entlang des Sees, Richtung Brunnen, Vitznau und Schwyz.",
+    h1: "Taxi in Gersau",
+    intro:
+      "In Gersau begleitet Nova Taxi Sie zu Seehotels, Wandergebieten und den Nachbarorten entlang des Vierwaldstättersees.",
+    highlightPoints: [
+      "Anfahrt auch auf kurvigen Seestrassen",
+      "Anschluss an Schiff und Bus",
+      "Bequeme Rückfahrten nach Ausflügen und Restaurantbesuchen"
+    ]
+  },
+  emmen: {
+    title: "Taxi Emmen | Nova Taxi",
+    metaDescription:
+      "Nova Taxi – Taxi in Emmen und Emmenbrücke. Fahrten in Wohngebiete, Einkaufszentren und nach Luzern.",
+    h1: "Taxi in Emmen",
+    intro:
+      "Von Emmen und Emmenbrücke aus bringt Nova Taxi Sie zuverlässig nach Luzern, in Industrie- und Wohngebiete.",
+    highlightPoints: [
+      "Fahrten zu Einkaufszentren und Arbeitsplätzen",
+      "Gute Verbindung zu Bahnhof und Buslinien",
+      "Flexibel für Schichtarbeit und Abendtermine"
+    ]
+  },
+  rotkreuz: {
+    title: "Taxi Rotkreuz | Nova Taxi",
+    metaDescription:
+      "Nova Taxi – Ihr Taxi in Rotkreuz. Fahrten zu Firmen, Schulen, Bahnhof und Richtung Zug, Luzern und Zürich.",
+    h1: "Taxi in Rotkreuz",
+    intro:
+      "Rotkreuz ist ein wichtiger Knotenpunkt zwischen Luzern und Zug – Nova Taxi verbindet Sie mit Arbeitsorten und Bahnhöfen.",
+    highlightPoints: [
+      "Transfers zum Bahnhof Rotkreuz",
+      "Praktisch für Pendler und Schüler",
+      "Direkte Fahrten zu Firmenstandorten und Events"
+    ]
+  },
+  walchwil: {
+    title: "Taxi Walchwil | Nova Taxi",
+    metaDescription:
+      "Nova Taxi – Taxi-Service in Walchwil. Fahrten am Zugersee entlang nach Zug, Arth-Goldau und in Nachbarorte.",
+    h1: "Taxi in Walchwil",
+    intro:
+      "Mit Blick auf den Zugersee – Nova Taxi bringt Sie von Walchwil aus komfortabel nach Zug, Arth-Goldau und Umgebung.",
+    highlightPoints: [
+      "Panoramafahrten am See entlang",
+      "Verbindung zu Bahn und Bus",
+      "Ideal für Pendler und Freizeitfahrten"
+    ]
+  },
+  unteraegeri: {
+    title: "Taxi Unterägeri | Nova Taxi",
+    metaDescription:
+      "Nova Taxi – Taxi in Unterägeri. Fahrten nach Zug, Oberägeri und zu Freizeit- und Arbeitsorten in der Region.",
+    h1: "Taxi in Unterägeri",
+    intro:
+      "Zwischen See und Hügeln – Nova Taxi verbindet Unterägeri mit Zug, Oberägeri und den umliegenden Gemeinden.",
+    highlightPoints: [
+      "Fahrten zum Ägerisee und Freizeitangeboten",
+      "Schul- und Arbeitswege flexibel abdecken",
+      "Auch abends und am Wochenende verfügbar"
+    ]
+  },
+  ebikon: {
+    title: "Taxi Ebikon | Nova Taxi",
+    metaDescription:
+      "Nova Taxi – Taxi-Service in Ebikon. Fahrten nach Luzern, Einkaufszentren und in Wohnquartiere.",
+    h1: "Taxi in Ebikon",
+    intro:
+      "Von Ebikon aus gelangen Sie mit Nova Taxi schnell nach Luzern, in Einkaufszentren und umliegende Ortsteile.",
+    highlightPoints: [
+      "Kurzstrecken innerhalb von Ebikon",
+      "Verbindungen zu öV-Haltestellen",
+      "Bequeme Fahrten mit Gepäck oder Einkäufen"
+    ]
+  },
+  kriens: {
+    title: "Taxi Kriens | Nova Taxi",
+    metaDescription:
+      "Nova Taxi – Ihr Taxi in Kriens. Fahrten Richtung Luzern, Pilatusgebiet und in Wohn- und Geschäftsquartiere.",
+    h1: "Taxi in Kriens",
+    intro:
+      "Ob Dorfzentrum, Mattenhof oder Pilatusgebiet – Nova Taxi sorgt in Kriens für zuverlässige Fahrten im Alltag.",
+    highlightPoints: [
+      "Anbindung an Pilatus-Bahn und Luzern",
+      "Praktische Fahrten für Beruf, Schule und Freizeit",
+      "Auch für kurze Strecken innerhalb von Kriens"
+    ]
+  },
+  rothenburg: {
+    title: "Taxi Rothenburg | Nova Taxi",
+    metaDescription:
+      "Nova Taxi – Taxi-Service in Rothenburg. Fahrten zu Wohngebieten, Unternehmen und nach Luzern und Emmen.",
+    h1: "Taxi in Rothenburg",
+    intro:
+      "In Rothenburg verbindet Nova Taxi Wohnquartiere, Gewerbegebiete und Nachbarorte wie Luzern und Emmen.",
+    highlightPoints: [
+      "Fahrten zu Arbeits- und Einkaufsorten",
+      "Gute Erreichbarkeit von Luzern und Region",
+      "Flexibel für Tages- und Abendfahrten"
+    ]
+  },
+  rothenthurm: {
+    title: "Taxi Rothenthurm | Nova Taxi",
+    metaDescription:
+      "Nova Taxi – Taxi in Rothenthurm. Fahrten Richtung Schwyz, Arth-Goldau und in die umliegenden Dörfer.",
+    h1: "Taxi in Rothenthurm",
+    intro:
+      "Zwischen Moorlandschaft und Bergen – Nova Taxi bringt Sie von Rothenthurm aus zuverlässig in die Region.",
+    highlightPoints: [
+      "Regionale Fahrten zwischen Dörfern und Bahnhöfen",
+      "Praktisch für Pendler und Freizeitgäste",
+      "Auch bei winterlichen Verhältnissen unterwegs"
+    ]
+  },
+  adligenswil: {
+    title: "Taxi Adligenswil | Nova Taxi",
+    metaDescription:
+      "Nova Taxi – Taxi-Service in Adligenswil. Fahrten nach Luzern, Meggen und in umliegende Ortschaften.",
+    h1: "Taxi in Adligenswil",
+    intro:
+      "In Adligenswil sorgt Nova Taxi für bequeme Verbindungen nach Luzern, Meggen und in die nähere Umgebung.",
+    highlightPoints: [
+      "Kurzstrecken im Dorf und zur Stadt Luzern",
+      "Ideal für Familien, Pendler und Seniorinnen",
+      "Flexible Fahrten tagsüber und abends"
+    ]
+  },
 };
 
 export const allLocationSlugs = Object.keys(locations);
