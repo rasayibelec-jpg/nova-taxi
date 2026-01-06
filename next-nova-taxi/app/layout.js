@@ -34,6 +34,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="de">
+      <head>
+        <meta
+          name="google-site-verification"
+          content="vXdvhwRPp_NCnB9FQ_mAH7vaisRgFKQjNQpcRMBrhQY"
+        />
+      </head>
       <body className={`${inter.className} bg-nova-bg text-white`}>
         <div className="min-h-screen flex flex-col">
           <Header />
