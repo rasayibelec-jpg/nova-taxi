@@ -6,20 +6,24 @@ export const metadata = {
 
 const images = [
   {
-    src: "https://images.unsplash.com/photo-1453412235065-f4215c931fa1?auto=format&fit=crop&w=900&q=80",
-    alt: "Taxi an der Seepromenade bei Sonnenuntergang",
+    src: "https://customer-assets.emergentagent.com/job_taxi-nextjs/artifacts/ciulzfzz_20240909_190032.jpg",
+    alt: "Nova Taxi Fahrzeug vor Berglandschaft",
   },
   {
-    src: "https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=900&q=80",
-    alt: "Taxi bei Nacht in der Stadt",
+    src: "https://customer-assets.emergentagent.com/job_taxi-nextjs/artifacts/cv7xlold_20240712_121113.jpg",
+    alt: "Nova Taxi Seitenansicht mit Taxischild",
   },
   {
-    src: "https://images.unsplash.com/photo-1478779195278-4aa1d44121d1?auto=format&fit=crop&w=900&q=80",
-    alt: "Innenraum eines modernen Taxis bei Nacht",
+    src: "https://customer-assets.emergentagent.com/job_taxi-nextjs/artifacts/65wjd89h_20240712121846_edited_1732630664532.png",
+    alt: "Nova Taxi Fahrzeug mit Seeblick",
   },
   {
-    src: "https://images.unsplash.com/photo-1574849693656-04a60e794482?auto=format&fit=crop&w=900&q=80",
-    alt: "Fahrzeug vor einer historischen Brücke",
+    src: "https://customer-assets.emergentagent.com/job_taxi-nextjs/artifacts/aak66rv7_20240712_132636.jpg",
+    alt: "Nova Taxi schräg von vorne mit See im Hintergrund",
+  },
+  {
+    src: "https://customer-assets.emergentagent.com/job_taxi-nextjs/artifacts/wgf1hanf_20240712_210744.jpg",
+    alt: "Nova Taxi bei Regen in Luzern",
   },
 ];
 
