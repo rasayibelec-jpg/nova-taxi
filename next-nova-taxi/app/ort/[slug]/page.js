@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation";
 import { locations, allLocationSlugs } from "@/config/locations";
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   return allLocationSlugs.map((slug) => ({ slug }));
 }
