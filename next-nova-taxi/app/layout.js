@@ -29,6 +29,13 @@ export const metadata = {
     description:
       "Nova Taxi – moderner Premium Taxi-Service in der Zentralschweiz. Flughafentransfer, Businessfahrten, Kurierfahrten und mehr.",
   },
+  alternates: {
+    canonical: "https://www.nova-taxi.com",
+    languages: {
+      'de': 'https://www.nova-taxi.com',
+      'en': 'https://www.nova-taxi.com/en',
+    },
+  },
 };
 
 export default function RootLayout({ children }) {
