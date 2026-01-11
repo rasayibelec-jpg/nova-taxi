@@ -7,10 +7,9 @@ export async function generateStaticParams() {
   return allLocationSlugs.map((slug) => ({ slug }));
 }
 
-
-
-export function generateMetadata({ params }) {
-  const location = locations[params.slug];
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const location = locations[slug];
 
   if (!location) {
     return {};
@@ -22,8 +21,9 @@ export function generateMetadata({ params }) {
   };
 }
 
-export default function LocationPage({ params }) {
-  const location = locations[params.slug];
+export default async function LocationPage({ params }) {
+  const { slug } = await params;
+  const location = locations[slug];
 
   if (!location) {
     notFound();
