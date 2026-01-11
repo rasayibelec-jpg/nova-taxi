@@ -1,9 +1,10 @@
 import Link from "next/link";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Footer() {
   return (
     <footer className="border-t border-white/10 mt-12">
-      <div className="container py-10 grid gap-8 md:grid-cols-3 text-sm text-gray-300">
+      <div className="container py-10 grid gap-8 md:grid-cols-4 text-sm text-gray-300">
         <div className="space-y-3">
           <h3 className="text-sm font-semibold text-white tracking-wide">
             Nova Taxi
@@ -52,6 +53,13 @@ export default function Footer() {
               AGB
             </Link>
           </div>
+        </div>
+
+        <div className="space-y-3">
+          <h3 className="text-sm font-semibold text-white tracking-wide">
+            Sprache
+          </h3>
+          <LanguageSwitcher currentLocale="de" />
         </div>
       </div>
       <div className="border-t border-white/10 py-4 text-[11px] text-center text-gray-500">
