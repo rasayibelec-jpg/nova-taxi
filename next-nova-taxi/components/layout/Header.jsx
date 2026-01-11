@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const mainNavItems = [
   { href: "/", label: "Startseite" },
@@ -56,7 +57,7 @@ export default function Header() {
           </div>
         </Link>
 
-        <nav className="hidden md:flex items-center gap-6 text-sm text-gray-200">
+        <nav className="hidden md:flex items-center gap-5 text-sm text-gray-200">
           {mainNavItems.map((item) => (
             <Link
               key={item.href}
@@ -66,6 +67,7 @@ export default function Header() {
               {item.label}
             </Link>
           ))}
+          <LanguageSwitcher currentLocale="de" />
           <a
             href="tel:+41766113131"
             className="rounded-full bg-nova-gold px-4 py-2 text-xs font-semibold text-black hover:bg-nova-gold-soft transition-colors"
