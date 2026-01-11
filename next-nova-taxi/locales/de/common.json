@@ -1,0 +1,209 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "services": "Dienstleistungen",
+    "airportTransfer": "Flughafentransfer",
+    "business": "Business",
+    "courier": "Kurierfahrten",
+    "prices": "Preise",
+    "gallery": "Galerie",
+    "aboutUs": "Über uns",
+    "contact": "Kontakt",
+    "serviceAreas": "Servicegebiete",
+    "callNow": "Jetzt anrufen",
+    "phone": "Telefon"
+  },
+  "hero": {
+    "subtitle": "Premium Taxi-Service",
+    "title": "Nova Taxi – moderne Fahrten in der gesamten Zentralschweiz.",
+    "description": "Flughafentransfer, Businessfahrten, Kurierfahrten oder die Fahrt nach Hause – Nova Taxi bringt Sie sicher und pünktlich ans Ziel. 24/7 erreichbar, mit persönlichem Service.",
+    "cta": "Preis & Angebote ansehen",
+    "availability": "Sofort verfügbar in Arth-Goldau, Luzern, Zug & Umgebung",
+    "tags": "Flughafentransfer • Business • Kurier • Lokal"
+  },
+  "services": {
+    "subtitle": "Dienstleistungen",
+    "title": "Fahrten, die zu Ihrem Alltag passen.",
+    "description": "Nova Taxi deckt Ihre täglichen Wege ebenso ab wie besondere Anlässe – von der spontanen Fahrt nach Hause bis zum geplanten Flughafentransfer für den nächsten Business-Trip.",
+    "airport": {
+      "title": "Flughafentransfer",
+      "description": "Direkte Transfers zu den Flughäfen Zürich und Basel – planbar, pünktlich und mit genügend Platz für Ihr Gepäck.",
+      "details": "Ideal für Geschäfts- und Privatreisen. Auf Wunsch mit Rückfahrt-Planung.",
+      "tag": "Airport"
+    },
+    "business": {
+      "title": "Businessfahrten",
+      "description": "Diskrete Fahrten zu Meetings, Hotels und Events. Zuverlässiger Auftritt für Ihre Kundinnen und Kunden.",
+      "details": "Auf Wunsch mit Wartezeit und mehreren Stopps.",
+      "tag": "Business"
+    },
+    "courier": {
+      "title": "Kurier- & Sonderfahrten",
+      "description": "Wichtige Dokumente, medizinische Unterlagen oder eilige Sendungen – sicher und direkt zugestellt.",
+      "details": "Individuelle Lösungen für Unternehmen und Privatkunden.",
+      "tag": "Express"
+    },
+    "local": {
+      "title": "Lokale Fahrten",
+      "description": "Kurzstrecken in Arth-Goldau, Luzern, Zug und Umgebung – flexibel, spontan und zuverlässig.",
+      "details": "Auch spät abends und am Wochenende erreichbar.",
+      "tag": "Lokal"
+    }
+  },
+  "areas": {
+    "subtitle": "Servicegebiete",
+    "title": "Unterwegs in der ganzen Zentralschweiz.",
+    "description": "Nova Taxi ist rund um Arth-Goldau, Luzern, Zug und an vielen weiteren Orten im Einsatz. Wählen Sie Ihren Ort für weitere Informationen oder rufen Sie uns direkt an."
+  },
+  "contactStrip": {
+    "subtitle": "Kontakt",
+    "title": "Jetzt Fahrt anfragen oder direkt telefonisch bestellen.",
+    "description": "Egal ob sofortige Abholung oder geplante Fahrt – Nova Taxi ist für Sie da. Rufen Sie uns an oder senden Sie uns Ihre Anfrage per E-Mail."
+  },
+  "footer": {
+    "description": "Moderner Taxi-Service mit Fokus auf Pünktlichkeit, Komfort und persönlichem Service in der gesamten Zentralschweiz.",
+    "contact": "Kontakt",
+    "legal": "Rechtliches",
+    "imprint": "Impressum",
+    "privacy": "Datenschutz",
+    "terms": "AGB",
+    "copyright": "Alle Rechte vorbehalten."
+  },
+  "pages": {
+    "prices": {
+      "metaTitle": "Preise & Richtwerte | Nova Taxi",
+      "metaDescription": "Transparente Preisgestaltung bei Nova Taxi – faire Richtwerte für Fahrten in der Zentralschweiz und zu den Flughäfen.",
+      "subtitle": "Preise",
+      "title": "Faire Preise mit klarer Kommunikation.",
+      "description": "Jede Fahrt ist individuell – dennoch ist Transparenz bei den Kosten wichtig. Deshalb informieren wir Sie vor der Fahrt über den voraussichtlichen Preis und berücksichtigen Distanz, Tageszeit und besondere Wünsche.",
+      "factorsTitle": "Was in den Preis einfliesst:",
+      "factors": [
+        "Distanz und Fahrzeit",
+        "Tageszeit (Tag / Nacht / Wochenende)",
+        "Anzahl Personen und Gepäck",
+        "Warten am Zielort oder Zwischenstopps"
+      ],
+      "inquiryTitle": "Unverbindliche Preisabfrage",
+      "inquiryDescription": "Am einfachsten ist eine kurze Anfrage mit Start, Ziel, Datum, Uhrzeit und Anzahl Personen. Wir nennen Ihnen einen klaren Richtwert, bevor Sie buchen.",
+      "callCta": "Preis telefonisch anfragen",
+      "emailCta": "Preis per E-Mail anfragen"
+    },
+    "contact": {
+      "metaTitle": "Kontakt | Nova Taxi",
+      "metaDescription": "Kontakt zu Nova Taxi – 24/7 erreichbar für Fahrten, Anfragen und Angebote in der Zentralschweiz.",
+      "subtitle": "Kontakt",
+      "title": "So erreichen Sie Nova Taxi.",
+      "description": "Egal ob sofortige Fahrt, geplante Buchung oder eine allgemeine Anfrage – wir sind gerne für Sie da.",
+      "contactOptions": "Kontaktmöglichkeiten",
+      "emailInquiry": "Anfrage per E-Mail",
+      "emailInquiryDescription": "Für Buchungsanfragen können Sie uns bereits folgende Informationen mitteilen:",
+      "inquiryItems": [
+        "Datum und Uhrzeit",
+        "Abholort und Zielort",
+        "Anzahl Personen",
+        "Besonderheiten (z.B. viel Gepäck, Kindersitz, etc.)"
+      ],
+      "responseNote": "Wir melden uns schnellstmöglich mit einer Rückmeldung oder einem Richtpreis."
+    },
+    "aboutUs": {
+      "metaTitle": "Über uns | Nova Taxi",
+      "metaDescription": "Nova Taxi – moderner Taxi-Service aus der Zentralschweiz mit Fokus auf Pünktlichkeit, Komfort und persönlichem Service.",
+      "subtitle": "Über uns",
+      "title": "Nova Taxi – unterwegs für Sie in der Zentralschweiz.",
+      "description": "Hinter Nova Taxi steht ein persönlicher, inhabergeführter Taxi-Service mit langjähriger Erfahrung. Unser Ziel: Fahrten, auf die Sie sich verlassen können – ob für den Alltag, besondere Anlässe oder wichtige Geschäftswege.",
+      "valuesTitle": "Was uns wichtig ist:",
+      "values": [
+        "Pünktlichkeit und Verlässlichkeit",
+        "Freundlicher, respektvoller Umgang",
+        "Saubere, gepflegte Fahrzeuge",
+        "Flexible Lösungen für Stammkundinnen und -kunden"
+      ],
+      "regionalTitle": "Regionale Verankerung",
+      "regionalDescription": "Nova Taxi ist in der Zentralschweiz zu Hause – mit Schwerpunkt auf Arth-Goldau, Luzern, Zug und den umliegenden Gemeinden. Wir kennen die Region, die Wege und die typischen Fahrbedürfnisse unserer Kundschaft."
+    },
+    "airportTransfer": {
+      "metaTitle": "Flughafentransfer | Nova Taxi",
+      "metaDescription": "Direkter Flughafentransfer mit Nova Taxi – pünktlich, komfortabel und planbar. Fahrten zu den Flughäfen Zürich und Basel aus der Zentralschweiz.",
+      "subtitle": "Flughafentransfer",
+      "title": "Entspannter Flughafentransfer für Ihre Reisen.",
+      "description": "Mit Nova Taxi starten Sie stressfrei in den Urlaub oder auf Ihre Geschäftsreise. Wir holen Sie rechtzeitig zu Hause, im Hotel oder im Büro ab und bringen Sie direkt zu den Flughäfen Zürich oder Basel – ohne Umwege und mit genügend Platz für Ihr Gepäck.",
+      "expectationsTitle": "Was Sie von unserem Flughafentransfer erwarten können:",
+      "expectations": [
+        "Pünktliche Abholung – auch früh morgens oder spät abends",
+        "Fahrten zu den Flughäfen Zürich und Basel",
+        "Komfortable Fahrzeuge mit ausreichend Stauraum",
+        "Feste Treffpunkte an Bahnhof, Hotel oder Geschäftsadresse",
+        "Auf Wunsch Hin- und Rückfahrt im Voraus planbar"
+      ],
+      "bookingTitle": "Anfrage & Buchung",
+      "bookingDescription": "Für ein unverbindliches Angebot oder eine direkte Buchung rufen Sie uns einfach an oder senden Sie uns Ihre Flugdaten per E-Mail.",
+      "bookingNote": "Bitte geben Sie bei Ihrer Anfrage Abholort, Datum, Uhrzeit und Anzahl Personen an – so können wir Ihnen schnell ein passendes Angebot machen."
+    },
+    "business": {
+      "metaTitle": "Businessfahrten | Nova Taxi",
+      "metaDescription": "Businessfahrten mit Nova Taxi – diskret, pünktlich und professionell. Fahrten zu Meetings, Hotels und Events in der ganzen Zentralschweiz.",
+      "subtitle": "Businessfahrten",
+      "title": "Diskrete Fahrten für Geschäfts- und Firmenkunden.",
+      "description": "Ob wichtiges Meeting, Hoteltransfer oder Event – Nova Taxi sorgt dafür, dass Sie und Ihre Gäste pünktlich und stilvoll ankommen. Diskret, zuverlässig und auf Ihre Bedürfnisse abgestimmt.",
+      "useCasesTitle": "Ideal für Unternehmen, Agenturen und Hotels:",
+      "useCases": [
+        "Fahrten zu Meetings, Seminaren und Konferenzen",
+        "Hoteltransfers für Gäste und Geschäftspartner",
+        "Fahrservices für Events und Firmenanlässe",
+        "Planung von wiederkehrenden Fahrten nach Bedarf"
+      ],
+      "offerTitle": "Individuelle Offerte für Firmenkunden",
+      "offerDescription": "Für regelmässige Fahrten oder spezielle Anforderungen erstellen wir gerne eine individuelle Offerte. Kontaktieren Sie uns mit den wichtigsten Eckdaten – wir melden uns schnell bei Ihnen.",
+      "offerNote": "Auf Wunsch mit Sammelrechnung und festen Ansprechpartnern."
+    },
+    "courier": {
+      "metaTitle": "Kurierfahrten & Sonderfahrten | Nova Taxi",
+      "metaDescription": "Kurierfahrten mit Nova Taxi – sichere und direkte Zustellung wichtiger Dokumente, Unterlagen und Sendungen in der Zentralschweiz.",
+      "subtitle": "Kurier- & Sonderfahrten",
+      "title": "Wenn es wichtig ist, fährt Nova Taxi persönlich.",
+      "description": "Für eilige Dokumente, medizinische Unterlagen oder dringende Lieferungen ist ein klassischer Paketdienst oft zu langsam oder zu unflexibel. Mit Nova Taxi werden Ihre Sendungen persönlich und direkt zugestellt.",
+      "useCasesTitle": "Typische Kurier- & Sonderfahrten:",
+      "useCases": [
+        "Wichtige Vertragsunterlagen und Dokumente",
+        "Medizinische Unterlagen und Befunde",
+        "Eilige Lieferungen für Unternehmen",
+        "Individuelle Spezialfahrten auf Anfrage"
+      ],
+      "inquiryTitle": "Anfrage für eine Kurierfahrt",
+      "inquiryDescription": "Beschreiben Sie uns kurz, was transportiert werden soll, von wo nach wo und bis wann. Wir melden uns mit einem konkreten Vorschlag.",
+      "inquiryNote": "Alle Sendungen werden vertraulich behandelt und direkt – ohne Umladung – transportiert."
+    },
+    "gallery": {
+      "metaTitle": "Galerie | Nova Taxi",
+      "metaDescription": "Bildergalerie von Nova Taxi – Einblicke in Fahrten, Fahrzeuge und Stimmungen aus der Zentralschweiz.",
+      "subtitle": "Galerie",
+      "title": "Einblicke in Fahrten mit Nova Taxi.",
+      "description": "Stimmungsvolle Eindrücke aus Luzern, Zug, Arth-Goldau und der Umgebung. Die Bilder dienen als Beispiel – gerne ergänzen wir die Galerie später mit Ihren eigenen Fahrzeug- und Servicefotos."
+    },
+    "location": {
+      "subtitle": "Servicegebiet",
+      "whyTitle": "Warum Nova Taxi in diesem Gebiet?",
+      "requestTitle": "Direktfahrt anfragen",
+      "requestDescription": "Sie möchten eine Fahrt von oder nach {location} buchen? Rufen Sie uns direkt an oder senden Sie uns Ihre Anfrage per E-Mail.",
+      "typicalTrips": "Typische Fahrten: Bahnhof, Flughafen Zürich/Basel, Geschäftsadressen, Hotels und touristische Ziele in der Region."
+    }
+  },
+  "calculator": {
+    "title": "Preisrechner (Richtwert)",
+    "from": "Von",
+    "to": "Nach",
+    "selectPlaceholder": "Ort auswählen",
+    "calculate": "Preis berechnen",
+    "estimatedPrice": "Geschätzter Preis",
+    "note": "Die angezeigten Preise sind Richtwerte. Der effektive Preis kann je nach Verkehr, Tageszeit und weiteren Faktoren variieren.",
+    "callToBook": "Jetzt buchen"
+  },
+  "common": {
+    "phone": "Telefon",
+    "email": "E-Mail",
+    "address": "Adresse",
+    "callNow": "Direkt anrufen",
+    "emailInquiry": "Anfrage per E-Mail",
+    "24h": "24/7 Telefon"
+  }
+}

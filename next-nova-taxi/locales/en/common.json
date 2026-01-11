@@ -1,0 +1,209 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "airportTransfer": "Airport Transfer",
+    "business": "Business",
+    "courier": "Courier Services",
+    "prices": "Prices",
+    "gallery": "Gallery",
+    "aboutUs": "About Us",
+    "contact": "Contact",
+    "serviceAreas": "Service Areas",
+    "callNow": "Call Now",
+    "phone": "Phone"
+  },
+  "hero": {
+    "subtitle": "Premium Taxi Service",
+    "title": "Nova Taxi – Modern rides throughout Central Switzerland.",
+    "description": "Airport transfers, business trips, courier services or just a ride home – Nova Taxi takes you safely and punctually to your destination. Available 24/7 with personal service.",
+    "cta": "View Prices & Services",
+    "availability": "Immediately available in Arth-Goldau, Lucerne, Zug & surrounding areas",
+    "tags": "Airport Transfer • Business • Courier • Local"
+  },
+  "services": {
+    "subtitle": "Services",
+    "title": "Rides that fit your everyday life.",
+    "description": "Nova Taxi covers your daily commutes as well as special occasions – from spontaneous rides home to planned airport transfers for your next business trip.",
+    "airport": {
+      "title": "Airport Transfer",
+      "description": "Direct transfers to Zurich and Basel airports – plannable, punctual and with plenty of space for your luggage.",
+      "details": "Ideal for business and private travel. Return journey planning available on request.",
+      "tag": "Airport"
+    },
+    "business": {
+      "title": "Business Rides",
+      "description": "Discreet rides to meetings, hotels and events. Reliable service for your clients and partners.",
+      "details": "Waiting time and multiple stops available on request.",
+      "tag": "Business"
+    },
+    "courier": {
+      "title": "Courier & Special Rides",
+      "description": "Important documents, medical records or urgent deliveries – securely and directly delivered.",
+      "details": "Individual solutions for businesses and private customers.",
+      "tag": "Express"
+    },
+    "local": {
+      "title": "Local Rides",
+      "description": "Short trips in Arth-Goldau, Lucerne, Zug and surrounding areas – flexible, spontaneous and reliable.",
+      "details": "Also available late evenings and weekends.",
+      "tag": "Local"
+    }
+  },
+  "areas": {
+    "subtitle": "Service Areas",
+    "title": "On the move throughout Central Switzerland.",
+    "description": "Nova Taxi operates around Arth-Goldau, Lucerne, Zug and many other locations. Select your location for more information or call us directly."
+  },
+  "contactStrip": {
+    "subtitle": "Contact",
+    "title": "Request a ride now or book by phone.",
+    "description": "Whether immediate pickup or planned ride – Nova Taxi is here for you. Call us or send your inquiry by email."
+  },
+  "footer": {
+    "description": "Modern taxi service focused on punctuality, comfort and personal service throughout Central Switzerland.",
+    "contact": "Contact",
+    "legal": "Legal",
+    "imprint": "Imprint",
+    "privacy": "Privacy Policy",
+    "terms": "Terms & Conditions",
+    "copyright": "All rights reserved."
+  },
+  "pages": {
+    "prices": {
+      "metaTitle": "Prices & Estimates | Nova Taxi",
+      "metaDescription": "Transparent pricing at Nova Taxi – fair estimates for rides in Central Switzerland and to the airports.",
+      "subtitle": "Prices",
+      "title": "Fair prices with clear communication.",
+      "description": "Every ride is individual – yet transparency in costs is important. That's why we inform you about the expected price before the ride and consider distance, time of day and special requests.",
+      "factorsTitle": "What affects the price:",
+      "factors": [
+        "Distance and travel time",
+        "Time of day (Day / Night / Weekend)",
+        "Number of passengers and luggage",
+        "Waiting at destination or intermediate stops"
+      ],
+      "inquiryTitle": "Non-binding price inquiry",
+      "inquiryDescription": "The easiest way is a short inquiry with start, destination, date, time and number of passengers. We'll give you a clear estimate before you book.",
+      "callCta": "Request price by phone",
+      "emailCta": "Request price by email"
+    },
+    "contact": {
+      "metaTitle": "Contact | Nova Taxi",
+      "metaDescription": "Contact Nova Taxi – available 24/7 for rides, inquiries and offers in Central Switzerland.",
+      "subtitle": "Contact",
+      "title": "How to reach Nova Taxi.",
+      "description": "Whether immediate ride, planned booking or general inquiry – we're happy to help.",
+      "contactOptions": "Contact Options",
+      "emailInquiry": "Email Inquiry",
+      "emailInquiryDescription": "For booking requests, you can provide us with the following information:",
+      "inquiryItems": [
+        "Date and time",
+        "Pickup and destination",
+        "Number of passengers",
+        "Special requirements (e.g., lots of luggage, child seat, etc.)"
+      ],
+      "responseNote": "We'll get back to you as soon as possible with a response or price estimate."
+    },
+    "aboutUs": {
+      "metaTitle": "About Us | Nova Taxi",
+      "metaDescription": "Nova Taxi – modern taxi service from Central Switzerland focused on punctuality, comfort and personal service.",
+      "subtitle": "About Us",
+      "title": "Nova Taxi – on the road for you in Central Switzerland.",
+      "description": "Behind Nova Taxi is a personal, owner-operated taxi service with years of experience. Our goal: rides you can rely on – whether for everyday life, special occasions or important business trips.",
+      "valuesTitle": "What matters to us:",
+      "values": [
+        "Punctuality and reliability",
+        "Friendly, respectful interaction",
+        "Clean, well-maintained vehicles",
+        "Flexible solutions for regular customers"
+      ],
+      "regionalTitle": "Regional Roots",
+      "regionalDescription": "Nova Taxi is at home in Central Switzerland – with a focus on Arth-Goldau, Lucerne, Zug and the surrounding communities. We know the region, the routes and the typical transportation needs of our customers."
+    },
+    "airportTransfer": {
+      "metaTitle": "Airport Transfer | Nova Taxi",
+      "metaDescription": "Direct airport transfer with Nova Taxi – punctual, comfortable and plannable. Rides to Zurich and Basel airports from Central Switzerland.",
+      "subtitle": "Airport Transfer",
+      "title": "Relaxed airport transfers for your travels.",
+      "description": "With Nova Taxi, you start your vacation or business trip stress-free. We pick you up on time at home, at the hotel or office and take you directly to Zurich or Basel airports – no detours and with plenty of space for your luggage.",
+      "expectationsTitle": "What to expect from our airport transfer:",
+      "expectations": [
+        "Punctual pickup – even early morning or late evening",
+        "Rides to Zurich and Basel airports",
+        "Comfortable vehicles with ample storage space",
+        "Fixed meeting points at train station, hotel or business address",
+        "Round-trip planning available in advance on request"
+      ],
+      "bookingTitle": "Inquiry & Booking",
+      "bookingDescription": "For a non-binding offer or direct booking, simply call us or send us your flight details by email.",
+      "bookingNote": "Please include pickup location, date, time and number of passengers in your inquiry – so we can quickly provide you with a suitable offer."
+    },
+    "business": {
+      "metaTitle": "Business Rides | Nova Taxi",
+      "metaDescription": "Business rides with Nova Taxi – discreet, punctual and professional. Rides to meetings, hotels and events throughout Central Switzerland.",
+      "subtitle": "Business Rides",
+      "title": "Discreet rides for business and corporate clients.",
+      "description": "Whether important meeting, hotel transfer or event – Nova Taxi ensures you and your guests arrive punctually and in style. Discreet, reliable and tailored to your needs.",
+      "useCasesTitle": "Ideal for companies, agencies and hotels:",
+      "useCases": [
+        "Rides to meetings, seminars and conferences",
+        "Hotel transfers for guests and business partners",
+        "Chauffeur services for events and corporate functions",
+        "Planning of recurring rides as needed"
+      ],
+      "offerTitle": "Individual offer for corporate clients",
+      "offerDescription": "For regular rides or special requirements, we're happy to create an individual offer. Contact us with the key details – we'll get back to you quickly.",
+      "offerNote": "Consolidated invoicing and dedicated contacts available on request."
+    },
+    "courier": {
+      "metaTitle": "Courier & Special Services | Nova Taxi",
+      "metaDescription": "Courier services with Nova Taxi – secure and direct delivery of important documents, records and shipments in Central Switzerland.",
+      "subtitle": "Courier & Special Services",
+      "title": "When it's important, Nova Taxi delivers personally.",
+      "description": "For urgent documents, medical records or time-sensitive deliveries, a standard courier service is often too slow or inflexible. With Nova Taxi, your shipments are delivered personally and directly.",
+      "useCasesTitle": "Typical courier & special services:",
+      "useCases": [
+        "Important contracts and documents",
+        "Medical records and test results",
+        "Urgent deliveries for businesses",
+        "Individual special rides on request"
+      ],
+      "inquiryTitle": "Courier ride inquiry",
+      "inquiryDescription": "Briefly describe what needs to be transported, from where to where and by when. We'll get back to you with a concrete proposal.",
+      "inquiryNote": "All shipments are treated confidentially and transported directly – without reloading."
+    },
+    "gallery": {
+      "metaTitle": "Gallery | Nova Taxi",
+      "metaDescription": "Photo gallery of Nova Taxi – insights into rides, vehicles and atmosphere from Central Switzerland.",
+      "subtitle": "Gallery",
+      "title": "Insights into rides with Nova Taxi.",
+      "description": "Atmospheric impressions from Lucerne, Zug, Arth-Goldau and the surrounding area. The images serve as examples – we'd be happy to add your own vehicle and service photos to the gallery later."
+    },
+    "location": {
+      "subtitle": "Service Area",
+      "whyTitle": "Why Nova Taxi in this area?",
+      "requestTitle": "Request a ride",
+      "requestDescription": "Would you like to book a ride from or to {location}? Call us directly or send us your inquiry by email.",
+      "typicalTrips": "Typical rides: Train station, Zurich/Basel airports, business addresses, hotels and tourist destinations in the region."
+    }
+  },
+  "calculator": {
+    "title": "Price Calculator (Estimate)",
+    "from": "From",
+    "to": "To",
+    "selectPlaceholder": "Select location",
+    "calculate": "Calculate Price",
+    "estimatedPrice": "Estimated Price",
+    "note": "The displayed prices are estimates. The actual price may vary depending on traffic, time of day and other factors.",
+    "callToBook": "Book Now"
+  },
+  "common": {
+    "phone": "Phone",
+    "email": "Email",
+    "address": "Address",
+    "callNow": "Call Now",
+    "emailInquiry": "Email Inquiry",
+    "24h": "24/7 Phone"
+  }
+}
