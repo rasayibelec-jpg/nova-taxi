@@ -1,7 +1,15 @@
 export const metadata = {
-  title: "Businessfahrten | Nova Taxi",
+  title: "VIP & Business Transfer | Businessfahrten Zentralschweiz",
   description:
-    "Businessfahrten mit Nova Taxi – diskret, pünktlich und professionell. Fahrten zu Meetings, Hotels und Events in der ganzen Zentralschweiz.",
+    "VIP & Business Transfer mit Nova Taxi – diskret, pünktlich und professionell. Fahrten zu Meetings, Hotels und Events in Schwyz, Luzern & Zug. 24h erreichbar!",
+  keywords: [
+    "VIP Transfer",
+    "Business Transfer",
+    "Businessfahrten Zentralschweiz",
+    "Taxi Meeting",
+    "Hotel Transfer",
+    "Firmenkunden Taxi"
+  ],
 };
 
 export default function BusinessPage() {
