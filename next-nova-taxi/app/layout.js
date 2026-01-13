@@ -53,12 +53,94 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://www.nova-taxi.com",
+    "name": "Nova Taxi",
+    "description": "Ihr professioneller Taxiservice für die Regionen Schwyz, Luzern und Zug. Spezialisiert auf Flughafentransfers nach Zürich, Geschäftstermine und komfortable Stadtfahrten. 24/7 für Sie erreichbar.",
+    "url": "https://www.nova-taxi.com",
+    "telephone": "+41766113131",
+    "email": "info@nova-taxi.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Türlihof 4",
+      "addressLocality": "Oberarth",
+      "addressRegion": "Schwyz",
+      "postalCode": "6414",
+      "addressCountry": "CH"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "47.0500",
+      "longitude": "8.5200"
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "opens": "00:00",
+      "closes": "23:59"
+    },
+    "priceRange": "$$",
+    "paymentAccepted": ["Cash", "Credit Card", "Debit Card"],
+    "currenciesAccepted": "CHF",
+    "areaServed": [
+      { "@type": "City", "name": "Schwyz" },
+      { "@type": "City", "name": "Luzern" },
+      { "@type": "City", "name": "Zug" },
+      { "@type": "City", "name": "Arth-Goldau" },
+      { "@type": "City", "name": "Küssnacht am Rigi" },
+      { "@type": "City", "name": "Brunnen" },
+      { "@type": "City", "name": "Einsiedeln" },
+      { "@type": "City", "name": "Baar" },
+      { "@type": "City", "name": "Cham" },
+      { "@type": "City", "name": "Kriens" },
+      { "@type": "City", "name": "Emmen" },
+      { "@type": "City", "name": "Horw" }
+    ],
+    "sameAs": [],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Taxi Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Flughafentransfer Zürich",
+            "description": "Direkter Transfer zum Flughafen Zürich aus der Zentralschweiz"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Business Transfer",
+            "description": "VIP und Business Fahrten zu Meetings und Hotels"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Kurierdienst",
+            "description": "Schnelle und sichere Kurierfahrten"
+          }
+        }
+      ]
+    }
+  };
+
   return (
     <html lang="de">
       <head>
         <meta
           name="google-site-verification"
           content="vXdvhwRPp_NCnB9FQ_mAH7vaisRgFKQjNQpcRMBrhQY"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
       <body className={`${inter.className} bg-nova-bg text-white`}>
