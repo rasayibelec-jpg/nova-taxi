@@ -1,7 +1,15 @@
 export const metadata = {
-  title: "Kurierfahrten & Sonderfahrten | Nova Taxi",
+  title: "Kurierdienst & Kurierfahrten | Express Kurier Zentralschweiz",
   description:
-    "Kurierfahrten mit Nova Taxi – sichere und direkte Zustellung wichtiger Dokumente, Unterlagen und Sendungen in der Zentralschweiz.",
+    "Kurierdienst & Kurierfahrten mit Nova Taxi – sichere und direkte Zustellung wichtiger Dokumente und Sendungen in Schwyz, Luzern & Zug. Schnell und zuverlässig!",
+  keywords: [
+    "Kurierdienst",
+    "Kurierfahrten",
+    "Express Kurier",
+    "Dokumententransport",
+    "Eilige Lieferung",
+    "Kurier Zentralschweiz"
+  ],
 };
 
 export default function KurierfahrtenPage() {
