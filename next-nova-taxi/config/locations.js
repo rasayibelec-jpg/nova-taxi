@@ -259,6 +259,113 @@ export const locations = {
       "Flexible Fahrten tagsüber und abends"
     ]
   },
+  // Kanton Zug - Neue Orte
+  baar: {
+    title: "Taxi Baar | Nova Taxi – Ihr Taxi in Baar, Kanton Zug",
+    metaDescription:
+      "Taxi Baar – Nova Taxi bringt Sie zuverlässig zum Flughafen Zürich, Bahnhof Zug und in die gesamte Zentralschweiz. 24h erreichbar.",
+    h1: "Taxi in Baar",
+    intro:
+      "Von Baar aus verbindet Nova Taxi Sie schnell und bequem mit Zug, Luzern und dem Flughafen Zürich. Ihr zuverlässiges Taxi im Kanton Zug.",
+    highlightPoints: [
+      "Schnelle Verbindung zum Bahnhof Zug und Flughafen Zürich",
+      "Ideal für Geschäftsreisende und Pendler",
+      "Günstiges Taxi in der Nähe – 24h verfügbar"
+    ]
+  },
+  cham: {
+    title: "Taxi Cham | Nova Taxi – Flughafentransfer & Taxiservice",
+    metaDescription:
+      "Taxi Cham – Nova Taxi für Flughafentransfer Zürich, Business-Fahrten und Stadtfahrten. 24/7 erreichbar in Cham und Umgebung.",
+    h1: "Taxi in Cham",
+    intro:
+      "In Cham am Zugersee ist Nova Taxi Ihr Partner für Flughafentransfers, Business-Fahrten und alltägliche Wege in der Zentralschweiz.",
+    highlightPoints: [
+      "Flughafentransfer Zürich direkt ab Cham",
+      "VIP & Business Transfer für Firmenkunden",
+      "Bahnhof Taxi und lokale Fahrten"
+    ]
+  },
+  steinhausen: {
+    title: "Taxi Steinhausen | Nova Taxi – 24h Taxi Zentralschweiz",
+    metaDescription:
+      "Taxi Steinhausen – schnell und zuverlässig zum Flughafen, Bahnhof oder Business-Termin. Nova Taxi – Ihr Taxi in der Zentralschweiz.",
+    h1: "Taxi in Steinhausen",
+    intro:
+      "Steinhausen liegt zentral zwischen Zug und Cham. Nova Taxi verbindet Sie mit Bahnhöfen, Flughäfen und Geschäftsadressen.",
+    highlightPoints: [
+      "Zentrale Lage – schnelle Verbindungen nach Zug und Cham",
+      "Flughafentaxi Zentralschweiz",
+      "Taxi mit Kindersitz auf Anfrage"
+    ]
+  },
+  // Kanton Schwyz - Neue Orte
+  brunnen: {
+    title: "Taxi Brunnen | Nova Taxi – Ihr Taxi am Vierwaldstättersee",
+    metaDescription:
+      "Taxi Brunnen am Vierwaldstättersee – Nova Taxi für Hotelgäste, Touristen und Einheimische. Flughafentransfer und regionale Fahrten.",
+    h1: "Taxi in Brunnen",
+    intro:
+      "Brunnen am Vierwaldstättersee – Nova Taxi bringt Sie zu Hotels, Schiffsstationen, Bahnhöfen und zum Flughafen Zürich.",
+    highlightPoints: [
+      "Transfers für Hotelgäste und Touristen",
+      "Taxi von Brunnen zum Flughafen Zürich",
+      "Fahrten entlang des Vierwaldstättersees"
+    ]
+  },
+  einsiedeln: {
+    title: "Taxi Einsiedeln | Nova Taxi – Taxi zum Kloster & Flughafen",
+    metaDescription:
+      "Taxi Einsiedeln – zuverlässige Fahrten zum Kloster, Bahnhof und Flughafen Zürich. Nova Taxi – Ihr 24h Taxi in der Zentralschweiz.",
+    h1: "Taxi in Einsiedeln",
+    intro:
+      "Einsiedeln mit seinem berühmten Kloster – Nova Taxi verbindet den Wallfahrtsort mit Zürich, dem Flughafen und der Zentralschweiz.",
+    highlightPoints: [
+      "Pilger- und Touristentransfers zum Kloster",
+      "Was kostet ein Taxi von Einsiedeln nach Zürich? Fragen Sie uns!",
+      "Bahnhof Taxi Einsiedeln"
+    ]
+  },
+  freienbach: {
+    title: "Taxi Freienbach | Nova Taxi – Taxi Pfäffikon SZ & Umgebung",
+    metaDescription:
+      "Taxi Freienbach und Pfäffikon SZ – Nova Taxi für Geschäftsreisen, Flughafentransfer und lokale Fahrten am Zürichsee.",
+    h1: "Taxi in Freienbach",
+    intro:
+      "Freienbach mit Pfäffikon SZ liegt strategisch am Zürichsee. Nova Taxi verbindet Sie mit Zürich, dem Flughafen und der Zentralschweiz.",
+    highlightPoints: [
+      "Business-Transfer für Unternehmen in der Region",
+      "Flughafentransfer Zürich ab Pfäffikon SZ",
+      "Grossraumtaxi für Gruppen auf Anfrage"
+    ]
+  },
+  // Kanton Luzern - Neue Orte
+  horw: {
+    title: "Taxi Horw | Nova Taxi – Ihr Taxi bei Luzern",
+    metaDescription:
+      "Taxi Horw – Nova Taxi für Fahrten nach Luzern, zum Pilatus und Flughafen Zürich. 24h Taxi Zentralschweiz.",
+    h1: "Taxi in Horw",
+    intro:
+      "Horw am Fusse des Pilatus – Nova Taxi verbindet Sie mit Luzern, dem Flughafen Zürich und touristischen Zielen in der Region.",
+    highlightPoints: [
+      "Bahnhof Taxi Luzern und Horw",
+      "Transfers zur Pilatusbahn und Bergstationen",
+      "Taxi mit Kreditkarte bezahlen möglich"
+    ]
+  },
+  sursee: {
+    title: "Taxi Sursee | Nova Taxi – Taxi im Luzerner Hinterland",
+    metaDescription:
+      "Taxi Sursee – Nova Taxi für Fahrten zum Bahnhof, Flughafen Zürich und in die Region. Günstig, schnell, zuverlässig.",
+    h1: "Taxi in Sursee",
+    intro:
+      "Sursee im Luzerner Hinterland – Nova Taxi bringt Sie zum Bahnhof, Flughafen Zürich und zu Zielen in der ganzen Zentralschweiz.",
+    highlightPoints: [
+      "Bahnhof Taxi Sursee – schnelle Abholung",
+      "Günstiges Taxi in der Nähe",
+      "24h Taxi auch nachts und am Wochenende"
+    ]
+  },
 };
 
 export const allLocationSlugs = Object.keys(locations);
