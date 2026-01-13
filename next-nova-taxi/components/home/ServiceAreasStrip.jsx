@@ -1,12 +1,22 @@
 import Link from "next/link";
 
 const AREAS = [
+  // Hauptorte
   { slug: "arth-goldau", label: "Arth-Goldau" },
   { slug: "luzern", label: "Luzern" },
   { slug: "zug", label: "Zug" },
-  { slug: "weggis", label: "Weggis" },
-  { slug: "vitznau", label: "Vitznau" },
-  { slug: "schwyz", label: "Schwyz" }
+  { slug: "schwyz", label: "Schwyz" },
+  // Kanton Zug
+  { slug: "baar", label: "Baar" },
+  { slug: "cham", label: "Cham" },
+  // Kanton Schwyz
+  { slug: "kuessnacht", label: "Küssnacht am Rigi" },
+  { slug: "brunnen", label: "Brunnen" },
+  { slug: "einsiedeln", label: "Einsiedeln" },
+  // Kanton Luzern
+  { slug: "kriens", label: "Kriens" },
+  { slug: "emmen", label: "Emmen" },
+  { slug: "horw", label: "Horw" },
 ];
 
 export default function ServiceAreasStrip() {
