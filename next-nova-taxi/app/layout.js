@@ -9,25 +9,39 @@ const inter = Inter({ subsets: ["latin"], display: "swap" });
 export const metadata = {
   metadataBase: new URL("https://www.nova-taxi.com"),
   title: {
-    default: "Nova Taxi | Premium Taxi-Service in der Zentralschweiz",
-    template: "%s | Nova Taxi",
+    default: "Nova Taxi | Ihr Taxi in Schwyz, Luzern & Zug – 24/7 Service",
+    template: "%s | Nova Taxi Zentralschweiz",
   },
   description:
-    "Nova Taxi – moderner Premium Taxi-Service in der Zentralschweiz. Flughafentransfer, Businessfahrten, Kurierfahrten und mehr. 24/7 erreichbar unter 076 611 31 31.",
+    "Nova Taxi ist Ihr zuverlässiger Partner in der Zentralschweiz. Flughafentransfer Zürich, Business-Fahrten und Stadt-Taxi in Schwyz, Luzern & Zug. Jetzt anrufen: 076 611 31 31!",
+  keywords: [
+    "Taxi Zentralschweiz",
+    "Taxi Schwyz",
+    "Taxi Luzern",
+    "Taxi Zug",
+    "Flughafentransfer Zürich",
+    "Flughafentaxi Zentralschweiz",
+    "24h Taxi",
+    "Taxi bestellen",
+    "VIP Transfer",
+    "Business Taxi",
+    "Kurierdienst",
+    "Bahnhof Taxi"
+  ],
   openGraph: {
     type: "website",
     locale: "de_CH",
     siteName: "Nova Taxi",
-    title: "Nova Taxi | Premium Taxi-Service in der Zentralschweiz",
+    title: "Nova Taxi | Ihr Taxi in Schwyz, Luzern & Zug – 24/7 Service",
     description:
-      "Nova Taxi – moderner Premium Taxi-Service in der Zentralschweiz. Flughafentransfer, Businessfahrten, Kurierfahrten und mehr.",
+      "Nova Taxi ist Ihr zuverlässiger Partner in der Zentralschweiz. Flughafentransfer Zürich, Business-Fahrten und Stadt-Taxi. Jetzt anrufen!",
     url: "https://www.nova-taxi.com/",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nova Taxi | Premium Taxi-Service in der Zentralschweiz",
+    title: "Nova Taxi | Ihr Taxi in Schwyz, Luzern & Zug – 24/7 Service",
     description:
-      "Nova Taxi – moderner Premium Taxi-Service in der Zentralschweiz. Flughafentransfer, Businessfahrten, Kurierfahrten und mehr.",
+      "Nova Taxi ist Ihr zuverlässiger Partner in der Zentralschweiz. Flughafentransfer Zürich, Business-Fahrten und Stadt-Taxi.",
   },
   alternates: {
     canonical: "https://www.nova-taxi.com",
