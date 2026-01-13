@@ -1,9 +1,17 @@
 import PriceCalculator from "@/components/common/PriceCalculator";
 
 export const metadata = {
-  title: "Preise & Richtwerte | Nova Taxi",
+  title: "Taxi Preise | Was kostet ein Taxi in der Zentralschweiz?",
   description:
-    "Transparente Preisgestaltung bei Nova Taxi – faire Richtwerte für Fahrten in der Zentralschweiz und zu den Flughäfen.",
+    "Was kostet ein Taxi von Luzern nach Zug? Faire Taxi-Preise bei Nova Taxi – transparente Richtwerte für Fahrten in Schwyz, Luzern, Zug und zum Flughafen Zürich.",
+  keywords: [
+    "Taxi Preise",
+    "Was kostet ein Taxi",
+    "Taxi von Luzern nach Zug",
+    "Günstiges Taxi",
+    "Taxi Kosten Zentralschweiz",
+    "Flughafentransfer Preis"
+  ],
 };
 
 export default function PreisePage() {
