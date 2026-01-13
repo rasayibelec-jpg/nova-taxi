@@ -1,7 +1,15 @@
 export const metadata = {
-  title: "Flughafentransfer | Nova Taxi",
+  title: "Flughafentransfer Zürich & Basel | Flughafentaxi Zentralschweiz",
   description:
-    "Direkter Flughafentransfer mit Nova Taxi – pünktlich, komfortabel und planbar. Fahrten zu den Flughäfen Zürich und Basel aus der Zentralschweiz.",
+    "Flughafentransfer Zürich und Basel mit Nova Taxi – pünktlich, komfortabel und planbar. Taxi von Schwyz, Luzern, Zug zum Flughafen. Jetzt anrufen: 076 611 31 31!",
+  keywords: [
+    "Flughafentransfer Zürich",
+    "Flughafentaxi Zentralschweiz",
+    "Taxi zum Flughafen",
+    "Taxi von Schwyz zum Flughafen Zürich",
+    "Airport Transfer Luzern",
+    "Flughafen Basel Taxi"
+  ],
 };
 
 export default function FlughafentransferPage() {
