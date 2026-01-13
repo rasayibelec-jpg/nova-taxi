@@ -218,5 +218,93 @@
       "Ideal for families, commuters and seniors",
       "Flexible rides during day and evening"
     ]
+  },
+  "baar": {
+    "title": "Taxi Baar | Nova Taxi – Your Taxi in Canton Zug",
+    "metaDescription": "Taxi Baar – Nova Taxi takes you reliably to Zurich Airport, Zug train station and throughout Central Switzerland. Available 24/7.",
+    "h1": "Taxi in Baar",
+    "intro": "From Baar, Nova Taxi connects you quickly and comfortably with Zug, Lucerne and Zurich Airport. Your reliable taxi in Canton Zug.",
+    "highlightPoints": [
+      "Fast connection to Zug train station and Zurich Airport",
+      "Ideal for business travelers and commuters",
+      "Affordable taxi nearby – available 24/7"
+    ]
+  },
+  "cham": {
+    "title": "Taxi Cham | Nova Taxi – Airport Transfer & Taxi Service",
+    "metaDescription": "Taxi Cham – Nova Taxi for Zurich airport transfers, business trips and city rides. Available 24/7 in Cham and surroundings.",
+    "h1": "Taxi in Cham",
+    "intro": "In Cham on Lake Zug, Nova Taxi is your partner for airport transfers, business trips and everyday journeys in Central Switzerland.",
+    "highlightPoints": [
+      "Zurich airport transfer directly from Cham",
+      "VIP & business transfer for corporate clients",
+      "Train station taxi and local rides"
+    ]
+  },
+  "steinhausen": {
+    "title": "Taxi Steinhausen | Nova Taxi – 24h Taxi Central Switzerland",
+    "metaDescription": "Taxi Steinhausen – fast and reliable to the airport, train station or business meeting. Nova Taxi – your taxi in Central Switzerland.",
+    "h1": "Taxi in Steinhausen",
+    "intro": "Steinhausen is centrally located between Zug and Cham. Nova Taxi connects you with train stations, airports and business addresses.",
+    "highlightPoints": [
+      "Central location – fast connections to Zug and Cham",
+      "Central Switzerland airport taxi",
+      "Taxi with child seat on request"
+    ]
+  },
+  "brunnen": {
+    "title": "Taxi Brunnen | Nova Taxi – Your Taxi on Lake Lucerne",
+    "metaDescription": "Taxi Brunnen on Lake Lucerne – Nova Taxi for hotel guests, tourists and locals. Airport transfers and regional rides.",
+    "h1": "Taxi in Brunnen",
+    "intro": "Brunnen on Lake Lucerne – Nova Taxi takes you to hotels, boat stations, train stations and Zurich Airport.",
+    "highlightPoints": [
+      "Transfers for hotel guests and tourists",
+      "Taxi from Brunnen to Zurich Airport",
+      "Rides along Lake Lucerne"
+    ]
+  },
+  "einsiedeln": {
+    "title": "Taxi Einsiedeln | Nova Taxi – Taxi to the Monastery & Airport",
+    "metaDescription": "Taxi Einsiedeln – reliable rides to the monastery, train station and Zurich Airport. Nova Taxi – your 24h taxi in Central Switzerland.",
+    "h1": "Taxi in Einsiedeln",
+    "intro": "Einsiedeln with its famous monastery – Nova Taxi connects the pilgrimage site with Zurich, the airport and Central Switzerland.",
+    "highlightPoints": [
+      "Pilgrim and tourist transfers to the monastery",
+      "How much does a taxi cost from Einsiedeln to Zurich? Ask us!",
+      "Einsiedeln train station taxi"
+    ]
+  },
+  "freienbach": {
+    "title": "Taxi Freienbach | Nova Taxi – Taxi Pfäffikon SZ & Area",
+    "metaDescription": "Taxi Freienbach and Pfäffikon SZ – Nova Taxi for business travel, airport transfers and local rides on Lake Zurich.",
+    "h1": "Taxi in Freienbach",
+    "intro": "Freienbach with Pfäffikon SZ is strategically located on Lake Zurich. Nova Taxi connects you with Zurich, the airport and Central Switzerland.",
+    "highlightPoints": [
+      "Business transfers for companies in the region",
+      "Zurich airport transfer from Pfäffikon SZ",
+      "Large taxi for groups on request"
+    ]
+  },
+  "horw": {
+    "title": "Taxi Horw | Nova Taxi – Your Taxi near Lucerne",
+    "metaDescription": "Taxi Horw – Nova Taxi for rides to Lucerne, Mount Pilatus and Zurich Airport. 24h taxi Central Switzerland.",
+    "h1": "Taxi in Horw",
+    "intro": "Horw at the foot of Mount Pilatus – Nova Taxi connects you with Lucerne, Zurich Airport and tourist destinations in the region.",
+    "highlightPoints": [
+      "Lucerne and Horw train station taxi",
+      "Transfers to Pilatus Railway and mountain stations",
+      "Credit card payment available"
+    ]
+  },
+  "sursee": {
+    "title": "Taxi Sursee | Nova Taxi – Taxi in Lucerne Hinterland",
+    "metaDescription": "Taxi Sursee – Nova Taxi for rides to the train station, Zurich Airport and the region. Affordable, fast, reliable.",
+    "h1": "Taxi in Sursee",
+    "intro": "Sursee in the Lucerne hinterland – Nova Taxi takes you to the train station, Zurich Airport and destinations throughout Central Switzerland.",
+    "highlightPoints": [
+      "Sursee train station taxi – quick pickup",
+      "Affordable taxi nearby",
+      "24h taxi also at night and on weekends"
+    ]
   }
 }
