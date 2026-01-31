@@ -14,6 +14,18 @@ export const metadata = {
   },
   description:
     "Nova Taxi – modern premium taxi service in Central Switzerland. Airport transfers, business rides, courier services and more. Available 24/7 at 076 611 31 31.",
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icon-512.png', sizes: '512x512', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
   openGraph: {
     type: "website",
     locale: "en",
@@ -22,6 +34,14 @@ export const metadata = {
     description:
       "Nova Taxi – modern premium taxi service in Central Switzerland. Airport transfers, business rides, courier services and more.",
     url: "https://www.nova-taxi.com/en",
+    images: [
+      {
+        url: '/icon-512.png',
+        width: 512,
+        height: 512,
+        alt: 'Nova Taxi Logo',
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
