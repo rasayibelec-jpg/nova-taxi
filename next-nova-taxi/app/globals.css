@@ -4,6 +4,10 @@
 
 :root {
   color-scheme: dark;
+  /* Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 html,
@@ -14,6 +18,8 @@ body {
 
 body {
   @apply bg-nova-bg text-white antialiased;
+  /* Prevent layout shift */
+  overflow-x: hidden;
 }
 
 main {
@@ -26,4 +32,65 @@ main {
 
 .container {
   @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* Accessibility: Focus states */
+a:focus-visible,
+button:focus-visible {
+  @apply outline-2 outline-offset-2 outline-nova-gold;
+}
+
+/* Accessibility: Minimum tap target size */
+@layer components {
+  .tap-target {
+    @apply min-h-[44px] min-w-[44px];
+  }
+}
+
+/* Accessibility: Better contrast for links */
+a {
+  @apply transition-colors;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  video {
+    display: none;
+  }
+}
+
+/* Smooth scrolling */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Skip to content link for accessibility */
+.skip-link {
+  @apply sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-nova-gold focus:text-black focus:rounded;
+}
+
+/* Improved text contrast */
+.text-muted {
+  @apply text-gray-300;
+}
+
+/* Critical CSS - Above the fold styles */
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold text-white;
+  }
+  
+  p {
+    @apply text-gray-200;
+  }
 }
