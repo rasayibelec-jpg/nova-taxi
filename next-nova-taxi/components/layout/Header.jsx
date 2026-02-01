@@ -57,12 +57,12 @@ export default function Header() {
           </div>
         </Link>
 
-        <nav className="hidden md:flex items-center gap-5 text-sm text-gray-200">
+        <nav className="hidden md:flex items-center gap-5 text-sm text-gray-200" role="navigation" aria-label="Hauptnavigation">
           {mainNavItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="hover:text-white transition-colors"
+              className="hover:text-white transition-colors py-2 px-1"
             >
               {item.label}
             </Link>
@@ -70,7 +70,8 @@ export default function Header() {
           <LanguageSwitcher currentLocale="de" />
           <a
             href="tel:+41766113131"
-            className="rounded-full bg-nova-gold px-4 py-2 text-xs font-semibold text-black hover:bg-nova-gold-soft transition-colors"
+            className="rounded-full bg-nova-gold px-5 py-3 text-sm font-semibold text-black hover:bg-nova-gold-soft transition-colors min-h-[44px] inline-flex items-center"
+            aria-label="Anrufen: 076 611 31 31"
           >
             Telefon: 076 611 31 31
           </a>
@@ -78,9 +79,10 @@ export default function Header() {
 
         <button
           type="button"
-          className="md:hidden inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/20 text-gray-100"
+          className="md:hidden inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/20 text-gray-100"
           onClick={() => setMenuOpen((open) => !open)}
           aria-label="Menü öffnen"
+          aria-expanded={menuOpen}
         >
           <span className="sr-only">Menü</span>
           <div className="space-y-1.5">
