@@ -23,8 +23,8 @@ const nextConfig = {
     // Minimize sizes for faster loading
     deviceSizes: [640, 828, 1200, 1920],
     imageSizes: [16, 32, 64, 128, 256],
-    // Reduce quality slightly for faster loads
-    minimumCacheTTL: 31536000, // 1 year
+    // 1 year cache
+    minimumCacheTTL: 31536000,
   },
 
   // Enable compression
@@ -37,8 +37,8 @@ const nextConfig = {
   async headers() {
     return [
       {
-        // All static assets in public folder - 1 year immutable cache
-        source: '/(.*\\.(?:jpg|jpeg|png|webp|avif|gif|ico|svg|woff|woff2|ttf|eot))',
+        // Static images - 1 year immutable cache
+        source: '/:path*.jpg',
         headers: [
           {
             key: 'Cache-Control',
@@ -47,8 +47,7 @@ const nextConfig = {
         ],
       },
       {
-        // Hero images specifically
-        source: '/hero-bg:path*',
+        source: '/:path*.jpeg',
         headers: [
           {
             key: 'Cache-Control',
@@ -57,8 +56,7 @@ const nextConfig = {
         ],
       },
       {
-        // Favicon files
-        source: '/(favicon.*|icon.*|apple-touch-icon.*)',
+        source: '/:path*.png',
         headers: [
           {
             key: 'Cache-Control',
@@ -67,7 +65,61 @@ const nextConfig = {
         ],
       },
       {
-        // Next.js static files - immutable
+        source: '/:path*.webp',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/:path*.avif',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/:path*.ico',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/:path*.svg',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/:path*.woff',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/:path*.woff2',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        // Next.js static files
         source: '/_next/static/:path*',
         headers: [
           {
@@ -77,8 +129,8 @@ const nextConfig = {
         ],
       },
       {
-        // Next.js image optimization cache
-        source: '/_next/image/:path*',
+        // Next.js image optimization
+        source: '/_next/image',
         headers: [
           {
             key: 'Cache-Control',
@@ -87,8 +139,8 @@ const nextConfig = {
         ],
       },
       {
-        // Video files - 6 months cache
-        source: '/(.*\\.(?:mp4|webm|ogg|m4v))',
+        // Video files - 6 months
+        source: '/:path*.mp4',
         headers: [
           {
             key: 'Cache-Control',
@@ -97,8 +149,8 @@ const nextConfig = {
         ],
       },
       {
-        // Security and other headers for all pages
-        source: '/:path*',
+        // Security headers for all pages
+        source: '/(.*)',
         headers: [
           {
             key: 'X-Content-Type-Options',
