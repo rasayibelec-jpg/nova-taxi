@@ -1,37 +1,56 @@
-import Image from "next/image";
 import Link from "next/link";
 
 export default function HeroEN() {
   return (
     <section className="relative section-padding border-b border-white/10 overflow-hidden min-h-[520px] md:min-h-[620px]">
       {/* Background - Optimized for LCP */}
-      <div className="absolute inset-0 -z-20 overflow-hidden">
-        {/* Preload poster image for faster LCP */}
-        <Image
-          src="https://customer-assets.emergentagent.com/job_taxi-nextjs/artifacts/d7vtjiwn_2224057D-3241-432A-AA5B-D7EABEF441A0_1_105_c.jpeg"
-          alt="Nova Taxi Background"
-          fill
-          priority
-          fetchPriority="high"
-          sizes="100vw"
-          className="object-cover object-center"
-          quality={75}
-        />
-        {/* Video loads after image - lazy loaded */}
+      <div className="absolute inset-0 -z-20">
+        {/* Local optimized image for fastest LCP */}
+        <picture>
+          <source 
+            srcSet="/hero-bg-mobile.webp" 
+            media="(max-width: 768px)" 
+            type="image/webp"
+          />
+          <source 
+            srcSet="/hero-bg.webp" 
+            type="image/webp"
+          />
+          <img
+            src="/hero-bg.jpg"
+            alt=""
+            width={1024}
+            height={768}
+            fetchPriority="high"
+            decoding="async"
+            className="h-full w-full object-cover object-center"
+            style={{
+              position: 'absolute',
+              inset: 0,
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+            }}
+          />
+        </picture>
+        
+        {/* Video loads lazily after hero image */}
         <video
-          className="absolute inset-0 h-full w-full object-cover object-center"
+          className="absolute inset-0 h-full w-full object-cover object-center opacity-0 transition-opacity duration-1000"
           autoPlay
           loop
           muted
           playsInline
           preload="none"
-          poster="https://customer-assets.emergentagent.com/job_taxi-nextjs/artifacts/d7vtjiwn_2224057D-3241-432A-AA5B-D7EABEF441A0_1_105_c.jpeg"
+          onLoadedData={(e) => e.currentTarget.style.opacity = '1'}
         >
           <source 
             src="https://customer-assets.emergentagent.com/job_taxi-nextjs/artifacts/ehna9gxy_8344931-uhd_3840_2160_25fps.mp4" 
             type="video/mp4" 
           />
         </video>
+        
+        {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/30" />
       </div>
 
