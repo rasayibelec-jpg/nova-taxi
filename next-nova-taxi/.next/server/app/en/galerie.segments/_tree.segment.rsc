@@ -1,8 +1,9 @@
-:HL["/_next/static/chunks/d6771f56e97d1421.css","style"]
+:HL["/_next/static/chunks/f5900687453b3409.css","style"]
 :HL["/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["https://customer-assets.emergentagent.com/job_taxi-nextjs/artifacts/d7vtjiwn_2224057D-3241-432A-AA5B-D7EABEF441A0_1_105_c.jpeg","image",{"fetchPriority":"high"}]
 :HL["https://customer-assets.emergentagent.com/job_taxi-nextjs/artifacts/ciulzfzz_20240909_190032.jpg","image"]
 :HL["https://customer-assets.emergentagent.com/job_taxi-nextjs/artifacts/cv7xlold_20240712_121113.jpg","image"]
 :HL["https://customer-assets.emergentagent.com/job_taxi-nextjs/artifacts/65wjd89h_20240712121846_edited_1732630664532.png","image"]
 :HL["https://customer-assets.emergentagent.com/job_taxi-nextjs/artifacts/aak66rv7_20240712_132636.jpg","image"]
 :HL["https://customer-assets.emergentagent.com/job_taxi-nextjs/artifacts/wgf1hanf_20240712_210744.jpg","image"]
-0:{"buildId":"tIkfqCe2Qyb08okh_UgGI","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"en","paramType":null,"paramKey":"en","hasRuntimePrefetch":false,"slots":{"children":{"name":"galerie","paramType":null,"paramKey":"galerie","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"JglN2j7rlxXLRFnZTGu66","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"en","paramType":null,"paramKey":"en","hasRuntimePrefetch":false,"slots":{"children":{"name":"galerie","paramType":null,"paramKey":"galerie","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

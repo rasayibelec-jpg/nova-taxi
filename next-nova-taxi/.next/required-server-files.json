@@ -20,7 +20,7 @@
       "jsx",
       "js"
     ],
-    "poweredByHeader": true,
+    "poweredByHeader": false,
     "compress": true,
     "images": {
       "deviceSizes": [
@@ -29,11 +29,10 @@
         828,
         1080,
         1200,
-        1920,
-        2048,
-        3840
+        1920
       ],
       "imageSizes": [
+        16,
         32,
         48,
         64,
@@ -49,7 +48,8 @@
       "disableStaticImages": false,
       "minimumCacheTTL": 14400,
       "formats": [
-        "image/webp"
+        "image/webp",
+        "image/avif"
       ],
       "maximumRedirects": 3,
       "dangerouslyAllowLocalIP": false,
@@ -70,6 +70,10 @@
         {
           "protocol": "https",
           "hostname": "customer-assets.emergentagent.com"
+        },
+        {
+          "protocol": "https",
+          "hostname": "static.prod-images.emergentagent.com"
         }
       ],
       "qualities": [
