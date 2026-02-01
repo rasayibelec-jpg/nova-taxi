@@ -1,10 +1,17 @@
-import Image from "next/image";
-import Link from "next/link";
+"use client";
 
-// Blur placeholder for instant LCP
-const blurDataURL = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMCwsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAHAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAcI/8QAIBAAAgEEAgMBAAAAAAAAAAAAAQIDAAQFEQYSEyExQf/EABQBAQAAAAAAAAAAAAAAAAAAAAX/xAAZEQEAAwEBAAAAAAAAAAAAAAABAAIDESH/2gAMAwEAAhEDEEA/ALfxjlGIx3HMdYXE8izW8EUc6mJiCrowDBhv3sEj+1ZHk88s0kkrszuxLMzHZJPsknQFKVRyqW0Dn//Z";
+import Link from "next/link";
+import { useRef } from "react";
 
 export default function Hero() {
+  const videoRef = useRef(null);
+
+  const handleVideoLoad = () => {
+    if (videoRef.current) {
+      videoRef.current.style.opacity = '1';
+    }
+  };
+
   return (
     <section className="relative section-padding border-b border-white/10 overflow-hidden min-h-[520px] md:min-h-[620px]">
       {/* Background - Optimized for LCP */}
@@ -40,13 +47,14 @@ export default function Hero() {
         
         {/* Video loads lazily after hero image */}
         <video
+          ref={videoRef}
           className="absolute inset-0 h-full w-full object-cover object-center opacity-0 transition-opacity duration-1000"
           autoPlay
           loop
           muted
           playsInline
           preload="none"
-          onLoadedData={(e) => e.currentTarget.style.opacity = '1'}
+          onLoadedData={handleVideoLoad}
         >
           <source 
             src="https://customer-assets.emergentagent.com/job_taxi-nextjs/artifacts/ehna9gxy_8344931-uhd_3840_2160_25fps.mp4" 
