@@ -18,11 +18,13 @@ const nextConfig = {
         hostname: "static.prod-images.emergentagent.com"
       }
     ],
-    // Enable WebP format
-    formats: ['image/webp', 'image/avif'],
-    // Optimize image quality
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    // Enable WebP and AVIF formats
+    formats: ['image/avif', 'image/webp'],
+    // Minimize sizes for faster loading
+    deviceSizes: [640, 828, 1200, 1920],
+    imageSizes: [16, 32, 64, 128, 256],
+    // Reduce quality slightly for faster loads
+    minimumCacheTTL: 31536000, // 1 year
   },
 
   // Enable compression
@@ -31,12 +33,12 @@ const nextConfig = {
   // Performance optimizations
   poweredByHeader: false,
 
-  // Headers for caching
+  // Strict headers for caching
   async headers() {
     return [
       {
-        // Static assets - 1 year cache
-        source: '/:all*(svg|jpg|jpeg|png|webp|avif|gif|ico|woff|woff2)',
+        // All static assets in public folder - 1 year immutable cache
+        source: '/(.*\\.(?:jpg|jpeg|png|webp|avif|gif|ico|svg|woff|woff2|ttf|eot))',
         headers: [
           {
             key: 'Cache-Control',
@@ -45,7 +47,27 @@ const nextConfig = {
         ],
       },
       {
-        // JS and CSS files - 1 year cache
+        // Hero images specifically
+        source: '/hero-bg:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        // Favicon files
+        source: '/(favicon.*|icon.*|apple-touch-icon.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        // Next.js static files - immutable
         source: '/_next/static/:path*',
         headers: [
           {
@@ -55,8 +77,18 @@ const nextConfig = {
         ],
       },
       {
+        // Next.js image optimization cache
+        source: '/_next/image/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
         // Video files - 6 months cache
-        source: '/:all*(mp4|webm|ogg)',
+        source: '/(.*\\.(?:mp4|webm|ogg|m4v))',
         headers: [
           {
             key: 'Cache-Control',
@@ -65,7 +97,7 @@ const nextConfig = {
         ],
       },
       {
-        // HTML pages - short cache with revalidation
+        // Security and other headers for all pages
         source: '/:path*',
         headers: [
           {
@@ -79,6 +111,10 @@ const nextConfig = {
           {
             key: 'X-XSS-Protection',
             value: '1; mode=block',
+          },
+          {
+            key: 'Referrer-Policy',
+            value: 'strict-origin-when-cross-origin',
           },
         ],
       },
