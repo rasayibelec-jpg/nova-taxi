@@ -160,15 +160,21 @@ export default function RootLayout({ children }) {
         />
         <meta name="theme-color" content="#0a0f1a" />
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-        {/* Preload critical resources for LCP */}
+        {/* Preload critical hero image for LCP - local optimized WebP */}
         <link
           rel="preload"
-          href="https://customer-assets.emergentagent.com/job_taxi-nextjs/artifacts/d7vtjiwn_2224057D-3241-432A-AA5B-D7EABEF441A0_1_105_c.jpeg"
+          href="/hero-bg.webp"
           as="image"
+          type="image/webp"
           fetchPriority="high"
         />
-        <link rel="preconnect" href="https://customer-assets.emergentagent.com" />
-        <link rel="dns-prefetch" href="https://customer-assets.emergentagent.com" />
+        <link
+          rel="preload"
+          href="/hero-bg-mobile.webp"
+          as="image"
+          type="image/webp"
+          media="(max-width: 768px)"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
