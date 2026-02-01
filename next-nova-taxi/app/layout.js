@@ -158,15 +158,30 @@ export default function RootLayout({ children }) {
           name="google-site-verification"
           content="vXdvhwRPp_NCnB9FQ_mAH7vaisRgFKQjNQpcRMBrhQY"
         />
+        <meta name="theme-color" content="#0a0f1a" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+        {/* Preload critical resources for LCP */}
+        <link
+          rel="preload"
+          href="https://customer-assets.emergentagent.com/job_taxi-nextjs/artifacts/d7vtjiwn_2224057D-3241-432A-AA5B-D7EABEF441A0_1_105_c.jpeg"
+          as="image"
+          fetchPriority="high"
+        />
+        <link rel="preconnect" href="https://customer-assets.emergentagent.com" />
+        <link rel="dns-prefetch" href="https://customer-assets.emergentagent.com" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
       <body className={`${inter.className} bg-nova-bg text-white`}>
+        {/* Skip to content link for accessibility */}
+        <a href="#main-content" className="skip-link">
+          Zum Hauptinhalt springen
+        </a>
         <div className="min-h-screen flex flex-col">
           <Header />
-          <main>{children}</main>
+          <main id="main-content" role="main">{children}</main>
           <Footer />
           <WhatsAppFloating />
         </div>
