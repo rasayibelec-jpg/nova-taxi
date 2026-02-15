@@ -1,10 +1,14 @@
 import "../globals.css";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import HeaderEN from "@/components/layout/HeaderEN";
 import FooterEN from "@/components/layout/FooterEN";
 import WhatsAppFloating from "@/components/layout/WhatsAppFloating";
 
 const inter = Inter({ subsets: ["latin"], display: "swap" });
+
+// Google Analytics 4 Measurement ID
+const GA_MEASUREMENT_ID = "G-Q4HZJQJCM4";
 
 export const metadata = {
   metadataBase: new URL("https://www.nova-taxi.com"),
@@ -66,11 +70,32 @@ export default function EnglishLayout({ children }) {
           name="google-site-verification"
           content="vXdvhwRPp_NCnB9FQ_mAH7vaisRgFKQjNQpcRMBrhQY"
         />
+        <meta name="theme-color" content="#0a0f1a" />
       </head>
       <body className={`${inter.className} bg-nova-bg text-white`}>
+        {/* Google Analytics 4 */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics-en" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}', {
+              page_path: window.location.pathname,
+            });
+          `}
+        </Script>
+        
+        {/* Skip to content link for accessibility */}
+        <a href="#main-content" className="skip-link">
+          Skip to main content
+        </a>
         <div className="min-h-screen flex flex-col">
           <HeaderEN />
-          <main>{children}</main>
+          <main id="main-content" role="main">{children}</main>
           <FooterEN />
           <WhatsAppFloating />
         </div>
