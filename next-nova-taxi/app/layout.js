@@ -185,6 +185,22 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className={`${inter.className} bg-nova-bg text-white`}>
+        {/* Google Analytics 4 */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}', {
+              page_path: window.location.pathname,
+            });
+          `}
+        </Script>
+        
         {/* Skip to content link for accessibility */}
         <a href="#main-content" className="skip-link">
           Zum Hauptinhalt springen
