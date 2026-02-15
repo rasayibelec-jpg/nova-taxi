@@ -1,10 +1,14 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import WhatsAppFloating from "@/components/layout/WhatsAppFloating";
 
 const inter = Inter({ subsets: ["latin"], display: "swap" });
+
+// Google Analytics 4 Measurement ID
+const GA_MEASUREMENT_ID = "G-Q4HZJQJCM4";
 
 export const metadata = {
   metadataBase: new URL("https://www.nova-taxi.com"),
