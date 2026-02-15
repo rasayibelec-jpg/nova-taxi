@@ -8,7 +8,7 @@ import WhatsAppFloating from "@/components/layout/WhatsAppFloating";
 const inter = Inter({ subsets: ["latin"], display: "swap" });
 
 // Google Analytics 4 Measurement ID
-const GA_MEASUREMENT_ID = "G-Q4HZJQJCM";
+const GA_MEASUREMENT_ID = "G-Q4HZJQJCME";
 
 export const metadata = {
   metadataBase: new URL("https://www.nova-taxi.com"),
