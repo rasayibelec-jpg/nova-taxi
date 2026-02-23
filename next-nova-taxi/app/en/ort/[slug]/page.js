@@ -113,124 +113,256 @@ export default async function LocationPageEN({ params }) {
   }
 
   const locationName = getLocationName(locationEN);
+  const canton = getCanton(slug);
+  const schema = generateSchema(locationDE, locationName, slug);
 
   return (
-    <div className="section-padding">
-      <div className="container space-y-10">
-        <div className="space-y-4 max-w-3xl">
-          <p className="text-sm uppercase tracking-[0.3em] text-nova-muted">
-            Taxi {locationName} – 24/7 Service
-          </p>
-          <h1 className="text-3xl md:text-4xl font-semibold text-white">
-            Professional Taxi Service in {locationName}
-          </h1>
-          <p className="text-base md:text-lg text-gray-300 leading-relaxed">
-            {locationEN.intro}
-          </p>
-          <p className="text-sm text-gray-400">
-            <strong>Book a taxi in {locationName}</strong> – Transfer from {locationName} to Zurich Airport, 
-            train station transfers, business rides and more. Nova Taxi is your reliable partner 
-            for all journeys in Central Switzerland.
-          </p>
-        </div>
+    <>
+      {/* TaxiService Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+      
+      <div className="section-padding">
+        <div className="container space-y-12">
+          {/* Breadcrumb */}
+          <nav className="text-sm text-gray-400">
+            <Link href="/en" className="hover:text-white">Home</Link>
+            <span className="mx-2">›</span>
+            <Link href={`/en/kanton/${canton.slug}`} className="hover:text-white">Canton {canton.name}</Link>
+            <span className="mx-2">›</span>
+            <span className="text-white">{locationName}</span>
+          </nav>
 
-        <div className="grid gap-8 md:grid-cols-2">
+          {/* Hero Section */}
+          <div className="space-y-4 max-w-4xl">
+            <p className="text-sm uppercase tracking-[0.3em] text-gray-400">
+              Taxi {locationName} – Canton {canton.name}
+            </p>
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white">
+              Professional Taxi Service in {locationName}
+            </h1>
+            <p className="text-base md:text-lg text-gray-200 leading-relaxed">
+              {locationEN.intro}
+            </p>
+            <p className="text-sm text-gray-300">
+              Looking to <strong>book a taxi in {locationName}</strong>? Nova Taxi is your 
+              reliable partner for <strong>Zurich airport transfers</strong>, train station pickups 
+              and local rides in Canton {canton.name}. We are available <strong>24 hours, 7 days</strong> a week.
+            </p>
+          </div>
+
+          {/* Quick Contact */}
+          <div className="flex flex-col sm:flex-row gap-4">
+            <a
+              href="tel:+41766113131"
+              className="inline-flex items-center justify-center rounded-full bg-nova-gold px-7 py-4 text-sm font-semibold text-black hover:bg-nova-gold-soft transition-colors min-h-[48px]"
+            >
+              Book taxi: 076 611 31 31
+            </a>
+            <a
+              href="https://wa.me/41766113131"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-full bg-green-600 px-7 py-4 text-sm font-semibold text-white hover:bg-green-500 transition-colors min-h-[48px]"
+            >
+              WhatsApp
+            </a>
+          </div>
+
+          <div className="grid gap-8 lg:grid-cols-2">
+            {/* Airport Transfer Section */}
+            <div className="rounded-2xl bg-gradient-to-br from-blue-900/20 to-black border border-blue-500/20 p-6">
+              <h2 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
+                <span>✈️</span> Airport Transfer from {locationName}
+              </h2>
+              <p className="text-sm text-gray-300 mb-4">
+                Direct transfer from {locationName} to <strong>Zurich Airport</strong>. 
+                We pick you up on time – even for early flights at 4 AM or 
+                late arrivals after midnight.
+              </p>
+              <ul className="text-sm text-gray-300 space-y-2 mb-4">
+                <li className="flex items-start gap-2">
+                  <span className="text-nova-gold mt-1">✓</span>
+                  <span>Fixed price on request – no surprises</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-nova-gold mt-1">✓</span>
+                  <span>Flight monitoring for delays</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-nova-gold mt-1">✓</span>
+                  <span>Space for luggage and ski equipment</span>
+                </li>
+              </ul>
+              <Link 
+                href="/en/flughafentransfer"
+                className="inline-flex items-center text-sm text-nova-gold hover:text-nova-gold-soft transition-colors"
+              >
+                → More about airport transfer
+              </Link>
+            </div>
+
+            {/* Train Station Transfer Section */}
+            <div className="rounded-2xl bg-gradient-to-br from-green-900/20 to-black border border-green-500/20 p-6">
+              <h2 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
+                <span>🚂</span> Train Station Transfer in {locationName}
+              </h2>
+              <p className="text-sm text-gray-300 mb-4">
+                Quick pickup at the station or delivery to your train. Ideal for 
+                business travelers and tourists arriving or departing from {locationName}.
+              </p>
+              <ul className="text-sm text-gray-300 space-y-2 mb-4">
+                <li className="flex items-start gap-2">
+                  <span className="text-nova-gold mt-1">✓</span>
+                  <span>Pickup directly at the platform possible</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-nova-gold mt-1">✓</span>
+                  <span>Connections to IC, IR and S-Bahn</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-nova-gold mt-1">✓</span>
+                  <span>Waiting time for train delays included</span>
+                </li>
+              </ul>
+              <Link 
+                href={`/en/kanton/${canton.slug}`}
+                className="inline-flex items-center text-sm text-nova-gold hover:text-nova-gold-soft transition-colors"
+              >
+                → All stations in Canton {canton.name}
+              </Link>
+            </div>
+          </div>
+
+          {/* Why Nova Taxi Section */}
           <div className="space-y-4">
             <h2 className="text-xl font-semibold text-white">
               Why Nova Taxi in {locationName}?
             </h2>
-            <ul className="space-y-2 text-sm md:text-base text-gray-300">
-              {locationEN.highlightPoints.map((point) => (
-                <li key={point} className="flex gap-3">
-                  <span className="mt-1 h-2 w-2 rounded-full bg-nova-gold" />
+            <ul className="grid md:grid-cols-2 gap-3">
+              {locationEN.highlightPoints.map((point, index) => (
+                <li key={index} className="flex items-start gap-3 text-gray-200">
+                  <span className="mt-1 h-2 w-2 rounded-full bg-nova-gold flex-shrink-0" />
                   <span>{point}</span>
                 </li>
               ))}
             </ul>
-            <div className="pt-4 space-y-2 text-sm text-gray-400">
-              <p>
-                <strong>Safe and reliable shuttle</strong> – We are available around the clock, 
-                including holidays and weekends.
+          </div>
+
+          {/* Service Details */}
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="rounded-xl bg-white/5 border border-white/10 p-5">
+              <h3 className="font-semibold text-white mb-2">Availability</h3>
+              <p className="text-sm text-gray-300">
+                24 hours, 7 days a week. Also on holidays and weekends.
               </p>
-              <p>
-                <strong>Zurich Airport Transfer</strong> – Direct rides from {locationName} 
-                to Zurich and Basel airports.
+            </div>
+            <div className="rounded-xl bg-white/5 border border-white/10 p-5">
+              <h3 className="font-semibold text-white mb-2">Payment</h3>
+              <p className="text-sm text-gray-300">
+                Cash, credit card (Visa, Mastercard), Twint. Invoice for corporate clients.
+              </p>
+            </div>
+            <div className="rounded-xl bg-white/5 border border-white/10 p-5">
+              <h3 className="font-semibold text-white mb-2">Extras</h3>
+              <p className="text-sm text-gray-300">
+                Child seats on request. Large taxi for groups up to 7 passengers.
               </p>
             </div>
           </div>
 
-          <div className="space-y-4 rounded-2xl bg-white/5 p-6 border border-white/10">
+          {/* Booking CTA */}
+          <div className="rounded-2xl bg-nova-gold/10 border border-nova-gold/30 p-6 md:p-8">
+            <div className="grid md:grid-cols-2 gap-6 items-center">
+              <div>
+                <h2 className="text-xl font-semibold text-white mb-2">
+                  Book a Taxi in {locationName} Now
+                </h2>
+                <p className="text-sm text-gray-300">
+                  Call us directly or send a WhatsApp message. 
+                  We will confirm your booking immediately.
+                </p>
+              </div>
+              <div className="flex flex-col gap-3">
+                <a
+                  href="tel:+41766113131"
+                  className="inline-flex items-center justify-center rounded-full bg-nova-gold px-6 py-3 text-sm font-semibold text-black hover:bg-nova-gold-soft transition-colors"
+                >
+                  076 611 31 31
+                </a>
+                <a
+                  href="mailto:info@nova-taxi.com"
+                  className="inline-flex items-center justify-center rounded-full border border-white/30 px-6 py-3 text-sm text-white hover:bg-white/10 transition-colors"
+                >
+                  info@nova-taxi.com
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* FAQ Section */}
+          <div className="space-y-4">
             <h2 className="text-xl font-semibold text-white">
-              Book a Taxi in {locationName}
+              Frequently Asked Questions about Taxi {locationName}
             </h2>
-            <p className="text-sm md:text-base text-gray-300">
-              Would you like to book a ride from or to {locationName}?
-              Call us directly or send us your inquiry by email.
-            </p>
-            <div className="space-y-2 text-sm md:text-base">
-              <a
-                href="tel:+41766113131"
-                className="block font-semibold text-nova-gold hover:text-nova-gold-soft transition-colors"
-              >
-                ☎ Phone: +41 76 611 31 31
-              </a>
-              <a
-                href="mailto:info@nova-taxi.com"
-                className="block text-gray-300 hover:text-white transition-colors"
-              >
-                ✉ Email: info@nova-taxi.com
-              </a>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="rounded-xl bg-white/5 border border-white/10 p-5">
+                <h3 className="font-medium text-white mb-2">
+                  How much does a taxi from {locationName} to Zurich Airport cost?
+                </h3>
+                <p className="text-sm text-gray-400">
+                  Prices vary depending on time of day and traffic. 
+                  Contact us for a non-binding fixed price offer.
+                </p>
+              </div>
+              <div className="rounded-xl bg-white/5 border border-white/10 p-5">
+                <h3 className="font-medium text-white mb-2">
+                  How quickly is a taxi available in {locationName}?
+                </h3>
+                <p className="text-sm text-gray-400">
+                  Usually we are with you within 10-20 minutes. 
+                  For advance bookings, we guarantee punctual pickup.
+                </p>
+              </div>
             </div>
-            <div className="pt-4 space-y-2">
-              <a
-                href="tel:+41766113131"
-                className="block rounded-full bg-nova-gold px-5 py-3 text-center text-sm font-semibold text-black hover:bg-nova-gold-soft transition-colors"
-              >
-                Book Taxi Now
-              </a>
-              <a
-                href="https://wa.me/41766113131"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block rounded-full border border-white/25 px-5 py-3 text-center text-sm font-medium text-white hover:bg-white/10 transition-colors"
-              >
-                WhatsApp Inquiry
-              </a>
-            </div>
-            <p className="text-xs text-gray-400 pt-2">
-              Typical rides from {locationName}: Zurich Airport, Basel Airport, 
-              Lucerne Station, Zug Station, hotels and business addresses.
-            </p>
           </div>
-        </div>
 
-        {/* SEO-optimized FAQ Section */}
-        <div className="space-y-4 pt-8 border-t border-white/10">
-          <h2 className="text-xl font-semibold text-white">
-            Frequently Asked Questions about Taxi {locationName}
-          </h2>
-          <div className="grid gap-4 md:grid-cols-2">
-            <div className="space-y-2 rounded-xl bg-white/5 p-4">
-              <h3 className="font-medium text-white">
-                How much does a taxi from {locationName} to Zurich Airport cost?
-              </h3>
-              <p className="text-sm text-gray-400">
-                Prices vary depending on distance and time of day. Contact us 
-                for a free quote. We offer fair fixed prices for airport transfers.
-              </p>
+          {/* Internal Links */}
+          <nav className="border-t border-white/10 pt-8 space-y-4">
+            <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wide">
+              Other Service Areas
+            </h3>
+            <div className="flex flex-wrap gap-3">
+              <Link 
+                href={`/en/kanton/${canton.slug}`} 
+                className="text-sm text-gray-300 hover:text-nova-gold transition-colors"
+              >
+                → All locations in Canton {canton.name}
+              </Link>
+              <Link 
+                href="/en/flughafentransfer" 
+                className="text-sm text-gray-300 hover:text-nova-gold transition-colors"
+              >
+                → Zurich Airport Transfer
+              </Link>
+              <Link 
+                href="/en/business" 
+                className="text-sm text-gray-300 hover:text-nova-gold transition-colors"
+              >
+                → Business Transfer
+              </Link>
+              <Link 
+                href="/en/preise" 
+                className="text-sm text-gray-300 hover:text-nova-gold transition-colors"
+              >
+                → Prices & Rates
+              </Link>
             </div>
-            <div className="space-y-2 rounded-xl bg-white/5 p-4">
-              <h3 className="font-medium text-white">
-                Can I book a taxi online in {locationName}?
-              </h3>
-              <p className="text-sm text-gray-400">
-                Yes! Call us at +41 76 611 31 31 or send us a WhatsApp message. 
-                We will confirm your booking immediately.
-              </p>
-            </div>
-          </div>
+          </nav>
         </div>
       </div>
-    </div>
+    </>
   );
 }
