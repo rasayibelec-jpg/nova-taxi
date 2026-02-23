@@ -10,7 +10,7 @@ import json
 from datetime import datetime, timedelta
 
 # Test configuration
-BACKEND_URL = "https://taxi-relaunch.preview.emergentagent.com/api"
+BACKEND_URL = "https://nova-preview-de.preview.emergentagent.com/api"
 
 class PaymentRemovalTester:
     def __init__(self):

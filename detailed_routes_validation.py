@@ -9,7 +9,7 @@ import json
 import time
 from datetime import datetime
 
-BACKEND_URL = "https://taxi-relaunch.preview.emergentagent.com/api"
+BACKEND_URL = "https://nova-preview-de.preview.emergentagent.com/api"
 
 async def detailed_validation():
     """Run detailed validation tests"""

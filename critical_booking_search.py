@@ -8,7 +8,7 @@ import aiohttp
 import json
 from datetime import datetime
 
-BACKEND_URL = "https://taxi-relaunch.preview.emergentagent.com/api"
+BACKEND_URL = "https://nova-preview-de.preview.emergentagent.com/api"
 
 async def search_critical_booking():
     """Search for the critical booking reported by user"""

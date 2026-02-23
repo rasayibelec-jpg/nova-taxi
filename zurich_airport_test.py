@@ -12,7 +12,7 @@ import sys
 from pathlib import Path
 
 # Test configuration
-BACKEND_URL = "https://taxi-relaunch.preview.emergentagent.com/api"
+BACKEND_URL = "https://nova-preview-de.preview.emergentagent.com/api"
 
 class ZurichAirportTester:
     def __init__(self):
