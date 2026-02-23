@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import { locations, allLocationSlugs } from "@/config/locations";
 import enLocations from "@/locales/en/locations.json";
 
@@ -13,6 +14,62 @@ function getLocationName(location) {
   return location.h1.replace("Taxi in ", "").replace("Taxi ", "");
 }
 
+// Get canton for internal linking
+function getCanton(slug) {
+  const schwyzCities = ["arth-goldau", "schwyz", "goldau", "kuessnacht", "brunnen", "einsiedeln", "freienbach", "gersau", "rothenthurm"];
+  const luzernCities = ["luzern", "kriens", "emmen", "ebikon", "horw", "meggen", "root", "rothenburg", "sursee", "adligenswil"];
+  const zugCities = ["zug", "baar", "cham", "steinhausen", "rotkreuz", "unteraegeri", "walchwil"];
+  
+  if (schwyzCities.includes(slug)) return { name: "Schwyz", slug: "schwyz" };
+  if (luzernCities.includes(slug)) return { name: "Lucerne", slug: "luzern" };
+  if (zugCities.includes(slug)) return { name: "Zug", slug: "zug" };
+  return { name: "Central Switzerland", slug: "schwyz" };
+}
+
+// TaxiService Schema
+function generateSchema(location, locationName, slug) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "TaxiService",
+    "name": `Nova Taxi ${locationName}`,
+    "description": location.metaDescription,
+    "url": `https://www.nova-taxi.com/en/ort/${slug}`,
+    "telephone": "+41766113131",
+    "email": "info@nova-taxi.com",
+    "areaServed": {
+      "@type": "City",
+      "name": locationName
+    },
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Nova Taxi",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Türlihof 4",
+        "addressLocality": "Oberarth",
+        "postalCode": "6414",
+        "addressCountry": "CH"
+      },
+      "telephone": "+41766113131",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "00:00",
+        "closes": "23:59"
+      }
+    },
+    "availableChannel": {
+      "@type": "ServiceChannel",
+      "serviceType": "Taxi booking",
+      "servicePhone": {
+        "@type": "ContactPoint",
+        "telephone": "+41766113131",
+        "contactType": "reservations"
+      }
+    }
+  };
+}
+
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const locationEN = enLocations[slug];
@@ -23,18 +80,18 @@ export async function generateMetadata({ params }) {
   }
 
   const locationName = getLocationName(locationEN);
+  const canton = getCanton(slug);
 
   return {
-    title: `Taxi ${locationName} | Airport Transfer & Private Shuttle - Nova Taxi`,
-    description: `Looking for a taxi in ${locationName}? Nova Taxi offers reliable airport transfers and city rides in ${locationName}. Book online now! ☎ +41 76 611 31 31`,
+    title: `Taxi ${locationName} | Airport Transfer & Taxi Service - Nova Taxi`,
+    description: `Taxi ${locationName} in Canton ${canton.name} – Nova Taxi offers Zurich airport transfers, train station transfers and local rides. Available 24/7. Call 076 611 31 31`,
     keywords: [
       `Taxi ${locationName}`,
-      `Book a taxi in ${locationName}`,
-      `Transfer from ${locationName} to Zurich Airport`,
-      `24/7 taxi service ${locationName}`,
+      `Book taxi ${locationName}`,
       `Airport transfer ${locationName}`,
-      `Private shuttle ${locationName}`,
-      "Taxi Central Switzerland"
+      `Station taxi ${locationName}`,
+      `Taxi Canton ${canton.name}`,
+      "24h Taxi Central Switzerland"
     ],
     alternates: {
       canonical: `https://www.nova-taxi.com/en/ort/${slug}`,
