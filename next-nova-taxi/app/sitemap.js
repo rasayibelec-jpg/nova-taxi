@@ -4,6 +4,9 @@ export default function sitemap() {
   const baseUrl = "https://www.nova-taxi.com";
   const lastModified = new Date().toISOString();
 
+  // Canton slugs
+  const cantonSlugs = ["luzern", "schwyz", "zug"];
+
   // German (default) routes
   const staticRoutesDE = [
     "",
@@ -40,6 +43,24 @@ export default function sitemap() {
     lastModified,
   }));
 
+  // German canton routes
+  const cantonRoutesDE = cantonSlugs.map((slug) => ({
+    url: `${baseUrl}/kanton/${slug}`,
+    lastModified,
+    alternates: {
+      languages: {
+        de: `${baseUrl}/kanton/${slug}`,
+        en: `${baseUrl}/en/kanton/${slug}`,
+      },
+    },
+  }));
+
+  // English canton routes
+  const cantonRoutesEN = cantonSlugs.map((slug) => ({
+    url: `${baseUrl}/en/kanton/${slug}`,
+    lastModified,
+  }));
+
   // German location routes
   const locationRoutesDE = allLocationSlugs.map((slug) => ({
     url: `${baseUrl}/ort/${slug}`,
@@ -58,5 +79,12 @@ export default function sitemap() {
     lastModified,
   }));
 
-  return [...staticRoutesDE, ...staticRoutesEN, ...locationRoutesDE, ...locationRoutesEN];
+  return [
+    ...staticRoutesDE, 
+    ...staticRoutesEN, 
+    ...cantonRoutesDE, 
+    ...cantonRoutesEN,
+    ...locationRoutesDE, 
+    ...locationRoutesEN
+  ];
 }
