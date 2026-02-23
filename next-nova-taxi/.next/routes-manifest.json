@@ -242,6 +242,24 @@
       "namedRegex": "^/en/galerie(?:/)?$"
     },
     {
+      "page": "/en/kanton/luzern",
+      "regex": "^/en/kanton/luzern(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/en/kanton/luzern(?:/)?$"
+    },
+    {
+      "page": "/en/kanton/schwyz",
+      "regex": "^/en/kanton/schwyz(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/en/kanton/schwyz(?:/)?$"
+    },
+    {
+      "page": "/en/kanton/zug",
+      "regex": "^/en/kanton/zug(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/en/kanton/zug(?:/)?$"
+    },
+    {
       "page": "/en/kontakt",
       "regex": "^/en/kontakt(?:/)?$",
       "routeKeys": {},
@@ -276,6 +294,24 @@
       "regex": "^/galerie(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/galerie(?:/)?$"
+    },
+    {
+      "page": "/kanton/luzern",
+      "regex": "^/kanton/luzern(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/kanton/luzern(?:/)?$"
+    },
+    {
+      "page": "/kanton/schwyz",
+      "regex": "^/kanton/schwyz(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/kanton/schwyz(?:/)?$"
+    },
+    {
+      "page": "/kanton/zug",
+      "regex": "^/kanton/zug(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/kanton/zug(?:/)?$"
     },
     {
       "page": "/kontakt",
