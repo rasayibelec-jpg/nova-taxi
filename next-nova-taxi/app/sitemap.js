@@ -16,7 +16,10 @@ export default function sitemap() {
     "/preise",
     "/galerie",
     "/kontakt",
-    "/ueber-uns"
+    "/ueber-uns",
+    "/impressum",
+    "/datenschutz",
+    "/agb"
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified,
@@ -37,7 +40,10 @@ export default function sitemap() {
     "/en/preise",
     "/en/galerie",
     "/en/kontakt",
-    "/en/ueber-uns"
+    "/en/ueber-uns",
+    "/en/impressum",
+    "/en/datenschutz",
+    "/en/agb"
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified,
