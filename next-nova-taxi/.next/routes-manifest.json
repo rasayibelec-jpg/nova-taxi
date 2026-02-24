@@ -200,6 +200,12 @@
       "namedRegex": "^/_not\\-found(?:/)?$"
     },
     {
+      "page": "/agb",
+      "regex": "^/agb(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/agb(?:/)?$"
+    },
+    {
       "page": "/api/health",
       "regex": "^/api/health(?:/)?$",
       "routeKeys": {},
@@ -218,16 +224,34 @@
       "namedRegex": "^/business(?:/)?$"
     },
     {
+      "page": "/datenschutz",
+      "regex": "^/datenschutz(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/datenschutz(?:/)?$"
+    },
+    {
       "page": "/en",
       "regex": "^/en(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/en(?:/)?$"
     },
     {
+      "page": "/en/agb",
+      "regex": "^/en/agb(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/en/agb(?:/)?$"
+    },
+    {
       "page": "/en/business",
       "regex": "^/en/business(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/en/business(?:/)?$"
+    },
+    {
+      "page": "/en/datenschutz",
+      "regex": "^/en/datenschutz(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/en/datenschutz(?:/)?$"
     },
     {
       "page": "/en/flughafentransfer",
@@ -240,6 +264,12 @@
       "regex": "^/en/galerie(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/en/galerie(?:/)?$"
+    },
+    {
+      "page": "/en/impressum",
+      "regex": "^/en/impressum(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/en/impressum(?:/)?$"
     },
     {
       "page": "/en/kanton/luzern",
@@ -294,6 +324,12 @@
       "regex": "^/galerie(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/galerie(?:/)?$"
+    },
+    {
+      "page": "/impressum",
+      "regex": "^/impressum(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/impressum(?:/)?$"
     },
     {
       "page": "/kanton/luzern",
