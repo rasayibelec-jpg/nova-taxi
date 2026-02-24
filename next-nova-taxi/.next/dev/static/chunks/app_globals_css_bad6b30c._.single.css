@@ -544,6 +544,14 @@ p {
   animation: 2s cubic-bezier(.4, 0, .6, 1) infinite pulse;
 }
 
+.list-inside {
+  list-style-position: inside;
+}
+
+.list-disc {
+  list-style-type: disc;
+}
+
 .flex-col {
   flex-direction: column;
 }
@@ -976,6 +984,10 @@ p {
 
 .pt-4 {
   padding-top: 1rem;
+}
+
+.pt-6 {
+  padding-top: 1.5rem;
 }
 
 .pt-8 {
