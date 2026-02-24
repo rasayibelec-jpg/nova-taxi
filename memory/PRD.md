@@ -57,11 +57,19 @@ Migrate and rebrand the existing "Taxiturlihof" website to a new modern Next.js 
 - [x] Dynamic meta titles and descriptions
 - [x] JSON-LD LocalBusiness schema
 - [x] TaxiService schema for city pages
-- [x] Sitemap with all pages (static + dynamic + canton)
+- [x] Sitemap with all pages (static + dynamic + canton + legal)
 - [x] hreflang alternates for i18n
 - [x] robots.txt configuration
 - [x] Favicon set (including 512px for Google)
 - [x] Google Analytics 4 integration
+
+### Phase 7: Legal Pages (COMPLETED - Dec 2025)
+- [x] /impressum - Imprint (DE)
+- [x] /datenschutz - Privacy Policy (DE)
+- [x] /agb - Terms & Conditions (DE)
+- [x] /en/impressum - Imprint (EN)
+- [x] /en/datenschutz - Privacy Policy (EN)
+- [x] /en/agb - Terms & Conditions (EN)
 
 ### Phase 6: Performance (COMPLETED)
 - [x] Local WebP images (hero, gallery)
