@@ -380,6 +380,36 @@
       "namedRegex": "^/sitemap\\.xml(?:/)?$"
     },
     {
+      "page": "/Taxi/Arth-goldau",
+      "regex": "^/Taxi/Arth\\-goldau(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/Taxi/Arth\\-goldau(?:/)?$"
+    },
+    {
+      "page": "/Taxi/Goldau",
+      "regex": "^/Taxi/Goldau(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/Taxi/Goldau(?:/)?$"
+    },
+    {
+      "page": "/Taxi/Luzern",
+      "regex": "^/Taxi/Luzern(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/Taxi/Luzern(?:/)?$"
+    },
+    {
+      "page": "/Taxi/Schwyz",
+      "regex": "^/Taxi/Schwyz(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/Taxi/Schwyz(?:/)?$"
+    },
+    {
+      "page": "/Taxi/Zug",
+      "regex": "^/Taxi/Zug(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/Taxi/Zug(?:/)?$"
+    },
+    {
       "page": "/ueber-uns",
       "regex": "^/ueber\\-uns(?:/)?$",
       "routeKeys": {},

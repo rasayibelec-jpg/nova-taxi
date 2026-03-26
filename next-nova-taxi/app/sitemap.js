@@ -19,7 +19,12 @@ export default function sitemap() {
     "/ueber-uns",
     "/impressum",
     "/datenschutz",
-    "/agb"
+    "/agb",
+    "/Taxi/Arth-goldau",
+    "/Taxi/Schwyz",
+    "/Taxi/Luzern",
+    "/Taxi/Zug",
+    "/Taxi/Goldau"
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified,

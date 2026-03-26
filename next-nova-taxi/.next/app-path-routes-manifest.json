@@ -1,4 +1,9 @@
 {
+  "/Taxi/Arth-goldau/page": "/Taxi/Arth-goldau",
+  "/Taxi/Goldau/page": "/Taxi/Goldau",
+  "/Taxi/Luzern/page": "/Taxi/Luzern",
+  "/Taxi/Schwyz/page": "/Taxi/Schwyz",
+  "/Taxi/Zug/page": "/Taxi/Zug",
   "/_global-error/page": "/_global-error",
   "/_not-found/page": "/_not-found",
   "/agb/page": "/agb",

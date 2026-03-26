@@ -71,6 +71,15 @@ Migrate and rebrand the existing "Taxiturlihof" website to a new modern Next.js 
 - [x] /en/datenschutz - Privacy Policy (EN)
 - [x] /en/agb - Terms & Conditions (EN)
 
+### Phase 8: Google Ads Landing Pages (COMPLETED - Feb 2025)
+- [x] /Taxi/Arth-goldau - Arth-Goldau landing page
+- [x] /Taxi/Schwyz - Schwyz landing page
+- [x] /Taxi/Luzern - Luzern landing page
+- [x] /Taxi/Zug - Zug landing page
+- [x] /Taxi/Goldau - Goldau landing page
+- [x] All pages optimized for Google Ads with CTA buttons
+- [x] Added to sitemap
+
 ### Phase 6: Performance (COMPLETED)
 - [x] Local WebP images (hero, gallery)
 - [x] Aggressive browser caching (1 year)

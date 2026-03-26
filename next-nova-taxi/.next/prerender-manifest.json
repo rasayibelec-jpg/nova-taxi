@@ -2187,6 +2187,131 @@
         "x-next-revalidate-tag-token"
       ]
     },
+    "/Taxi/Arth-goldau": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/Taxi/Arth-goldau",
+      "dataRoute": "/Taxi/Arth-goldau.rsc",
+      "prefetchDataRoute": null,
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/Taxi/Goldau": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/Taxi/Goldau",
+      "dataRoute": "/Taxi/Goldau.rsc",
+      "prefetchDataRoute": null,
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/Taxi/Luzern": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/Taxi/Luzern",
+      "dataRoute": "/Taxi/Luzern.rsc",
+      "prefetchDataRoute": null,
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/Taxi/Schwyz": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/Taxi/Schwyz",
+      "dataRoute": "/Taxi/Schwyz.rsc",
+      "prefetchDataRoute": null,
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/Taxi/Zug": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/Taxi/Zug",
+      "dataRoute": "/Taxi/Zug.rsc",
+      "prefetchDataRoute": null,
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
     "/ueber-uns": {
       "experimentalBypassFor": [
         {
@@ -2271,8 +2396,8 @@
   },
   "notFoundRoutes": [],
   "preview": {
-    "previewModeId": "5fa969532fef22f4c455174ccceb9c01",
-    "previewModeSigningKey": "f63371d86d46ea3ac29e40ebf5939a790ecd30160b574c9ae357ebccd5641cdb",
-    "previewModeEncryptionKey": "d963815d2a820470f9bd4dee2d5faa3a372c43ce353994424314f50ca28a6afd"
+    "previewModeId": "7ec602b263342920263595706b4106fc",
+    "previewModeSigningKey": "2a2e1d06887f9b6569872de5451d8c924d74ab314171ece1f7c4cea6a277e94e",
+    "previewModeEncryptionKey": "0ed8933b54ea9d5a5648385c409c1ba897072820aa5ffe98ddb6f1d81999383c"
   }
 }

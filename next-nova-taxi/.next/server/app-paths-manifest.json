@@ -1,4 +1,9 @@
 {
+  "/Taxi/Arth-goldau/page": "app/Taxi/Arth-goldau/page.js",
+  "/Taxi/Goldau/page": "app/Taxi/Goldau/page.js",
+  "/Taxi/Luzern/page": "app/Taxi/Luzern/page.js",
+  "/Taxi/Schwyz/page": "app/Taxi/Schwyz/page.js",
+  "/Taxi/Zug/page": "app/Taxi/Zug/page.js",
   "/_global-error/page": "app/_global-error/page.js",
   "/_not-found/page": "app/_not-found/page.js",
   "/agb/page": "app/agb/page.js",
