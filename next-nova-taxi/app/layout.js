@@ -10,8 +10,9 @@ const inter = Inter({ subsets: ["latin"], display: "swap" });
 // Google Analytics 4 Measurement ID
 const GA_MEASUREMENT_ID = "G-Q4HZJQJCME";
 
-// Google Ads Conversion ID
-const GOOGLE_ADS_ID = "AW-17950187146";
+// Google Ads Conversion IDs
+const GOOGLE_ADS_ID_1 = "AW-17950187146";
+const GOOGLE_ADS_ID_2 = "AW-11210946531";
 
 export const metadata = {
   metadataBase: new URL("https://www.nova-taxi.com"),
@@ -204,24 +205,45 @@ export default function RootLayout({ children }) {
           `}
         </Script>
 
-        {/* Google Ads Tag (gtag.js) */}
+        {/* Google Ads Tag 1 (gtag.js) - AW-17950187146 */}
         <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID}`}
+          src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID_1}`}
           strategy="afterInteractive"
         />
-        <Script id="google-ads" strategy="afterInteractive">
+        <Script id="google-ads-1" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${GOOGLE_ADS_ID}');
+            gtag('config', '${GOOGLE_ADS_ID_1}');
           `}
         </Script>
 
-        {/* Google Ads Conversion Tracking - Page View */}
-        <Script id="google-ads-conversion-pageview" strategy="afterInteractive">
+        {/* Google Ads Tag 2 (gtag.js) - AW-11210946531 */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID_2}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-ads-2" strategy="afterInteractive">
           {`
-            gtag('event', 'conversion', {'send_to': '${GOOGLE_ADS_ID}/gXcWCL7Zz5AcEtlQq09C'});
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GOOGLE_ADS_ID_2}');
+          `}
+        </Script>
+
+        {/* Google Ads Conversion Tracking - Page View (ID 1) */}
+        <Script id="google-ads-conversion-pageview-1" strategy="afterInteractive">
+          {`
+            gtag('event', 'conversion', {'send_to': '${GOOGLE_ADS_ID_1}/gXcWCL7Zz5AcEtlQq09C'});
+          `}
+        </Script>
+
+        {/* Google Ads Conversion Tracking - Termin vereinbaren (ID 2) */}
+        <Script id="google-ads-conversion-termin-2" strategy="afterInteractive">
+          {`
+            gtag('event', 'conversion', {'send_to': '${GOOGLE_ADS_ID_2}/v-TxCKnwxJAZEOPv5eEp'});
           `}
         </Script>
         
