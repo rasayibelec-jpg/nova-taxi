@@ -1,12 +1,19 @@
 "use client";
 
+import { trackWhatsAppClick } from "@/lib/googleAdsConversions";
+
 export default function WhatsAppFloating() {
+  const handleClick = () => {
+    trackWhatsAppClick();
+  };
+
   return (
     <a
       href="https://wa.me/41766113131?text=Hallo%20Nova%20Taxi,%20ich%20m%C3%B6chte%20eine%20Fahrt%20buchen."
       target="_blank"
       rel="noopener noreferrer"
       aria-label="WhatsApp Chat öffnen"
+      onClick={handleClick}
       className="fixed bottom-4 right-4 z-40 inline-flex items-center justify-center rounded-full bg-emerald-500 px-5 py-4 text-sm font-semibold text-white shadow-lg shadow-emerald-500/40 hover:bg-emerald-400 transition-colors min-h-[48px] min-w-[48px]"
     >
       <svg 

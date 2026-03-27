@@ -10,6 +10,9 @@ const inter = Inter({ subsets: ["latin"], display: "swap" });
 // Google Analytics 4 Measurement ID
 const GA_MEASUREMENT_ID = "G-Q4HZJQJCME";
 
+// Google Ads Conversion ID
+const GOOGLE_ADS_ID = "AW-17950187146";
+
 export const metadata = {
   metadataBase: new URL("https://www.nova-taxi.com"),
   title: {
@@ -198,6 +201,27 @@ export default function RootLayout({ children }) {
             gtag('config', '${GA_MEASUREMENT_ID}', {
               page_path: window.location.pathname,
             });
+          `}
+        </Script>
+
+        {/* Google Ads Tag (gtag.js) */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-ads" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GOOGLE_ADS_ID}');
+          `}
+        </Script>
+
+        {/* Google Ads Conversion Tracking - Page View */}
+        <Script id="google-ads-conversion-pageview" strategy="afterInteractive">
+          {`
+            gtag('event', 'conversion', {'send_to': '${GOOGLE_ADS_ID}/gXcWCL7Zz5AcEtlQq09C'});
           `}
         </Script>
         
