@@ -1,0 +1,184 @@
+export const paymentMethods = [
+  {
+    id: 1,
+    name: "Bargeld",
+    description: "Klassische Barzahlung",
+    icon: "banknote",
+    available: true,
+    logoUrl: null
+  },
+  {
+    id: 2,
+    name: "Visa",
+    description: "Visa Kreditkarte",
+    icon: "credit-card",
+    available: true,
+    logoUrl: "https://images.unsplash.com/photo-1609429019995-8c40f49535a5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzV8MHwxfHNlYXJjaHwyfHxjcmVkaXQlMjBjYXJkfGVufDB8fHx8MTc1NzA1Nzc1MXww&ixlib=rb-4.1.0&q=85"
+  },
+  {
+    id: 3,
+    name: "Mastercard",
+    description: "Mastercard Kreditkarte",
+    icon: "credit-card",
+    available: true,
+    logoUrl: "https://images.pexels.com/photos/210742/pexels-photo-210742.jpeg"
+  },
+  {
+    id: 4,
+    name: "SumUp",
+    description: "Mobile Kartenzahlung",
+    icon: "smartphone",
+    available: true,
+    logoUrl: "https://images.unsplash.com/photo-1726137065519-c9a1b9eca951?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzV8MHwxfHNlYXJjaHwyfHxwYXltZW50JTIwbWV0aG9kc3xlbnwwfHx8fDE3NTcwNTc3NjF8MA&ixlib=rb-4.1.0&q=85"
+  },
+  {
+    id: 5,
+    name: "TWINT",
+    description: "Mobile Payment App",
+    icon: "smartphone",
+    available: true,
+    logoUrl: "https://customer-assets.emergentagent.com/job_webseite-bauer/artifacts/wziyes8t_Screenshot_20250905_093910_Google.jpg"
+  },
+  {
+    id: 6,
+    name: "PayPal",
+    description: "Online-Bezahlung",
+    icon: "wallet",
+    available: true,
+    logoUrl: "https://images.unsplash.com/photo-1648091854674-59abf26bbf39?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzh8MHwxfHNlYXJjaHwxfHxQYXlQYWx8ZW58MHx8fHwxNzU3MDU3NzI4fDA&ixlib=rb-4.1.0&q=85"
+  }
+];
+
+export const pricingStructure = {
+  basicRate: {
+    price: "CHF 6.60",
+    description: "Grundtarif pro Fahrt"
+  },
+  perKilometer: {
+    price: "CHF 4.20",
+    description: "Pro Kilometer"
+  },
+  waitingTime: {
+    price: "CHF 73.00",
+    description: "Wartezeit pro Stunde"
+  }
+};
+
+export const pricingExamples = [
+  {
+    route: "Luzern Bahnhof → Flughafen Zürich",
+    distance: "47 km",
+    estimatedPrice: "CHF 203.00",
+    description: "Grundtarif + 47km × CHF 4.20"
+  },
+  {
+    route: "Zug Zentrum → Bahnhof Zug",
+    distance: "3 km",
+    estimatedPrice: "CHF 19.20",
+    description: "Grundtarif + 3km × CHF 4.20"
+  },
+  {
+    route: "Schwyz → Brunnen",
+    distance: "8 km",
+    estimatedPrice: "CHF 40.20",
+    description: "Grundtarif + 8km × CHF 4.20"
+  },
+  {
+    route: "Stadtfahrt Luzern (mit 10 Min. Wartezeit)",
+    distance: "5 km",
+    estimatedPrice: "CHF 39.43",
+    description: "Grundtarif + 5km × CHF 4.20 + 10 Min. Wartezeit"
+  }
+];
+
+export const services = [
+  {
+    id: 1,
+    title: "Flughafentransfer",
+    description: "Zuverlässiger Transport zum und vom Flughafen Zürich und Basel",
+    icon: "plane",
+    price: "Nach Vereinbarung",
+    features: ["Pünktlich", "Komfortabel", "Direktfahrt"],
+    image: "https://images.unsplash.com/photo-1658942445212-8781e4c66b06?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODB8MHwxfHNlYXJjaHwyfHxhaXJwb3J0JTIwdGF4aXxlbnwwfHx8fDE3NTczMjkyOTZ8MA&ixlib=rb-4.1.0&q=85"
+  },
+  {
+    id: 2,
+    title: "Stadtfahrten",
+    description: "Schnelle Fahrten innerhalb der Stadt und Umgebung",
+    icon: "car",
+    price: "Nach Vereinbarung",
+    features: ["Zuverlässig verfügbar", "Kurze Wartezeiten", "Lokale Kenntnisse"],
+    image: "https://images.unsplash.com/photo-1641230011140-322910168cc4?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzd8MHwxfHNlYXJjaHwzfHxjaXR5JTIwdGF4aXxlbnwwfHx8fDE3NTczMjkzODN8MA&ixlib=rb-4.1.0&q=85"
+  },
+  {
+    id: 3,
+    title: "Geschäftsfahrten",
+    description: "Professioneller Service für Geschäftskunden",
+    icon: "briefcase",
+    price: "Nach Vereinbarung",
+    features: ["Rechnungsstellung", "Regelmässige Termine", "Diskretion"],
+    image: "https://images.unsplash.com/photo-1631142482439-511789c7c5d5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzh8MHwxfHNlYXJjaHwyfHxidXNpbmVzc21hbiUyMGNhcnxlbnwwfHx8fDE3NTczMjkzMjl8MA&ixlib=rb-4.1.0&q=85"
+  },
+  {
+    id: 6,
+    title: "Kurierfahrten",
+    description: "Schneller Transport von Dokumenten und Paketen",
+    icon: "package",
+    price: "Nach Vereinbarung",
+    features: ["Express-Service", "Sicherer Transport", "Quittung"],
+    image: "https://images.unsplash.com/photo-1620455800201-7f00aeef12ed?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzh8MHwxfHNlYXJjaHwyfHxwYWNrYWdlc3xlbnwwfHx8fDE3NTczMjkzNTZ8MA&ixlib=rb-4.1.0&q=85"
+  }
+];
+
+export const coverageAreas = [
+  {
+    id: 1,
+    city: "Luzern",
+    description: "Komplette Abdeckung der Stadt Luzern und aller Stadtteile",
+    zones: ["Altstadt", "Neustadt", "Littau", "Reussbühl", "Emmen", "Meggen", "Weggis", "Vitznau", "Ebikon", "Root", "Kriens", "Horw"]
+  },
+  {
+    id: 2,
+    city: "Schwyz",
+    description: "Umfassender Service im ganzen Kanton Schwyz",
+    zones: ["Schwyz Stadt", "Brunnen", "Einsiedeln", "Küssnacht", "Arth", "Arth Goldau", "Gersau", "Seewen"]
+  },
+  {
+    id: 3,
+    city: "Zug",
+    description: "Vollständige Abdeckung von Zug und Umgebung",
+    zones: ["Zug Stadt", "Baar", "Cham", "Steinhausen", "Hünenberg", "Rotkreuz", "Walchwil", "Unterägeri", "Oberägeri"]
+  }
+];
+
+export const contactInfo = {
+  phone: "076 611 31 31",
+  email: "rasayibelec@gmail.com",
+  website: "www.taxiturlihof.ch",
+  address: "Türlihof 4, 6414 Arth, Switzerland",
+  hours: "Zuverlässig Service",
+  googleRating: 5.0,
+  reviewCount: 39
+};
+
+export const testimonials = [
+  {
+    id: 1,
+    name: "Maria Schmidt",
+    location: "Luzern",
+    rating: 5,
+    comment: "Sehr zuverlässig und pünktlich. Der Fahrer war sehr freundlich und professionell."
+  },
+  {
+    id: 2,
+    name: "Thomas Müller",
+    location: "Schwyz",
+    comment: "Excellent service for airport transfers. Always on time and clean vehicles."
+  },
+  {
+    id: 3,
+    name: "Anna Weber",
+    location: "Zug",
+    comment: "Nutze den Service regelmässig für Geschäftstermine. Immer zufrieden!"
+  }
+];

@@ -1,0 +1,99 @@
+{
+  "name": "Taxi Türlihof - Luzern, Zug, Schwyz",
+  "short_name": "Taxi Türlihof",
+  "description": "Taxi Türlihof - Ihr zuverlässiger Taxi-Service in Luzern, Schwyz, Zug. Mercedes-Flotte, Flughafentransfer, Stadtfahrten. Zuverlässiger Service.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1f2937",
+  "theme_color": "#EAB308",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "de-CH",
+  "categories": ["travel", "transportation", "business"],
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "/icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Preisrechner",
+      "short_name": "Preis",
+      "description": "Taxi-Preis schnell berechnen",
+      "url": "/preisrechner",
+      "icons": [{ "src": "/icons/calculator-icon.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Jetzt Buchen",
+      "short_name": "Buchen",
+      "description": "Taxi online buchen",
+      "url": "/buchen",
+      "icons": [{ "src": "/icons/booking-icon.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Anrufen",
+      "short_name": "Tel",
+      "description": "076 611 31 31 anrufen",
+      "url": "tel:+41766113131",
+      "icons": [{ "src": "/icons/phone-icon.png", "sizes": "96x96" }]
+    }
+  ]
+}
