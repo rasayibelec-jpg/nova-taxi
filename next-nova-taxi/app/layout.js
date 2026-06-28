@@ -58,10 +58,10 @@ export const metadata = {
     url: "https://www.nova-taxi.com/",
     images: [
       {
-        url: '/icon-512.png',
-        width: 512,
-        height: 512,
-        alt: 'Nova Taxi Logo',
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Nova Taxi Zentralschweiz',
       },
     ],
   },
@@ -70,12 +70,14 @@ export const metadata = {
     title: "Nova Taxi | Ihr Taxi in Schwyz, Luzern & Zug – 24/7 Service",
     description:
       "Nova Taxi ist Ihr zuverlässiger Partner in der Zentralschweiz. Flughafentransfer Zürich, Business-Fahrten und Stadt-Taxi.",
+    images: ['/og-image.jpg'],
   },
   alternates: {
     canonical: "https://www.nova-taxi.com",
     languages: {
       'de': 'https://www.nova-taxi.com',
       'en': 'https://www.nova-taxi.com/en',
+      'x-default': 'https://www.nova-taxi.com',
     },
   },
 };
@@ -84,18 +86,11 @@ export default function RootLayout({ children }) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": ["LocalBusiness", "TaxiService"],
-    "@id": "https://www.nova-taxi.com",
     "name": "Nova Taxi",
-    "description": "Zuverlässiger Taxi-Service in der Zentralschweiz. Flughafentransfer Zürich, Business-Fahrten, Kurierfahrten. 24/7 erreichbar.",
+    "image": "https://www.nova-taxi.com/og-image.jpg",
     "url": "https://www.nova-taxi.com",
     "telephone": "+41766113131",
     "email": "info@nova-taxi.com",
-    "image": "https://www.nova-taxi.com/icon-512.png",
-    "logo": "https://www.nova-taxi.com/icon-512.png",
-    "priceRange": "CHF 20 - CHF 200",
-    "currenciesAccepted": "CHF",
-    "paymentAccepted": "Cash, Credit Card, TWINT",
-    "openingHours": "Mo-Su 00:00-24:00",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Türlihof 4",
@@ -106,62 +101,23 @@ export default function RootLayout({ children }) {
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": 47.0611,
-      "longitude": 8.5430
+      "latitude": 47.0574,
+      "longitude": 8.5514
     },
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-      "opens": "00:00",
-      "closes": "23:59"
-    },
+    "openingHours": "Mo-Su 00:00-23:59",
+    "priceRange": "CHF 6.60 Grundtaxe + CHF 4.20/km",
     "areaServed": [
-      { "@type": "City", "name": "Schwyz" },
-      { "@type": "City", "name": "Luzern" },
-      { "@type": "City", "name": "Zug" },
-      { "@type": "City", "name": "Arth-Goldau" },
-      { "@type": "City", "name": "Küssnacht am Rigi" },
-      { "@type": "City", "name": "Brunnen" },
-      { "@type": "City", "name": "Einsiedeln" },
-      { "@type": "City", "name": "Baar" },
-      { "@type": "City", "name": "Cham" },
-      { "@type": "City", "name": "Kriens" },
-      { "@type": "City", "name": "Emmen" },
-      { "@type": "City", "name": "Horw" }
+      "Schwyz",
+      "Luzern",
+      "Zug",
+      "Arth-Goldau",
+      "Küssnacht",
+      "Brunnen",
+      "Einsiedeln"
     ],
     "sameAs": [
-      "https://www.taxiturlihof.ch"
-    ],
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Taxi Services",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Flughafentransfer Zürich",
-            "description": "Direkter Transfer zum Flughafen Zürich aus der Zentralschweiz"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Business Transfer",
-            "description": "VIP und Business Fahrten zu Meetings und Hotels"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Kurierdienst",
-            "description": "Schnelle und sichere Kurierfahrten"
-          }
-        }
-      ]
-    }
+      "https://www.nova-taxi.com"
+    ]
   };
 
   return (
@@ -188,6 +144,8 @@ export default function RootLayout({ children }) {
           type="image/webp"
           media="(max-width: 768px)"
         />
+        {/* Default x-default hreflang for international SEO */}
+        <link rel="alternate" hrefLang="x-default" href="https://www.nova-taxi.com/" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

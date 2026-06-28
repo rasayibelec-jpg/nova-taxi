@@ -7,8 +7,9 @@ export const metadata = {
   alternates: {
     canonical: "https://www.nova-taxi.com",
     languages: {
-      de: "https://www.nova-taxi.com",
-      en: "https://www.nova-taxi.com/en",
+      "de": "https://www.nova-taxi.com",
+      "en": "https://www.nova-taxi.com/en",
+      "x-default": "https://www.nova-taxi.com",
     },
   },
   openGraph: {
@@ -16,6 +17,14 @@ export const metadata = {
     siteName: "Nova Taxi",
     locale: "de_CH",
     type: "website",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Nova Taxi Zentralschweiz",
+      },
+    ],
   },
 };
 

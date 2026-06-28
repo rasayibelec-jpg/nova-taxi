@@ -40,42 +40,34 @@ export default function FlughafentransferPage() {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "Was kostet ein Taxi von Schwyz zum Flughafen Zürich?",
+        "name": "Was kostet ein Taxi zum Flughafen Zürich?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Ein Taxi von Schwyz zum Flughafen Zürich kostet zwischen CHF 85 und CHF 110, je nach genauem Abholort. Kontaktieren Sie uns für ein unverbindliches Festpreisangebot."
+          "text": "Der Fixpreis von Arth-Goldau zum Flughafen Zürich beträgt CHF ab 250.–. Von Schwyz CHF ab 250.–, von Luzern CHF ab 220.–, von Zug CHF ab 180.– und von Küssnacht CHF ab 200.–."
         }
       },
       {
         "@type": "Question",
-        "name": "Was kostet ein Taxi von Luzern zum Flughafen Zürich?",
+        "name": "Ist Nova Taxi 24 Stunden erreichbar?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Der Preis für einen Flughafentransfer von Luzern nach Zürich liegt zwischen CHF 95 und CHF 120. Festpreise auf Anfrage."
+          "text": "Ja, Nova Taxi ist 24 Stunden am Tag, 7 Tage die Woche erreichbar. Rufen Sie uns an: 076 611 31 31"
         }
       },
       {
         "@type": "Question",
-        "name": "Was kostet ein Taxi von Zug zum Flughafen Zürich?",
+        "name": "Kann ich den Flughafentransfer im Voraus buchen?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Ein Flughafentransfer von Zug nach Zürich kostet ca. CHF 70 bis CHF 90. Rufen Sie uns an für einen Festpreis."
+          "text": "Ja, Sie können Ihren Transfer jederzeit im Voraus buchen. Kontaktieren Sie uns per Telefon oder WhatsApp."
         }
       },
       {
         "@type": "Question",
-        "name": "Wie früh kann ich Nova Taxi für einen Flughafentransfer buchen?",
+        "name": "Wie viel Gepäck darf ich mitnehmen?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Wir sind 24/7 erreichbar – auch für Frühflüge ab 4:00 Uhr morgens. Wir empfehlen eine Buchung mindestens einen Tag im Voraus, kurzfristige Buchungen sind aber ebenfalls möglich."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Welche Zahlungsmittel akzeptiert Nova Taxi?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Wir akzeptieren Bargeld, Kreditkarte (Visa, Mastercard) und TWINT. Für Firmenkunden bieten wir auch Rechnung an."
+          "text": "Wir haben genügend Platz für Ihr Gepäck. Bei grossen Gruppen oder viel Gepäck empfehlen wir eine Voranmeldung."
         }
       }
     ]
@@ -166,6 +158,48 @@ export default function FlughafentransferPage() {
         </div>
 
         {/* Beispielrouten und FAQ */}
+        <div className="space-y-6 pt-8 border-t border-white/10">
+          <h2 className="text-xl font-semibold text-white">
+            Beispielpreise (Fixpreise) zum Flughafen Zürich
+          </h2>
+          <div className="overflow-hidden rounded-2xl border border-nova-gold/30 bg-nova-gold/5">
+            <table className="w-full text-sm md:text-base">
+              <thead className="bg-nova-gold/10">
+                <tr>
+                  <th className="text-left text-white font-semibold py-3 px-4">Strecke</th>
+                  <th className="text-right text-nova-gold font-semibold py-3 px-4">Fixpreis</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-white/10 text-gray-200">
+                <tr>
+                  <td className="py-3 px-4"><strong>Arth-Goldau</strong> → Zürich Flughafen</td>
+                  <td className="py-3 px-4 text-right text-nova-gold">CHF ab 250.–</td>
+                </tr>
+                <tr>
+                  <td className="py-3 px-4"><strong>Schwyz</strong> → Zürich Flughafen</td>
+                  <td className="py-3 px-4 text-right text-nova-gold">CHF ab 250.–</td>
+                </tr>
+                <tr>
+                  <td className="py-3 px-4"><strong>Luzern</strong> → Zürich Flughafen</td>
+                  <td className="py-3 px-4 text-right text-nova-gold">CHF ab 220.–</td>
+                </tr>
+                <tr>
+                  <td className="py-3 px-4"><strong>Zug</strong> → Zürich Flughafen</td>
+                  <td className="py-3 px-4 text-right text-nova-gold">CHF ab 180.–</td>
+                </tr>
+                <tr>
+                  <td className="py-3 px-4"><strong>Küssnacht</strong> → Zürich Flughafen</td>
+                  <td className="py-3 px-4 text-right text-nova-gold">CHF ab 200.–</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p className="text-xs text-gray-400">
+            Preise verstehen sich pro Fahrt für bis zu 4 Personen inkl. Gepäck. Für andere Abholorte oder Sonderwünsche
+            (Grossraumtaxi, Nachttarif, Wartezeit) bitte ein individuelles Angebot anfragen.
+          </p>
+        </div>
+
         <div className="space-y-6 pt-8 border-t border-white/10">
           <h2 className="text-xl font-semibold text-white">
             Beliebte Flughafentransfer-Routen

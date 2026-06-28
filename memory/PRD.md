@@ -100,10 +100,12 @@ Migrate and rebrand the existing "Taxiturlihof" website to a new modern Next.js 
 - [x] Added per-page `alternates.canonical` + `openGraph.url` to all static DE pages: homepage, flughafentransfer, business, kurierfahrten, preise, ueber-uns, kontakt, galerie, impressum, datenschutz, agb
 - [x] Added canonical to all 3 DE kanton pages (luzern, schwyz, zug) with hreflang DE/EN
 - [x] Added canonical to all 5 Google Ads landing pages (`/Taxi/...`)
-- [x] Upgraded root layout JSON-LD to combined `["LocalBusiness", "TaxiService"]` with precise priceRange "CHF 20 - CHF 200", TWINT payment, logo, sameAs to taxiturlihof.ch
-- [x] Added FAQPage JSON-LD schema with 5 questions to `/flughafentransfer`
-- [x] Verified: 89 sitemap entries, robots.txt 200, all 25 spot-checked pages return correct self-canonical
-- [x] Verified hreflang alternate tags render on city pages
+- [x] Root layout JSON-LD finalized per user spec: combined `["LocalBusiness", "TaxiService"]`, `priceRange: "CHF 6.60 Grundtaxe + CHF 4.20/km"`, image `og-image.jpg`, geo `47.0574, 8.5514`, areaServed simple string array, sameAs nova-taxi.com
+- [x] Created `public/og-image.jpg` (copied from hero-bg.jpg) – 200 OK
+- [x] FAQPage schema on `/flughafentransfer` updated to 4 questions per user spec (Was kostet…, 24h Erreichbarkeit, Voraus buchen, Gepäck)
+- [x] Visible fixed-price table on `/flughafentransfer`: Arth-Goldau/Schwyz/Luzern/Zug/Küssnacht → ZRH with CHF ab 180–250.–
+- [x] Verified: 89 sitemap entries, robots.txt 200, all 25+ pages return correct self-canonical
+- [x] Verified hreflang DE/EN render on every page; x-default renders on dynamic /ort/* pages (Next.js 16 metadata cascading limitation on root page)
 
 ---
 
