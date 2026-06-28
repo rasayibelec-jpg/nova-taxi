@@ -1,0 +1,438 @@
+{
+  "version": 3,
+  "pages404": true,
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "priority": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/:path*.jpg",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ],
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?\\.jpg(?:/)?$"
+    },
+    {
+      "source": "/:path*.jpeg",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ],
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?\\.jpeg(?:/)?$"
+    },
+    {
+      "source": "/:path*.png",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ],
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?\\.png(?:/)?$"
+    },
+    {
+      "source": "/:path*.webp",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ],
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?\\.webp(?:/)?$"
+    },
+    {
+      "source": "/:path*.avif",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ],
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?\\.avif(?:/)?$"
+    },
+    {
+      "source": "/:path*.ico",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ],
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?\\.ico(?:/)?$"
+    },
+    {
+      "source": "/:path*.svg",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ],
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?\\.svg(?:/)?$"
+    },
+    {
+      "source": "/:path*.woff",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ],
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?\\.woff(?:/)?$"
+    },
+    {
+      "source": "/:path*.woff2",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ],
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?\\.woff2(?:/)?$"
+    },
+    {
+      "source": "/_next/static/:path*",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ],
+      "regex": "^/_next/static(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?(?:/)?$"
+    },
+    {
+      "source": "/_next/image",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ],
+      "regex": "^/_next/image(?:/)?$"
+    },
+    {
+      "source": "/:path*.mp4",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=15552000, stale-while-revalidate=86400"
+        }
+      ],
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?\\.mp4(?:/)?$"
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ],
+      "regex": "^(?:/(.*))(?:/)?$"
+    }
+  ],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [
+    {
+      "page": "/en/ort/[slug]",
+      "regex": "^/en/ort/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/en/ort/(?<nxtPslug>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/ort/[slug]",
+      "regex": "^/ort/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/ort/(?<nxtPslug>[^/]+?)(?:/)?$"
+    }
+  ],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_global-error",
+      "regex": "^/_global\\-error(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_global\\-error(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/agb",
+      "regex": "^/agb(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/agb(?:/)?$"
+    },
+    {
+      "page": "/api/health",
+      "regex": "^/api/health(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/health(?:/)?$"
+    },
+    {
+      "page": "/api/seo/locations",
+      "regex": "^/api/seo/locations(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/seo/locations(?:/)?$"
+    },
+    {
+      "page": "/business",
+      "regex": "^/business(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/business(?:/)?$"
+    },
+    {
+      "page": "/datenschutz",
+      "regex": "^/datenschutz(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/datenschutz(?:/)?$"
+    },
+    {
+      "page": "/en",
+      "regex": "^/en(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/en(?:/)?$"
+    },
+    {
+      "page": "/en/agb",
+      "regex": "^/en/agb(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/en/agb(?:/)?$"
+    },
+    {
+      "page": "/en/business",
+      "regex": "^/en/business(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/en/business(?:/)?$"
+    },
+    {
+      "page": "/en/datenschutz",
+      "regex": "^/en/datenschutz(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/en/datenschutz(?:/)?$"
+    },
+    {
+      "page": "/en/flughafentransfer",
+      "regex": "^/en/flughafentransfer(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/en/flughafentransfer(?:/)?$"
+    },
+    {
+      "page": "/en/galerie",
+      "regex": "^/en/galerie(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/en/galerie(?:/)?$"
+    },
+    {
+      "page": "/en/impressum",
+      "regex": "^/en/impressum(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/en/impressum(?:/)?$"
+    },
+    {
+      "page": "/en/kanton/luzern",
+      "regex": "^/en/kanton/luzern(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/en/kanton/luzern(?:/)?$"
+    },
+    {
+      "page": "/en/kanton/schwyz",
+      "regex": "^/en/kanton/schwyz(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/en/kanton/schwyz(?:/)?$"
+    },
+    {
+      "page": "/en/kanton/zug",
+      "regex": "^/en/kanton/zug(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/en/kanton/zug(?:/)?$"
+    },
+    {
+      "page": "/en/kontakt",
+      "regex": "^/en/kontakt(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/en/kontakt(?:/)?$"
+    },
+    {
+      "page": "/en/kurierfahrten",
+      "regex": "^/en/kurierfahrten(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/en/kurierfahrten(?:/)?$"
+    },
+    {
+      "page": "/en/preise",
+      "regex": "^/en/preise(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/en/preise(?:/)?$"
+    },
+    {
+      "page": "/en/ueber-uns",
+      "regex": "^/en/ueber\\-uns(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/en/ueber\\-uns(?:/)?$"
+    },
+    {
+      "page": "/flughafentransfer",
+      "regex": "^/flughafentransfer(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/flughafentransfer(?:/)?$"
+    },
+    {
+      "page": "/galerie",
+      "regex": "^/galerie(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/galerie(?:/)?$"
+    },
+    {
+      "page": "/impressum",
+      "regex": "^/impressum(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/impressum(?:/)?$"
+    },
+    {
+      "page": "/kanton/luzern",
+      "regex": "^/kanton/luzern(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/kanton/luzern(?:/)?$"
+    },
+    {
+      "page": "/kanton/schwyz",
+      "regex": "^/kanton/schwyz(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/kanton/schwyz(?:/)?$"
+    },
+    {
+      "page": "/kanton/zug",
+      "regex": "^/kanton/zug(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/kanton/zug(?:/)?$"
+    },
+    {
+      "page": "/kontakt",
+      "regex": "^/kontakt(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/kontakt(?:/)?$"
+    },
+    {
+      "page": "/kurierfahrten",
+      "regex": "^/kurierfahrten(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/kurierfahrten(?:/)?$"
+    },
+    {
+      "page": "/preise",
+      "regex": "^/preise(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/preise(?:/)?$"
+    },
+    {
+      "page": "/robots.txt",
+      "regex": "^/robots\\.txt(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/robots\\.txt(?:/)?$"
+    },
+    {
+      "page": "/sitemap.xml",
+      "regex": "^/sitemap\\.xml(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/sitemap\\.xml(?:/)?$"
+    },
+    {
+      "page": "/Taxi/Arth-goldau",
+      "regex": "^/Taxi/Arth\\-goldau(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/Taxi/Arth\\-goldau(?:/)?$"
+    },
+    {
+      "page": "/Taxi/Goldau",
+      "regex": "^/Taxi/Goldau(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/Taxi/Goldau(?:/)?$"
+    },
+    {
+      "page": "/Taxi/Luzern",
+      "regex": "^/Taxi/Luzern(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/Taxi/Luzern(?:/)?$"
+    },
+    {
+      "page": "/Taxi/Schwyz",
+      "regex": "^/Taxi/Schwyz(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/Taxi/Schwyz(?:/)?$"
+    },
+    {
+      "page": "/Taxi/Zug",
+      "regex": "^/Taxi/Zug(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/Taxi/Zug(?:/)?$"
+    },
+    {
+      "page": "/ueber-uns",
+      "regex": "^/ueber\\-uns(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/ueber\\-uns(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSuffix": ".prefetch.rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments",
+    "clientParamParsing": false,
+    "dynamicRSCPrerender": false
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}

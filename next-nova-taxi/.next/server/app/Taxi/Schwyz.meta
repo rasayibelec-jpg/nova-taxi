@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/Taxi/layout,_N_T_/Taxi/Schwyz/layout,_N_T_/Taxi/Schwyz/page,_N_T_/Taxi/Schwyz"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/Taxi/Schwyz/__PAGE__",
+    "/Taxi/Schwyz",
+    "/Taxi",
+    "/_index",
+    "/_head"
+  ]
+}

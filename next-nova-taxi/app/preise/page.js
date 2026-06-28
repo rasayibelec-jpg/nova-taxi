@@ -13,6 +13,21 @@ export const metadata = {
     "Taxi Kosten Zentralschweiz",
     "Flughafentransfer Preis"
   ],
+  alternates: {
+    canonical: "https://www.nova-taxi.com/preise",
+    languages: {
+      de: "https://www.nova-taxi.com/preise",
+      en: "https://www.nova-taxi.com/en/preise",
+    },
+  },
+  openGraph: {
+    title: "Taxi Preise Zentralschweiz | Nova Taxi",
+    description: "Transparente Taxi-Preise für Fahrten in Schwyz, Luzern, Zug und zum Flughafen Zürich.",
+    url: "https://www.nova-taxi.com/preise",
+    siteName: "Nova Taxi",
+    locale: "de_CH",
+    type: "website",
+  },
 };
 
 export default function PreisePage() {

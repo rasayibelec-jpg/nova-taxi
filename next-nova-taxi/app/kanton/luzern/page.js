@@ -13,6 +13,21 @@ export const metadata = {
     "Flughafentransfer Luzern",
     "Bahnhof Luzern Taxi"
   ],
+  alternates: {
+    canonical: "https://www.nova-taxi.com/kanton/luzern",
+    languages: {
+      de: "https://www.nova-taxi.com/kanton/luzern",
+      en: "https://www.nova-taxi.com/en/kanton/luzern",
+    },
+  },
+  openGraph: {
+    title: "Taxi Kanton Luzern | Nova Taxi",
+    description: "Taxiservice im ganzen Kanton Luzern – Flughafentransfer Zürich und Stadtfahrten.",
+    url: "https://www.nova-taxi.com/kanton/luzern",
+    siteName: "Nova Taxi",
+    locale: "de_CH",
+    type: "website",
+  },
 };
 
 // Cities in Kanton Luzern with unique descriptions

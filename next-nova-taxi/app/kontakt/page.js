@@ -11,6 +11,21 @@ export const metadata = {
     "24/7 Taxi",
     "Taxi kontakt"
   ],
+  alternates: {
+    canonical: "https://www.nova-taxi.com/kontakt",
+    languages: {
+      de: "https://www.nova-taxi.com/kontakt",
+      en: "https://www.nova-taxi.com/en/kontakt",
+    },
+  },
+  openGraph: {
+    title: "Kontakt – Nova Taxi Zentralschweiz",
+    description: "Taxi bestellen in Schwyz, Luzern & Zug. 24/7 erreichbar – 076 611 31 31.",
+    url: "https://www.nova-taxi.com/kontakt",
+    siteName: "Nova Taxi",
+    locale: "de_CH",
+    type: "website",
+  },
 };
 
 export default function KontaktPage() {

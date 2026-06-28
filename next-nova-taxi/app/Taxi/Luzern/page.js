@@ -4,6 +4,15 @@ export const metadata = {
   title: "Taxi Luzern | Flughafentransfer & 24h Service - Nova Taxi",
   description: "Taxi Luzern – Ihr Premium-Taxiservice in der Tourismusstadt. Flughafentransfer Zürich, Pilatus, Rigi, KKL. 24/7 erreichbar. Jetzt anrufen: 076 611 31 31",
   keywords: ["Taxi Luzern", "Flughafentransfer Luzern", "Taxi Vierwaldstättersee", "Pilatus Transfer", "KKL Taxi"],
+  alternates: { canonical: "https://www.nova-taxi.com/Taxi/Luzern" },
+  openGraph: {
+    title: "Taxi Luzern | Nova Taxi",
+    description: "Premium-Taxiservice in Luzern – Pilatus, Rigi, KKL, Flughafentransfer.",
+    url: "https://www.nova-taxi.com/Taxi/Luzern",
+    siteName: "Nova Taxi",
+    locale: "de_CH",
+    type: "website",
+  },
 };
 
 export default function TaxiLuzernPage() {

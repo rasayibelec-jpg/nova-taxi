@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/Taxi/layout,_N_T_/Taxi/Luzern/layout,_N_T_/Taxi/Luzern/page,_N_T_/Taxi/Luzern"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/Taxi/Luzern/__PAGE__",
+    "/Taxi/Luzern",
+    "/Taxi",
+    "/_index",
+    "/_head"
+  ]
+}

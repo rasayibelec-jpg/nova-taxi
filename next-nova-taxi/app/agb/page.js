@@ -3,6 +3,21 @@ import Link from "next/link";
 export const metadata = {
   title: "AGB | Nova Taxi",
   description: "Allgemeine Geschäftsbedingungen von Nova Taxi – Taxiservice in der Zentralschweiz.",
+  alternates: {
+    canonical: "https://www.nova-taxi.com/agb",
+    languages: {
+      de: "https://www.nova-taxi.com/agb",
+      en: "https://www.nova-taxi.com/en/agb",
+    },
+  },
+  openGraph: {
+    title: "AGB – Nova Taxi",
+    description: "Allgemeine Geschäftsbedingungen von Nova Taxi.",
+    url: "https://www.nova-taxi.com/agb",
+    siteName: "Nova Taxi",
+    locale: "de_CH",
+    type: "website",
+  },
 };
 
 export default function AGBPage() {

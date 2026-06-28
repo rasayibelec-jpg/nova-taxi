@@ -96,6 +96,15 @@ Migrate and rebrand the existing "Taxiturlihof" website to a new modern Next.js 
 - [x] Build verified: all 56 city routes (28 DE + 28 EN) prerendered as SSG
 - [x] All pages return unique H1/H2/intro tailored to local context (Crypto Valley for Zug, Hochmoor for Rothenthurm, Kapellbrücke for Luzern, Pilger/Kloster for Einsiedeln, etc.)
 
+### Phase 10: SEO Canonical & Schema Hardening (COMPLETED - Feb 2026)
+- [x] Added per-page `alternates.canonical` + `openGraph.url` to all static DE pages: homepage, flughafentransfer, business, kurierfahrten, preise, ueber-uns, kontakt, galerie, impressum, datenschutz, agb
+- [x] Added canonical to all 3 DE kanton pages (luzern, schwyz, zug) with hreflang DE/EN
+- [x] Added canonical to all 5 Google Ads landing pages (`/Taxi/...`)
+- [x] Upgraded root layout JSON-LD to combined `["LocalBusiness", "TaxiService"]` with precise priceRange "CHF 20 - CHF 200", TWINT payment, logo, sameAs to taxiturlihof.ch
+- [x] Added FAQPage JSON-LD schema with 5 questions to `/flughafentransfer`
+- [x] Verified: 89 sitemap entries, robots.txt 200, all 25 spot-checked pages return correct self-canonical
+- [x] Verified hreflang alternate tags render on city pages
+
 ---
 
 ## Current Status

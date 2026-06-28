@@ -14,6 +14,21 @@ export const metadata = {
     "Flughafentransfer Schwyz",
     "Bahnhof Taxi Schwyz"
   ],
+  alternates: {
+    canonical: "https://www.nova-taxi.com/kanton/schwyz",
+    languages: {
+      de: "https://www.nova-taxi.com/kanton/schwyz",
+      en: "https://www.nova-taxi.com/en/kanton/schwyz",
+    },
+  },
+  openGraph: {
+    title: "Taxi Kanton Schwyz | Nova Taxi",
+    description: "Taxiservice im Kanton Schwyz – Arth-Goldau, Schwyz, Brunnen, Einsiedeln, Küssnacht.",
+    url: "https://www.nova-taxi.com/kanton/schwyz",
+    siteName: "Nova Taxi",
+    locale: "de_CH",
+    type: "website",
+  },
 };
 
 // Cities in Kanton Schwyz with unique descriptions

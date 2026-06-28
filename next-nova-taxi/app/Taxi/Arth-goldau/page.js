@@ -4,6 +4,15 @@ export const metadata = {
   title: "Taxi Arth-Goldau | Flughafentransfer & 24h Service - Nova Taxi",
   description: "Taxi Arth-Goldau – Ihr zuverlässiger Taxiservice. Flughafentransfer Zürich, Bahnhof Arth-Goldau, Rigi-Transfers. 24/7 erreichbar. Jetzt anrufen: 076 611 31 31",
   keywords: ["Taxi Arth-Goldau", "Taxi Goldau", "Flughafentransfer Arth-Goldau", "Bahnhof Arth-Goldau Taxi", "Rigi Transfer"],
+  alternates: { canonical: "https://www.nova-taxi.com/Taxi/Arth-goldau" },
+  openGraph: {
+    title: "Taxi Arth-Goldau | Nova Taxi",
+    description: "Taxiservice in Arth-Goldau – Flughafentransfer Zürich, Bahnhof, Rigi. 24/7.",
+    url: "https://www.nova-taxi.com/Taxi/Arth-goldau",
+    siteName: "Nova Taxi",
+    locale: "de_CH",
+    type: "website",
+  },
 };
 
 export default function TaxiArthGoldauPage() {

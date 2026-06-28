@@ -10,6 +10,21 @@ export const metadata = {
     "Professioneller Taxiservice",
     "24h Taxi"
   ],
+  alternates: {
+    canonical: "https://www.nova-taxi.com/ueber-uns",
+    languages: {
+      de: "https://www.nova-taxi.com/ueber-uns",
+      en: "https://www.nova-taxi.com/en/ueber-uns",
+    },
+  },
+  openGraph: {
+    title: "Über Nova Taxi – Taxiservice Zentralschweiz",
+    description: "Inhabergeführter Taxiservice in Schwyz, Luzern und Zug. 24/7 erreichbar.",
+    url: "https://www.nova-taxi.com/ueber-uns",
+    siteName: "Nova Taxi",
+    locale: "de_CH",
+    type: "website",
+  },
 };
 
 export default function UeberUnsPage() {

@@ -83,13 +83,19 @@ export const metadata = {
 export default function RootLayout({ children }) {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": ["LocalBusiness", "TaxiService"],
     "@id": "https://www.nova-taxi.com",
     "name": "Nova Taxi",
-    "description": "Ihr professioneller Taxiservice für die Regionen Schwyz, Luzern und Zug. Spezialisiert auf Flughafentransfers nach Zürich, Geschäftstermine und komfortable Stadtfahrten. 24/7 für Sie erreichbar.",
+    "description": "Zuverlässiger Taxi-Service in der Zentralschweiz. Flughafentransfer Zürich, Business-Fahrten, Kurierfahrten. 24/7 erreichbar.",
     "url": "https://www.nova-taxi.com",
     "telephone": "+41766113131",
     "email": "info@nova-taxi.com",
+    "image": "https://www.nova-taxi.com/icon-512.png",
+    "logo": "https://www.nova-taxi.com/icon-512.png",
+    "priceRange": "CHF 20 - CHF 200",
+    "currenciesAccepted": "CHF",
+    "paymentAccepted": "Cash, Credit Card, TWINT",
+    "openingHours": "Mo-Su 00:00-24:00",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Türlihof 4",
@@ -100,8 +106,8 @@ export default function RootLayout({ children }) {
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": "47.0500",
-      "longitude": "8.5200"
+      "latitude": 47.0611,
+      "longitude": 8.5430
     },
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
@@ -109,9 +115,6 @@ export default function RootLayout({ children }) {
       "opens": "00:00",
       "closes": "23:59"
     },
-    "priceRange": "$$",
-    "paymentAccepted": ["Cash", "Credit Card", "Debit Card"],
-    "currenciesAccepted": "CHF",
     "areaServed": [
       { "@type": "City", "name": "Schwyz" },
       { "@type": "City", "name": "Luzern" },
@@ -126,7 +129,9 @@ export default function RootLayout({ children }) {
       { "@type": "City", "name": "Emmen" },
       { "@type": "City", "name": "Horw" }
     ],
-    "sameAs": [],
+    "sameAs": [
+      "https://www.taxiturlihof.ch"
+    ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Taxi Services",

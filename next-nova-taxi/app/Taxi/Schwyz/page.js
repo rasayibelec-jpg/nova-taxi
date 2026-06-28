@@ -4,6 +4,15 @@ export const metadata = {
   title: "Taxi Schwyz | Flughafentransfer & 24h Service - Nova Taxi",
   description: "Taxi Schwyz – Ihr zuverlässiger Taxiservice in der Kantonshauptstadt. Flughafentransfer Zürich, Mythen-Region, 24/7 erreichbar. Jetzt anrufen: 076 611 31 31",
   keywords: ["Taxi Schwyz", "Flughafentransfer Schwyz", "Taxi Kanton Schwyz", "Mythen Taxi", "24h Taxi Schwyz"],
+  alternates: { canonical: "https://www.nova-taxi.com/Taxi/Schwyz" },
+  openGraph: {
+    title: "Taxi Schwyz | Nova Taxi",
+    description: "Taxiservice in Schwyz – Flughafentransfer Zürich, Mythenregion. 24/7.",
+    url: "https://www.nova-taxi.com/Taxi/Schwyz",
+    siteName: "Nova Taxi",
+    locale: "de_CH",
+    type: "website",
+  },
 };
 
 export default function TaxiSchwyzPage() {

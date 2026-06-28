@@ -3,6 +3,21 @@ import Link from "next/link";
 export const metadata = {
   title: "Impressum | Nova Taxi",
   description: "Impressum und rechtliche Informationen von Nova Taxi – Ihr zuverlässiger Taxiservice in der Zentralschweiz.",
+  alternates: {
+    canonical: "https://www.nova-taxi.com/impressum",
+    languages: {
+      de: "https://www.nova-taxi.com/impressum",
+      en: "https://www.nova-taxi.com/en/impressum",
+    },
+  },
+  openGraph: {
+    title: "Impressum – Nova Taxi",
+    description: "Rechtliche Informationen zu Nova Taxi.",
+    url: "https://www.nova-taxi.com/impressum",
+    siteName: "Nova Taxi",
+    locale: "de_CH",
+    type: "website",
+  },
 };
 
 export default function ImpressumPage() {

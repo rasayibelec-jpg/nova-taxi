@@ -11,6 +11,21 @@ export const metadata = {
     "Kurier Zentralschweiz",
     "Direktfahrt"
   ],
+  alternates: {
+    canonical: "https://www.nova-taxi.com/kurierfahrten",
+    languages: {
+      de: "https://www.nova-taxi.com/kurierfahrten",
+      en: "https://www.nova-taxi.com/en/kurierfahrten",
+    },
+  },
+  openGraph: {
+    title: "Kurierdienst Zentralschweiz | Nova Taxi",
+    description: "Express-Kurierfahrten in Schwyz, Luzern und Zug – schnell, sicher, vertraulich.",
+    url: "https://www.nova-taxi.com/kurierfahrten",
+    siteName: "Nova Taxi",
+    locale: "de_CH",
+    type: "website",
+  },
 };
 
 export default function KurierfahrtenPage() {

@@ -11,6 +11,21 @@ export const metadata = {
     "Taxifahrzeuge Schwyz",
     "Taxi Luzern Bilder"
   ],
+  alternates: {
+    canonical: "https://www.nova-taxi.com/galerie",
+    languages: {
+      de: "https://www.nova-taxi.com/galerie",
+      en: "https://www.nova-taxi.com/en/galerie",
+    },
+  },
+  openGraph: {
+    title: "Galerie – Nova Taxi Zentralschweiz",
+    description: "Eindrücke aus Luzern, Zug, Arth-Goldau und Schwyz.",
+    url: "https://www.nova-taxi.com/galerie",
+    siteName: "Nova Taxi",
+    locale: "de_CH",
+    type: "website",
+  },
 };
 
 const images = [

@@ -3,6 +3,21 @@ import Link from "next/link";
 export const metadata = {
   title: "Datenschutz | Nova Taxi",
   description: "Datenschutzerklärung von Nova Taxi – Informationen zum Umgang mit Ihren persönlichen Daten.",
+  alternates: {
+    canonical: "https://www.nova-taxi.com/datenschutz",
+    languages: {
+      de: "https://www.nova-taxi.com/datenschutz",
+      en: "https://www.nova-taxi.com/en/datenschutz",
+    },
+  },
+  openGraph: {
+    title: "Datenschutz – Nova Taxi",
+    description: "Datenschutzerklärung von Nova Taxi.",
+    url: "https://www.nova-taxi.com/datenschutz",
+    siteName: "Nova Taxi",
+    locale: "de_CH",
+    type: "website",
+  },
 };
 
 export default function DatenschutzPage() {

@@ -1,0 +1,17 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/en/layout,_N_T_/en/kanton/layout,_N_T_/en/kanton/zug/layout,_N_T_/en/kanton/zug/page,_N_T_/en/kanton/zug"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/en/kanton/zug/__PAGE__",
+    "/en/kanton/zug",
+    "/en/kanton",
+    "/en",
+    "/_index",
+    "/_head"
+  ]
+}

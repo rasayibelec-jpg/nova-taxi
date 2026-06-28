@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/Taxi/layout,_N_T_/Taxi/Arth-goldau/layout,_N_T_/Taxi/Arth-goldau/page,_N_T_/Taxi/Arth-goldau"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/Taxi/Arth-goldau/__PAGE__",
+    "/Taxi/Arth-goldau",
+    "/Taxi",
+    "/_index",
+    "/_head"
+  ]
+}

@@ -13,6 +13,21 @@ export const metadata = {
     "Flughafentransfer Zug",
     "Bahnhof Zug Taxi"
   ],
+  alternates: {
+    canonical: "https://www.nova-taxi.com/kanton/zug",
+    languages: {
+      de: "https://www.nova-taxi.com/kanton/zug",
+      en: "https://www.nova-taxi.com/en/kanton/zug",
+    },
+  },
+  openGraph: {
+    title: "Taxi Kanton Zug | Nova Taxi",
+    description: "Premium-Taxiservice im Kanton Zug – Business-Transfer und Flughafenfahrten.",
+    url: "https://www.nova-taxi.com/kanton/zug",
+    siteName: "Nova Taxi",
+    locale: "de_CH",
+    type: "website",
+  },
 };
 
 // Cities in Kanton Zug with unique descriptions

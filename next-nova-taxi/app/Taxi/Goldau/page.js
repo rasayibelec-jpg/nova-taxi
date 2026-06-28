@@ -4,6 +4,15 @@ export const metadata = {
   title: "Taxi Goldau | Bahnhof & Rigi Transfer - Nova Taxi",
   description: "Taxi Goldau – Ihr zuverlässiger Taxiservice am Bahnhof Goldau. Flughafentransfer Zürich, Rigi-Transfers, 24/7 erreichbar. Jetzt anrufen: 076 611 31 31",
   keywords: ["Taxi Goldau", "Bahnhof Goldau Taxi", "Flughafentransfer Goldau", "Rigi Transfer Goldau", "24h Taxi Goldau"],
+  alternates: { canonical: "https://www.nova-taxi.com/Taxi/Goldau" },
+  openGraph: {
+    title: "Taxi Goldau | Nova Taxi",
+    description: "Taxiservice in Goldau – Bahnhof, Rigi, Flughafentransfer Zürich.",
+    url: "https://www.nova-taxi.com/Taxi/Goldau",
+    siteName: "Nova Taxi",
+    locale: "de_CH",
+    type: "website",
+  },
 };
 
 export default function TaxiGoldauPage() {

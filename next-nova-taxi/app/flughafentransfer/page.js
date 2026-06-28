@@ -11,11 +11,82 @@ export const metadata = {
     "Flughafen Basel Taxi",
     "Transfer zum Flughafen"
   ],
+  alternates: {
+    canonical: "https://www.nova-taxi.com/flughafentransfer",
+    languages: {
+      de: "https://www.nova-taxi.com/flughafentransfer",
+      en: "https://www.nova-taxi.com/en/flughafentransfer",
+    },
+  },
+  openGraph: {
+    title: "Flughafentransfer Zürich & Basel | Nova Taxi Zentralschweiz",
+    description: "Flughafentransfer Zürich und Basel mit Nova Taxi – pünktlich, komfortabel und planbar.",
+    url: "https://www.nova-taxi.com/flughafentransfer",
+    siteName: "Nova Taxi",
+    locale: "de_CH",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Flughafentransfer Zürich & Basel | Nova Taxi",
+    description: "Pünktlicher Flughafentransfer ab CHF 180. Schwyz, Luzern, Zug → ZRH. 24/7 erreichbar.",
+  },
 };
 
 export default function FlughafentransferPage() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Was kostet ein Taxi von Schwyz zum Flughafen Zürich?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ein Taxi von Schwyz zum Flughafen Zürich kostet zwischen CHF 85 und CHF 110, je nach genauem Abholort. Kontaktieren Sie uns für ein unverbindliches Festpreisangebot."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Was kostet ein Taxi von Luzern zum Flughafen Zürich?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Der Preis für einen Flughafentransfer von Luzern nach Zürich liegt zwischen CHF 95 und CHF 120. Festpreise auf Anfrage."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Was kostet ein Taxi von Zug zum Flughafen Zürich?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ein Flughafentransfer von Zug nach Zürich kostet ca. CHF 70 bis CHF 90. Rufen Sie uns an für einen Festpreis."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Wie früh kann ich Nova Taxi für einen Flughafentransfer buchen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Wir sind 24/7 erreichbar – auch für Frühflüge ab 4:00 Uhr morgens. Wir empfehlen eine Buchung mindestens einen Tag im Voraus, kurzfristige Buchungen sind aber ebenfalls möglich."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Welche Zahlungsmittel akzeptiert Nova Taxi?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Wir akzeptieren Bargeld, Kreditkarte (Visa, Mastercard) und TWINT. Für Firmenkunden bieten wir auch Rechnung an."
+        }
+      }
+    ]
+  };
+
   return (
     <section className="section-padding">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <div className="container space-y-8">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.4em] text-nova-muted">

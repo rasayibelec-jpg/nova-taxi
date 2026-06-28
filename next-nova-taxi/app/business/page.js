@@ -11,6 +11,21 @@ export const metadata = {
     "Firmenkunden Taxi",
     "Chauffeurservice"
   ],
+  alternates: {
+    canonical: "https://www.nova-taxi.com/business",
+    languages: {
+      de: "https://www.nova-taxi.com/business",
+      en: "https://www.nova-taxi.com/en/business",
+    },
+  },
+  openGraph: {
+    title: "VIP & Business Transfer | Nova Taxi Zentralschweiz",
+    description: "Diskreter VIP- und Business-Transfer in Schwyz, Luzern & Zug. Meetings, Hotels, Events – 24/7.",
+    url: "https://www.nova-taxi.com/business",
+    siteName: "Nova Taxi",
+    locale: "de_CH",
+    type: "website",
+  },
 };
 
 export default function BusinessPage() {

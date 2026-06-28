@@ -4,6 +4,15 @@ export const metadata = {
   title: "Taxi Zug | Business Transfer & Flughafentransfer - Nova Taxi",
   description: "Taxi Zug – Ihr Premium-Taxiservice im Wirtschaftszentrum. Flughafentransfer Zürich, Business-Fahrten, Crypto Valley. 24/7 erreichbar. Jetzt anrufen: 076 611 31 31",
   keywords: ["Taxi Zug", "Business Taxi Zug", "Flughafentransfer Zug", "Crypto Valley Taxi", "VIP Taxi Zug"],
+  alternates: { canonical: "https://www.nova-taxi.com/Taxi/Zug" },
+  openGraph: {
+    title: "Taxi Zug | Nova Taxi",
+    description: "Premium-Taxiservice in Zug – Crypto Valley, Business-Transfer, Flughafenfahrten.",
+    url: "https://www.nova-taxi.com/Taxi/Zug",
+    siteName: "Nova Taxi",
+    locale: "de_CH",
+    type: "website",
+  },
 };
 
 export default function TaxiZugPage() {
