@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { locations, allLocationSlugs } from "@/config/locations";
+import BookingButton from "@/components/booking/BookingButton";
 
 export const dynamicParams = false;
 
@@ -152,6 +153,7 @@ export default async function LocationPage({ params }) {
 
           {/* Quick Contact */}
           <div className="flex flex-col sm:flex-row gap-4">
+            <BookingButton prefillPickup={locationName} testId="ort-booking-button" />
             <a
               href="tel:+41766113131"
               className="inline-flex items-center justify-center rounded-full bg-nova-gold px-7 py-4 text-sm font-semibold text-black hover:bg-nova-gold-soft transition-colors min-h-[48px]"

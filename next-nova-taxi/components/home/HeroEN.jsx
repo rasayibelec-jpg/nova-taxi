@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useRef } from "react";
+import BookingButton from "@/components/booking/BookingButton";
 
 export default function HeroEN() {
   const videoRef = useRef(null);
@@ -89,6 +90,7 @@ export default function HeroEN() {
             >
               View Prices & Services
             </Link>
+            <BookingButton label="Book Taxi Online" testId="hero-booking-button" />
             <a
               href="tel:+41766113131"
               className="inline-flex items-center justify-center rounded-full border-2 border-white/40 px-7 py-4 text-sm font-semibold text-white hover:bg-white/10 transition-colors min-h-[48px]"

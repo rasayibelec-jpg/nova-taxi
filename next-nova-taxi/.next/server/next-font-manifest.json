@@ -21,6 +21,12 @@
     "[project]/app/agb/page": [
       "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2"
     ],
+    "[project]/app/bestellung/[id]/bestaetigen/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2"
+    ],
+    "[project]/app/bestellung/[id]/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2"
+    ],
     "[project]/app/business/page": [
       "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2"
     ],

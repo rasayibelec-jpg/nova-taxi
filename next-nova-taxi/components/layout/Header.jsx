@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import LanguageSwitcher from "./LanguageSwitcher";
+import BookingButton from "@/components/booking/BookingButton";
 
 const mainNavItems = [
   { href: "/", label: "Startseite" },
@@ -68,12 +69,13 @@ export default function Header() {
             </Link>
           ))}
           <LanguageSwitcher currentLocale="de" />
+          <BookingButton variant="compact" label="Online bestellen" testId="header-booking-button" />
           <a
             href="tel:+41766113131"
-            className="rounded-full bg-nova-gold px-5 py-3 text-sm font-semibold text-black hover:bg-nova-gold-soft transition-colors min-h-[44px] inline-flex items-center"
+            className="rounded-full border border-nova-gold/60 px-4 py-3 text-sm font-semibold text-nova-gold hover:bg-nova-gold/10 transition-colors min-h-[44px] inline-flex items-center"
             aria-label="Anrufen: 076 611 31 31"
           >
-            Telefon: 076 611 31 31
+            076 611 31 31
           </a>
         </nav>
 

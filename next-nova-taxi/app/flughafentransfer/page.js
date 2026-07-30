@@ -1,3 +1,5 @@
+import BookingButton from "@/components/booking/BookingButton";
+
 export const metadata = {
   title: "Flughafentransfer Zürich & Basel | Flughafentaxi Zentralschweiz - Nova Taxi",
   description:
@@ -34,6 +36,9 @@ export default function FlughafentransferPage() {
             <strong>Flughafentaxi Zentralschweiz</strong> – Transfer von Schwyz, Luzern, Zug, 
             Arth-Goldau, Küssnacht am Rigi, Brunnen, Einsiedeln und weiteren Orten zum Flughafen.
           </p>
+          <div className="pt-2">
+            <BookingButton prefillDestination="Flughafen Zürich" testId="flughafen-booking-button" />
+          </div>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2">

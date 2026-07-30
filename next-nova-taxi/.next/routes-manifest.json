@@ -164,6 +164,38 @@
   },
   "dynamicRoutes": [
     {
+      "page": "/api/bookings/[id]",
+      "regex": "^/api/bookings/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/bookings/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/api/bookings/[id]/confirm",
+      "regex": "^/api/bookings/([^/]+?)/confirm(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/bookings/(?<nxtPid>[^/]+?)/confirm(?:/)?$"
+    },
+    {
+      "page": "/bestellung/[id]",
+      "regex": "^/bestellung/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/bestellung/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/bestellung/[id]/bestaetigen",
+      "regex": "^/bestellung/([^/]+?)/bestaetigen(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/bestellung/(?<nxtPid>[^/]+?)/bestaetigen(?:/)?$"
+    },
+    {
       "page": "/en/ort/[slug]",
       "regex": "^/en/ort/([^/]+?)(?:/)?$",
       "routeKeys": {
@@ -206,10 +238,22 @@
       "namedRegex": "^/agb(?:/)?$"
     },
     {
+      "page": "/api/bookings",
+      "regex": "^/api/bookings(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/bookings(?:/)?$"
+    },
+    {
       "page": "/api/health",
       "regex": "^/api/health(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/api/health(?:/)?$"
+    },
+    {
+      "page": "/api/pricing",
+      "regex": "^/api/pricing(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/pricing(?:/)?$"
     },
     {
       "page": "/api/seo/locations",

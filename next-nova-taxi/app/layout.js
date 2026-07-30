@@ -4,6 +4,7 @@ import Script from "next/script";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import WhatsAppFloating from "@/components/layout/WhatsAppFloating";
+import { BookingProvider } from "@/components/booking/BookingProvider";
 
 const inter = Inter({ subsets: ["latin"], display: "swap" });
 
@@ -252,10 +253,12 @@ export default function RootLayout({ children }) {
           Zum Hauptinhalt springen
         </a>
         <div className="min-h-screen flex flex-col">
-          <Header />
-          <main id="main-content" role="main">{children}</main>
-          <Footer />
-          <WhatsAppFloating />
+          <BookingProvider>
+            <Header />
+            <main id="main-content" role="main">{children}</main>
+            <Footer />
+            <WhatsAppFloating />
+          </BookingProvider>
         </div>
       </body>
     </html>
