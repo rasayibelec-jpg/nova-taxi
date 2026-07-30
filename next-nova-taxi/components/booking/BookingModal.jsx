@@ -38,6 +38,7 @@ export default function BookingModal({ open, onClose, prefillPickup, prefillDest
       setPriceError(null);
       return;
     }
+    const ac = new AbortController();
     const timer = setTimeout(async () => {
       setPriceLoading(true);
       setPriceError(null);
@@ -46,18 +47,27 @@ export default function BookingModal({ open, onClose, prefillPickup, prefillDest
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ origin: pickup, destination }),
+          signal: ac.signal,
         });
-        const data = await res.json();
-        if (!res.ok) throw new Error(data.error || "unavailable");
-        setPriceInfo(data);
-      } catch {
-        setPriceError("nicht_verfuegbar");
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok) {
+          setPriceError({ code: data?.error || `http_${res.status}`, detail: data?.detail || null });
+          setPriceInfo(null);
+        } else {
+          setPriceInfo(data);
+        }
+      } catch (e) {
+        if (e?.name === "AbortError") return;
+        setPriceError({ code: "network", detail: String(e?.message || "") });
         setPriceInfo(null);
       } finally {
         setPriceLoading(false);
       }
-    }, 700);
-    return () => clearTimeout(timer);
+    }, 600);
+    return () => {
+      clearTimeout(timer);
+      ac.abort();
+    };
   }, [pickup, destination]);
 
   const getGeoOnce = useCallback(() => {
@@ -287,9 +297,31 @@ export default function BookingModal({ open, onClose, prefillPickup, prefillDest
             </label>
 
             <div className="rounded-lg bg-nova-gold/10 border border-nova-gold/40 p-4 text-black">
-              {priceLoading && <p className="text-sm">Preis wird berechnet…</p>}
+              {priceLoading && <p className="text-sm" data-testid="booking-price-loading">Preis wird berechnet…</p>}
               {priceError && !priceLoading && (
-                <p className="text-sm text-amber-800">Preis wird nach Anfrage bestätigt (Fahrpreis-Berechnung derzeit nicht verfügbar). Ihre Bestellung kann trotzdem gesendet werden.</p>
+                <div className="text-sm text-amber-900" data-testid="booking-price-error">
+                  <p className="font-semibold">
+                    {priceError.code === "address_not_found"
+                      ? "Adresse konnte nicht gefunden werden."
+                      : priceError.code === "key_missing"
+                      ? "Preisrechner nicht konfiguriert (Serverschlüssel fehlt)."
+                      : priceError.code === "key_denied"
+                      ? "Preisrechner momentan gesperrt (API-Schlüssel abgelehnt)."
+                      : priceError.code === "quota_exceeded"
+                      ? "Preisrechner-Kontingent erschöpft."
+                      : priceError.code === "invalid_request"
+                      ? "Adresse ungültig – bitte präzisieren."
+                      : "Preis wird nach Anfrage bestätigt (Fahrpreis-Berechnung derzeit nicht verfügbar)."}
+                  </p>
+                  <p className="text-xs text-amber-800 mt-1">
+                    Ihre Bestellung kann trotzdem gesendet werden. Der Preis wird telefonisch bestätigt.
+                  </p>
+                  {priceError.detail && (
+                    <p className="text-[10px] text-amber-700/80 mt-2 break-words" data-testid="booking-price-error-detail">
+                      Debug: {priceError.detail}
+                    </p>
+                  )}
+                </div>
               )}
               {priceInfo && !priceLoading && (
                 <div className="text-sm">

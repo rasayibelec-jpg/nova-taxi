@@ -107,6 +107,13 @@ User must deploy to Vercel via "Save to GitHub" to see live changes.
 ### P0 (Critical)
 - None currently
 
+### Diagnosed 2026-02 — Booking price not calculating on Vercel
+- Root cause candidates (all on user's Vercel/Google side, code path verified working locally):
+  1. `GOOGLE_MAPS_API_KEY` env var missing on Vercel (only `NEXT_PUBLIC_...` set).
+  2. Key has HTTP-referrer restrictions that block server-side calls from Vercel.
+  3. Distance Matrix API not enabled on the same Google Cloud project as the key.
+- Mitigations shipped: real Google status now surfaced in `/api/pricing`, structured `priceError` in `BookingModal`, `/api/pricing/diag` diagnostic endpoint.
+
 ### P1 (High Priority)
 - [ ] Refactor i18n: Single components with translation keys instead of duplicate EN components
 
@@ -150,14 +157,33 @@ User must deploy to Vercel via "Save to GitHub" to see live changes.
 ## Key API Endpoints
 - `/api/health` - Health check
 - `/api/seo/locations` - Location data JSON
+- `/api/pricing` (POST) - Distance-matrix based price calculation (CHF 6.60 base + 4.20/km)
+- `/api/pricing/diag` (GET) - Diagnostic endpoint: reports env-var presence + live Google Distance Matrix probe (safe to expose, only leaks last-4 of API key)
+- `/api/bookings` (POST) - Persists booking + generates confirm token
+- `/api/bookings/[id]/confirm` (GET) - Driver confirmation link, auto-redirects to customer WhatsApp
 
 ## Integrations
 - Google Analytics 4 (G-Q4HZJQJCME)
+- Google Places API (client-side autocomplete) - uses NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
+- Google Distance Matrix API (server-side pricing) - uses GOOGLE_MAPS_API_KEY (no NEXT_PUBLIC prefix)
+- MongoDB (bookings collection)
+- WhatsApp deep linking
+
+## Environment Variables Required on Vercel
+| Key | Where used | Notes |
+| --- | --- | --- |
+| `GOOGLE_MAPS_API_KEY` | Server (`/api/pricing`, `/api/pricing/diag`) | MUST be set on Vercel, MUST NOT have HTTP-referrer restrictions (server-side call). IP restriction OK if Vercel IPs allowlisted, else unrestricted. |
+| `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY` | Client (Autocomplete) | Domain HTTP-referrer restrictions REQUIRED to include `*.nova-taxi.com`, `nova-taxi.com`, `*.vercel.app`. |
+| `MONGO_URL` | Server (booking storage) | Production MongoDB Atlas connection string. |
+| `DB_NAME` | Server | Defaults to `nova_taxi`. |
+| `NEXT_PUBLIC_WHATSAPP_NUMBER` | Client (WhatsApp deep link) | Driver number in intl format without `+`, e.g. `41766113131`. |
+| `DRIVER_CONFIRM_SECRET` | Server (booking confirm HMAC) | Any long random string. |
 
 ---
 
 ## Notes for Next Developer
 1. User prefers Turkish for communication
 2. Site is deployed via GitHub -> Vercel pipeline
-3. Price calculator on /preise is a MOCK (client-side only)
-4. Consider refactoring duplicate EN components to use translation keys
+3. Legacy price calculator on `/preise` is a MOCK (client-side only); the real distance-matrix price lives in `/api/pricing` used by the booking modal.
+4. Consider refactoring duplicate EN components to use translation keys.
+5. When pricing fails on production, hit `/api/pricing/diag` on the deployed host to see env-var presence and a live Google status probe.

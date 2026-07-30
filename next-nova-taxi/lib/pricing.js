@@ -9,7 +9,11 @@ export function calculatePrice(distanceMeters) {
 
 export async function fetchDistance(origin, destination) {
   const key = process.env.GOOGLE_MAPS_API_KEY;
-  if (!key) throw new Error("GOOGLE_MAPS_API_KEY missing");
+  if (!key) {
+    const err = new Error("GOOGLE_MAPS_API_KEY missing");
+    err.code = "KEY_MISSING";
+    throw err;
+  }
 
   const url = new URL("https://maps.googleapis.com/maps/api/distancematrix/json");
   url.searchParams.set("origins", origin);
@@ -20,12 +24,29 @@ export async function fetchDistance(origin, destination) {
   url.searchParams.set("key", key);
 
   const res = await fetch(url.toString(), { cache: "no-store" });
-  if (!res.ok) throw new Error(`Distance Matrix HTTP ${res.status}`);
+  if (!res.ok) {
+    const err = new Error(`Distance Matrix HTTP ${res.status}`);
+    err.code = "HTTP_ERROR";
+    err.httpStatus = res.status;
+    throw err;
+  }
   const data = await res.json();
+
+  // Top-level API errors (REQUEST_DENIED, INVALID_REQUEST, OVER_QUERY_LIMIT ...)
+  if (data.status && data.status !== "OK") {
+    const err = new Error(
+      `Google Maps: ${data.status}${data.error_message ? " - " + data.error_message : ""}`
+    );
+    err.code = data.status;
+    err.googleMessage = data.error_message || null;
+    throw err;
+  }
 
   const element = data?.rows?.[0]?.elements?.[0];
   if (!element || element.status !== "OK") {
-    throw new Error(`Distance not available (${element?.status || data.status})`);
+    const err = new Error(`Distance not available (${element?.status || "NO_ELEMENT"})`);
+    err.code = element?.status || "NO_ELEMENT";
+    throw err;
   }
 
   return {
