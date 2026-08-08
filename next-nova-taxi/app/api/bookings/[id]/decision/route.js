@@ -1,14 +1,15 @@
 import { NextResponse } from "next/server";
 import { getBookingsCollection } from "@/lib/mongodb";
+import { createHmac, timingSafeEqual } from "crypto";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 
-function isAuthorized(req) {
-  const expected = process.env.ADMIN_PASSWORD || "";
-  if (!expected) return false;
-  const auth = req.headers.get("x-admin-key") || "";
-  return auth && auth === expected;
+function verifyToken(bookingId, token) {
+  const secret = process.env.DRIVER_CONFIRM_SECRET || "dev-secret";
+  const expected = createHmac("sha256", secret).update(bookingId).digest("hex").slice(0, 24);
+  if (!token || token.length !== expected.length) return false;
+  return timingSafeEqual(Buffer.from(expected), Buffer.from(token));
 }
 
 function normalizePhone(raw) {
@@ -41,18 +42,22 @@ function buildCustomerMessage(doc, action) {
   }
   return (
     `Nova Taxi – Bestellung #${shortId}\n` +
-    `Leider können wir Ihre Bestellung derzeit nicht annehmen. ` +
-    `Wir bitten um Verständnis.\n\n` +
+    `Ihre Bestellung konnte leider nicht angenommen werden. Wir bitten um Verständnis.\n\n` +
     `Für Alternativen erreichen Sie uns unter 076 611 31 31.`
   );
 }
 
+// Driver taps a button on the landing page → POST here with { action: "accept"|"reject" }.
+// Token comes as query param (?token=…). Auth: same HMAC token used by the confirm GET.
 export async function POST(req, { params }) {
-  if (!isAuthorized(req)) {
-    return NextResponse.json({ error: "unauthorized" }, { status: 401 });
-  }
   try {
     const { id } = await params;
+    const url = new URL(req.url);
+    const token = url.searchParams.get("token") || "";
+    if (!verifyToken(id, token)) {
+      return NextResponse.json({ error: "invalid_token" }, { status: 401 });
+    }
+
     const body = await req.json().catch(() => ({}));
     const action = body?.action;
     if (!["accept", "reject"].includes(action)) {
@@ -64,9 +69,15 @@ export async function POST(req, { params }) {
     if (!doc) return NextResponse.json({ error: "not_found" }, { status: 404 });
 
     if (doc.status === "confirmed" || doc.status === "rejected") {
+      // Idempotent: return WhatsApp URL for the existing state so driver can still send.
+      const message = buildCustomerMessage(doc, doc.status === "confirmed" ? "accept" : "reject");
+      const waPhone = normalizePhone(doc.customerPhone);
+      const customerWhatsappUrl = waPhone
+        ? `https://wa.me/${waPhone}?text=${encodeURIComponent(message)}`
+        : null;
       return NextResponse.json(
-        { error: "already_processed", status: doc.status },
-        { status: 409 }
+        { id: doc.id, status: doc.status, customerWhatsappUrl, alreadyProcessed: true },
+        { status: 200 }
       );
     }
 
@@ -91,7 +102,10 @@ export async function POST(req, { params }) {
       customerPhone: doc.customerPhone,
     });
   } catch (err) {
-    console.error("[admin/bookings/decision]", err);
-    return NextResponse.json({ error: "internal" }, { status: 500 });
+    console.error("[bookings/decision]", err);
+    return NextResponse.json(
+      { error: "internal", detail: String(err?.message || err) },
+      { status: 500 }
+    );
   }
 }

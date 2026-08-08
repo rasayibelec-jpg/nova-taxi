@@ -138,7 +138,7 @@ export default function BookingModal({ open, onClose, prefillPickup, prefillDest
     const shortId = bookingId ? String(bookingId).substring(0, 8).toUpperCase() : null;
     const confirmLine =
       bookingId && confirmToken
-        ? `\n\n✅ Bestellung bestätigen:\n${window.location.origin}/bestellung/${bookingId}/bestaetigen?token=${confirmToken}`
+        ? `\n\n👉 Annehmen oder Ablehnen:\n${window.location.origin}/bestellung/${bookingId}/bestaetigen?token=${confirmToken}`
         : "";
 
     const header = shortId ? `Neue Bestellung #${shortId}:` : `Neue Bestellung:`;
