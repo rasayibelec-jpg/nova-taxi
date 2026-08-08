@@ -28,6 +28,9 @@ export async function GET(req) {
     return NextResponse.json({ bookings: docs });
   } catch (err) {
     console.error("[admin/bookings]", err);
-    return NextResponse.json({ error: "internal" }, { status: 500 });
+    return NextResponse.json(
+      { error: "internal", detail: String(err?.message || err) },
+      { status: 500 }
+    );
   }
 }

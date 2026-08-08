@@ -58,20 +58,25 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__ = __turbopack_context__.i("[externals]/mongodb [external] (mongodb, cjs)");
 ;
-const uri = process.env.MONGO_URL;
-const dbName = process.env.DB_NAME;
-if (!uri) throw new Error("MONGO_URL missing");
-if (!dbName) throw new Error("DB_NAME missing");
 let clientPromise;
-if ("TURBOPACK compile-time truthy", 1) {
-    if (!/*TURBOPACK member replacement*/ __turbopack_context__.g._mongoClientPromise) {
-        /*TURBOPACK member replacement*/ __turbopack_context__.g._mongoClientPromise = new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["MongoClient"](uri).connect();
+function connect() {
+    const uri = process.env.MONGO_URL;
+    const dbName = process.env.DB_NAME;
+    if (!uri) throw new Error("MONGO_URL environment variable is not set");
+    if (!dbName) throw new Error("DB_NAME environment variable is not set");
+    if ("TURBOPACK compile-time truthy", 1) {
+        if (!/*TURBOPACK member replacement*/ __turbopack_context__.g._mongoClientPromise) {
+            /*TURBOPACK member replacement*/ __turbopack_context__.g._mongoClientPromise = new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["MongoClient"](uri).connect();
+        }
+        return /*TURBOPACK member replacement*/ __turbopack_context__.g._mongoClientPromise;
     }
-    clientPromise = /*TURBOPACK member replacement*/ __turbopack_context__.g._mongoClientPromise;
-} else //TURBOPACK unreachable
-;
+    //TURBOPACK unreachable
+    ;
+}
 async function getDb() {
+    if (!clientPromise) clientPromise = connect();
     const client = await clientPromise;
+    const dbName = process.env.DB_NAME;
     return client.db(dbName);
 }
 async function getBookingsCollection() {
@@ -138,7 +143,8 @@ async function GET(req) {
     } catch (err) {
         console.error("[admin/bookings]", err);
         return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
-            error: "internal"
+            error: "internal",
+            detail: String(err?.message || err)
         }, {
             status: 500
         });

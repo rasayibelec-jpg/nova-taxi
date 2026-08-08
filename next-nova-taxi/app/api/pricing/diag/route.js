@@ -20,6 +20,10 @@ export async function GET() {
       NEXT_PUBLIC_GOOGLE_MAPS_API_KEY_length: publicKey.length,
       NEXT_PUBLIC_GOOGLE_MAPS_API_KEY_last4: publicKey ? publicKey.slice(-4) : null,
       MONGO_URL_present: Boolean(mongo),
+      DB_NAME_present: Boolean(process.env.DB_NAME),
+      DB_NAME: process.env.DB_NAME || null,
+      ADMIN_PASSWORD_present: Boolean(process.env.ADMIN_PASSWORD),
+      DRIVER_CONFIRM_SECRET_present: Boolean(process.env.DRIVER_CONFIRM_SECRET),
       NEXT_PUBLIC_WHATSAPP_NUMBER_present: Boolean(whatsapp),
       NEXT_PUBLIC_WHATSAPP_NUMBER: whatsapp || null,
       NODE_ENV: process.env.NODE_ENV || null,
@@ -27,6 +31,7 @@ export async function GET() {
       VERCEL_REGION: process.env.VERCEL_REGION || null,
     },
     googleTest: null,
+    mongoTest: null,
   };
 
   // Perform a live Distance Matrix probe if the server key is set
@@ -51,6 +56,20 @@ export async function GET() {
     } catch (err) {
       result.googleTest = { error: String(err?.message || err) };
     }
+  }
+
+  // Live MongoDB probe
+  if (mongo && process.env.DB_NAME) {
+    try {
+      const { getBookingsCollection } = await import("@/lib/mongodb");
+      const col = await getBookingsCollection();
+      const count = await col.countDocuments({});
+      result.mongoTest = { ok: true, bookingsCount: count };
+    } catch (err) {
+      result.mongoTest = { ok: false, error: String(err?.message || err) };
+    }
+  } else {
+    result.mongoTest = { ok: false, error: "MONGO_URL or DB_NAME missing" };
   }
 
   return NextResponse.json(result, { status: 200 });

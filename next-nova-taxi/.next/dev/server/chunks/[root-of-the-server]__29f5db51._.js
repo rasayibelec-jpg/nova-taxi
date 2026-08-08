@@ -70,13 +70,18 @@ async function GET() {
             NEXT_PUBLIC_GOOGLE_MAPS_API_KEY_length: publicKey.length,
             NEXT_PUBLIC_GOOGLE_MAPS_API_KEY_last4: ("TURBOPACK compile-time truthy", 1) ? publicKey.slice(-4) : "TURBOPACK unreachable",
             MONGO_URL_present: Boolean(mongo),
+            DB_NAME_present: Boolean(process.env.DB_NAME),
+            DB_NAME: process.env.DB_NAME || null,
+            ADMIN_PASSWORD_present: Boolean(process.env.ADMIN_PASSWORD),
+            DRIVER_CONFIRM_SECRET_present: Boolean(process.env.DRIVER_CONFIRM_SECRET),
             NEXT_PUBLIC_WHATSAPP_NUMBER_present: Boolean(whatsapp),
             NEXT_PUBLIC_WHATSAPP_NUMBER: whatsapp || null,
             NODE_ENV: ("TURBOPACK compile-time value", "development") || null,
             VERCEL_ENV: process.env.VERCEL_ENV || null,
             VERCEL_REGION: process.env.VERCEL_REGION || null
         },
-        googleTest: null
+        googleTest: null,
+        mongoTest: null
     };
     // Perform a live Distance Matrix probe if the server key is set
     if (serverKey) {
@@ -104,6 +109,28 @@ async function GET() {
                 error: String(err?.message || err)
             };
         }
+    }
+    // Live MongoDB probe
+    if (mongo && process.env.DB_NAME) {
+        try {
+            const { getBookingsCollection } = await __turbopack_context__.A("[project]/lib/mongodb.js [app-route] (ecmascript, async loader)");
+            const col = await getBookingsCollection();
+            const count = await col.countDocuments({});
+            result.mongoTest = {
+                ok: true,
+                bookingsCount: count
+            };
+        } catch (err) {
+            result.mongoTest = {
+                ok: false,
+                error: String(err?.message || err)
+            };
+        }
+    } else {
+        result.mongoTest = {
+            ok: false,
+            error: "MONGO_URL or DB_NAME missing"
+        };
     }
     return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json(result, {
         status: 200
