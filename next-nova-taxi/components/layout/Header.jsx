@@ -69,7 +69,7 @@ export default function Header() {
             </Link>
           ))}
           <LanguageSwitcher currentLocale="de" />
-          <BookingButton variant="compact" label="Online bestellen" testId="header-booking-button" />
+          <BookingButton variant="compact" label="💬 Per WhatsApp bestellen" testId="header-booking-button" />
           <a
             href="tel:+41766113131"
             className="rounded-full border border-nova-gold/60 px-4 py-3 text-sm font-semibold text-nova-gold hover:bg-nova-gold/10 transition-colors min-h-[44px] inline-flex items-center"
