@@ -159,8 +159,12 @@ User must deploy to Vercel via "Save to GitHub" to see live changes.
 - `/api/seo/locations` - Location data JSON
 - `/api/pricing` (POST) - Distance-matrix based price calculation (CHF 6.60 base + 4.20/km)
 - `/api/pricing/diag` (GET) - Diagnostic endpoint: reports env-var presence + live Google Distance Matrix probe (safe to expose, only leaks last-4 of API key)
-- `/api/bookings` (POST) - Persists booking + generates confirm token
-- `/api/bookings/[id]/confirm` (GET) - Driver confirmation link, auto-redirects to customer WhatsApp
+- `/api/bookings` (POST) - Persists booking with status `pending` (Angefragt); no customer WhatsApp is sent at creation time
+- `/api/bookings/[id]` (GET) - Public booking status (used by customer status page /bestellung/[id])
+- `/api/bookings/[id]/confirm` (GET) - Legacy driver-link confirm flow, kept for backward compatibility
+- `/api/admin/bookings` (GET) - Admin list of bookings; requires header `x-admin-key: $ADMIN_PASSWORD`. Default filter shows pending/confirmed/rejected; `?all=1` shows everything.
+- `/api/admin/bookings/[id]/decision` (POST) - Admin accepts/rejects. Body: `{"action":"accept"|"reject"}`. Requires `x-admin-key`. Idempotent: returns 409 if already processed. Response includes `customerWhatsappUrl` with prefilled confirmation/rejection message.
+- `/admin/bookings` - Admin UI (noindex/nofollow); localStorage-persisted login using `ADMIN_PASSWORD`.
 
 ## Integrations
 - Google Analytics 4 (G-Q4HZJQJCME)
@@ -178,6 +182,7 @@ User must deploy to Vercel via "Save to GitHub" to see live changes.
 | `DB_NAME` | Server | Defaults to `nova_taxi`. |
 | `NEXT_PUBLIC_WHATSAPP_NUMBER` | Client (WhatsApp deep link) | Driver number in intl format without `+`, e.g. `41766113131`. |
 | `DRIVER_CONFIRM_SECRET` | Server (booking confirm HMAC) | Any long random string. |
+| `ADMIN_PASSWORD` | Server (admin bookings API) | Password required to log in at `/admin/bookings` and manage pending orders. |
 
 ---
 

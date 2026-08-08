@@ -50,7 +50,7 @@ export async function POST(req) {
       distanceKm: distanceKm ?? null,
       geo: geo || null,
       lang: lang || "de",
-      status: "requested",
+      status: "pending",
       confirmToken,
       createdAt: now.toISOString(),
       confirmedAt: null,

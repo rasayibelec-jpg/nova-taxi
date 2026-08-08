@@ -27,8 +27,10 @@ export default function BookingStatusPage() {
   }, [id]);
 
   const statusMap = {
+    pending: { label: "Angefragt – wir bestätigen in Kürze", color: "text-amber-400", dot: "bg-amber-400 animate-pulse" },
     requested: { label: "Angefragt – wir bestätigen in Kürze", color: "text-amber-400", dot: "bg-amber-400 animate-pulse" },
-    confirmed: { label: "Bestätigt – Fahrer ist unterwegs", color: "text-emerald-400", dot: "bg-emerald-400" },
+    confirmed: { label: "Bestätigt – Ihr Taxi kommt!", color: "text-emerald-400", dot: "bg-emerald-400" },
+    rejected: { label: "Ihre Bestellung konnte leider nicht angenommen werden.", color: "text-red-400", dot: "bg-red-400" },
     cancelled: { label: "Storniert", color: "text-red-400", dot: "bg-red-400" },
   };
 
