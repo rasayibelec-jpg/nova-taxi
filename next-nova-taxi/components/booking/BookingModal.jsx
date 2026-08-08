@@ -132,26 +132,32 @@ export default function BookingModal({ open, onClose, prefillPickup, prefillDest
     const whenText =
       whenType === "scheduled" && scheduledAt
         ? new Date(scheduledAt).toLocaleString("de-CH", { dateStyle: "short", timeStyle: "short" })
-        : "sofort";
+        : "Jetzt (sofort)";
     const priceText = priceInfo ? `CHF ${priceInfo.priceCHF.toFixed(2)}` : "auf Anfrage";
-    const geoLink = geo ? `https://maps.google.com/?q=${geo.lat},${geo.lng}` : "nicht freigegeben";
+    const distanceLine =
+      priceInfo && priceInfo.distanceKm != null ? `\nDistanz: ${priceInfo.distanceKm} km` : "";
+    const standortLine = geo
+      ? `\nStandort: https://maps.google.com/?q=${geo.lat},${geo.lng}`
+      : "";
     const shortId = bookingId ? String(bookingId).substring(0, 8).toUpperCase() : null;
     const confirmLine =
       bookingId && confirmToken
-        ? `\n\n👉 Annehmen oder Ablehnen:\n${window.location.origin}/bestellung/${bookingId}/bestaetigen?token=${confirmToken}`
+        ? `\n\nBestellung bestätigen:\n${window.location.origin}/bestellung/${bookingId}/bestaetigen?token=${confirmToken}`
         : "";
 
-    const header = shortId ? `Neue Bestellung #${shortId}:` : `Neue Bestellung:`;
+    const idLine = shortId ? `Neue Bestellung\n#${shortId}:` : `Neue Bestellung:`;
     const msg =
-      `${header}\n` +
+      `${idLine}\n` +
       `Name: ${name}\n` +
       `Tel: ${phone}\n` +
-      `Abholung: ${pickup}, ${whenText}\n` +
+      `Abholung: ${pickup}\n` +
+      `Zeit: ${whenText}\n` +
       `Ziel: ${destination}\n` +
       `Personen: ${persons}\n` +
-      `Preis: ${priceText}\n` +
-      `Zahlungsart: ${paymentLabel}\n` +
-      `📍 Genauer Standort: ${geoLink}` +
+      `Preis: ${priceText}` +
+      distanceLine +
+      `\nZahlungsart: ${paymentLabel}` +
+      standortLine +
       confirmLine;
 
     const wa = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "41766113131";
