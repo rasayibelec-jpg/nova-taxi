@@ -69,6 +69,13 @@ export default function Header() {
             </Link>
           ))}
           <LanguageSwitcher currentLocale="de" />
+          <Link
+            href="/admin/bookings"
+            className="text-xs text-gray-400 hover:text-nova-gold transition-colors border border-white/10 rounded-full px-3 py-2 min-h-[44px] inline-flex items-center"
+            data-testid="header-admin-link"
+          >
+            🔐 Admin
+          </Link>
           <BookingButton variant="compact" label="💬 Per WhatsApp bestellen" testId="header-booking-button" />
           <a
             href="tel:+41766113131"
@@ -139,6 +146,14 @@ export default function Header() {
             >
               Jetzt anrufen
             </a>
+
+            <Link
+              href="/admin/bookings"
+              className="block text-xs text-gray-400 hover:text-nova-gold pt-2 border-t border-white/10"
+              onClick={() => setMenuOpen(false)}
+            >
+              🔐 Admin – Bestellungen verwalten
+            </Link>
           </div>
         </div>
       )}
