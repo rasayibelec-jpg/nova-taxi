@@ -1,3 +1,5 @@
 {
-  "/api/admin/bookings/route": "app/api/admin/bookings/route.js"
+  "/api/admin/bookings/[id]/decision/route": "app/api/admin/bookings/[id]/decision/route.js",
+  "/api/bookings/route": "app/api/bookings/route.js",
+  "/api/pricing/diag/route": "app/api/pricing/diag/route.js"
 }

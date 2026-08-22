@@ -12,6 +12,13 @@ export default function AdminBookingsPage() {
   const [error, setError] = useState(null);
   const [busyId, setBusyId] = useState(null);
   const [showAll, setShowAll] = useState(false);
+  const [toast, setToast] = useState(null);
+
+  useEffect(() => {
+    if (!toast) return;
+    const t = setTimeout(() => setToast(null), 5000);
+    return () => clearTimeout(t);
+  }, [toast]);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -87,9 +94,36 @@ export default function AdminBookingsPage() {
         alert("Fehler: " + (data?.detail || data?.error || res.status));
         return;
       }
-      if (data.customerWhatsappUrl) {
-        const w = window.open(data.customerWhatsappUrl, "_blank", "noopener,noreferrer");
-        if (!w || w.closed) window.location.href = data.customerWhatsappUrl;
+      const del = data?.delivery || {};
+      if (del.ok) {
+        // Sent automatically via WhatsApp Cloud API. NO wa.me, NO manual action.
+        setToast({
+          type: "success",
+          text:
+            action === "accept"
+              ? "✓ Bestätigung wurde automatisch an den Kunden gesendet."
+              : "✕ Absage wurde automatisch an den Kunden gesendet.",
+        });
+      } else if (del.attempted && !del.ok) {
+        // API attempted but Meta returned an error — offer manual fallback
+        const msg =
+          "WhatsApp API-Versand fehlgeschlagen: " +
+          (del.error || "unbekannter Fehler") +
+          "\n\nManuell über WhatsApp senden?";
+        if (data.customerWhatsappUrl && confirm(msg)) {
+          window.open(data.customerWhatsappUrl, "_blank", "noopener,noreferrer");
+        }
+      } else {
+        // API not configured yet → keep old wa.me behaviour as fallback
+        setToast({
+          type: "warn",
+          text:
+            "WhatsApp Cloud API nicht konfiguriert. Nachricht wird über wa.me geöffnet.",
+        });
+        if (data.customerWhatsappUrl) {
+          const w = window.open(data.customerWhatsappUrl, "_blank", "noopener,noreferrer");
+          if (!w || w.closed) window.location.href = data.customerWhatsappUrl;
+        }
       }
       setBookings((prev) =>
         prev.map((b) => (b.id === bookingId ? { ...b, status: data.status } : b))
@@ -182,6 +216,18 @@ export default function AdminBookingsPage() {
 
         {loading && bookings.length === 0 && <p className="text-gray-400">Lädt…</p>}
         {error && <p className="text-red-400 text-sm break-words">{error}</p>}
+        {toast && (
+          <div
+            className={`rounded-xl border p-3 text-sm ${
+              toast.type === "success"
+                ? "bg-emerald-500/10 border-emerald-500/40 text-emerald-200"
+                : "bg-amber-500/10 border-amber-500/40 text-amber-200"
+            }`}
+            data-testid="admin-toast"
+          >
+            {toast.text}
+          </div>
+        )}
         {!loading && bookings.length === 0 && !error && (
           <p className="text-gray-400" data-testid="admin-empty-state">Keine Bestellungen.</p>
         )}

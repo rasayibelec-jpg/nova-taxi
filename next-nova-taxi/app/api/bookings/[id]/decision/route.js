@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { getBookingsCollection } from "@/lib/mongodb";
 import { createHmac, timingSafeEqual } from "crypto";
+import { isWhatsAppApiConfigured, sendCustomerMessage } from "@/lib/whatsapp";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -12,7 +13,7 @@ function verifyToken(bookingId, token) {
   return timingSafeEqual(Buffer.from(expected), Buffer.from(token));
 }
 
-function normalizePhone(raw) {
+function normalizePhoneForWaLink(raw) {
   const digits = String(raw || "").replace(/\D/g, "");
   if (!digits) return "";
   return digits.startsWith("0") ? "41" + digits.substring(1) : digits;
@@ -47,8 +48,8 @@ function buildCustomerMessage(doc, action) {
   );
 }
 
-// Driver taps a button on the landing page → POST here with { action: "accept"|"reject" }.
-// Token comes as query param (?token=…). Auth: same HMAC token used by the confirm GET.
+// Driver taps a button on the /bestellung/[id]/bestaetigen page → POST here with { action }.
+// Token auth via ?token=… (HMAC of booking id).
 export async function POST(req, { params }) {
   try {
     const { id } = await params;
@@ -69,28 +70,51 @@ export async function POST(req, { params }) {
     if (!doc) return NextResponse.json({ error: "not_found" }, { status: 404 });
 
     if (doc.status === "confirmed" || doc.status === "rejected") {
-      // Idempotent: return WhatsApp URL for the existing state so driver can still send.
-      const message = buildCustomerMessage(doc, doc.status === "confirmed" ? "accept" : "reject");
-      const waPhone = normalizePhone(doc.customerPhone);
-      const customerWhatsappUrl = waPhone
-        ? `https://wa.me/${waPhone}?text=${encodeURIComponent(message)}`
-        : null;
       return NextResponse.json(
-        { id: doc.id, status: doc.status, customerWhatsappUrl, alreadyProcessed: true },
+        { id: doc.id, status: doc.status, alreadyProcessed: true },
         { status: 200 }
       );
     }
 
     const nextStatus = action === "accept" ? "confirmed" : "rejected";
     const nowIso = new Date().toISOString();
+    const message = buildCustomerMessage(doc, action);
+
+    let delivery = { attempted: false, ok: false };
+    if (isWhatsAppApiConfigured()) {
+      delivery.attempted = true;
+      try {
+        const templateName = process.env.WHATSAPP_TEMPLATE_NAME || null;
+        const templateLang = process.env.WHATSAPP_TEMPLATE_LANGUAGE || "de";
+        const fallback =
+          templateName != null
+            ? { name: templateName, language: templateLang, params: [message] }
+            : null;
+        const result = await sendCustomerMessage(doc.customerPhone, message, fallback);
+        delivery = {
+          attempted: true,
+          ok: true,
+          mode: result.mode,
+          wamid: result.wamid,
+        };
+      } catch (err) {
+        console.error("[bookings/decision] whatsapp send failed", err?.metaError || err?.message);
+        delivery = {
+          attempted: true,
+          ok: false,
+          error: err?.metaError?.message || String(err?.message || err),
+          errorCode: err?.metaErrorCode ?? null,
+        };
+      }
+    }
+
     const update =
       action === "accept"
-        ? { $set: { status: nextStatus, confirmedAt: nowIso, decidedAt: nowIso } }
-        : { $set: { status: nextStatus, rejectedAt: nowIso, decidedAt: nowIso } };
+        ? { $set: { status: nextStatus, confirmedAt: nowIso, decidedAt: nowIso, delivery } }
+        : { $set: { status: nextStatus, rejectedAt: nowIso, decidedAt: nowIso, delivery } };
     await col.updateOne({ id }, update);
 
-    const message = buildCustomerMessage(doc, action);
-    const waPhone = normalizePhone(doc.customerPhone);
+    const waPhone = normalizePhoneForWaLink(doc.customerPhone);
     const customerWhatsappUrl = waPhone
       ? `https://wa.me/${waPhone}?text=${encodeURIComponent(message)}`
       : null;
@@ -98,8 +122,8 @@ export async function POST(req, { params }) {
     return NextResponse.json({
       id: doc.id,
       status: nextStatus,
+      delivery,
       customerWhatsappUrl,
-      customerPhone: doc.customerPhone,
     });
   } catch (err) {
     console.error("[bookings/decision]", err);

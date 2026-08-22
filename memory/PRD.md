@@ -183,6 +183,12 @@ User must deploy to Vercel via "Save to GitHub" to see live changes.
 | `NEXT_PUBLIC_WHATSAPP_NUMBER` | Client (WhatsApp deep link) | Driver number in intl format without `+`, e.g. `41766113131`. |
 | `DRIVER_CONFIRM_SECRET` | Server (booking confirm HMAC) | Any long random string. |
 | `ADMIN_PASSWORD` | Server (admin bookings API) | Password required to log in at `/admin/bookings` and manage pending orders. |
+| `WHATSAPP_API_TOKEN` | Server (WhatsApp Cloud API) | Meta system-user permanent token with `whatsapp_business_messaging` scope. Used to auto-send confirmation/rejection to customers. |
+| `WHATSAPP_PHONE_NUMBER_ID` | Server | Phone number ID from Meta WhatsApp Manager (NOT the visible phone number). |
+| `WHATSAPP_API_VERSION` | Server (optional) | Defaults to `v20.0`. |
+| `WHATSAPP_TEMPLATE_NAME` | Server (optional) | Name of an approved utility template with 1 body parameter, used as a fallback when the 24h customer service window is closed (Meta error 131047). If unset, the API will simply report the error to the admin. |
+| `WHATSAPP_TEMPLATE_LANGUAGE` | Server (optional) | Language code of the template (e.g. `de`, `en_US`). |
+| `WHATSAPP_BUSINESS_ACCOUNT_ID` | Server (optional) | WABA ID – kept for reference / future template management. |
 
 ---
 
