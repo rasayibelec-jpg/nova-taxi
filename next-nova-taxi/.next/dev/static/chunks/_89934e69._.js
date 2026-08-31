@@ -361,13 +361,14 @@ function BookingModal({ open, onClose, prefillPickup, prefillDestination }) {
         const whenText = whenType === "scheduled" && scheduledAt ? new Date(scheduledAt).toLocaleString("de-CH", {
             dateStyle: "short",
             timeStyle: "short"
-        }) : "sofort";
+        }) : "Jetzt (sofort)";
         const priceText = priceInfo ? `CHF ${priceInfo.priceCHF.toFixed(2)}` : "auf Anfrage";
-        const geoLink = geo ? `https://maps.google.com/?q=${geo.lat},${geo.lng}` : "nicht freigegeben";
+        const distanceLine = priceInfo && priceInfo.distanceKm != null ? `\nDistanz: ${priceInfo.distanceKm} km` : "";
+        const standortLine = geo ? `\nStandort: https://maps.google.com/?q=${geo.lat},${geo.lng}` : "";
         const shortId = bookingId ? String(bookingId).substring(0, 8).toUpperCase() : null;
-        const confirmLine = bookingId && confirmToken ? `\n\n✅ Bestellung bestätigen:\n${window.location.origin}/bestellung/${bookingId}/bestaetigen?token=${confirmToken}` : "";
-        const header = shortId ? `Neue Bestellung #${shortId}:` : `Neue Bestellung:`;
-        const msg = `${header}\n` + `Name: ${name}\n` + `Tel: ${phone}\n` + `Abholung: ${pickup}, ${whenText}\n` + `Ziel: ${destination}\n` + `Personen: ${persons}\n` + `Preis: ${priceText}\n` + `Zahlungsart: ${paymentLabel}\n` + `📍 Genauer Standort: ${geoLink}` + confirmLine;
+        const confirmLine = bookingId && confirmToken ? `\n\nBestellung bestätigen:\n${window.location.origin}/bestellung/${bookingId}/bestaetigen?token=${confirmToken}` : "";
+        const idLine = shortId ? `Neue Bestellung\n#${shortId}:` : `Neue Bestellung:`;
+        const msg = `${idLine}\n` + `Name: ${name}\n` + `Tel: ${phone}\n` + `Abholung: ${pickup}\n` + `Zeit: ${whenText}\n` + `Ziel: ${destination}\n` + `Personen: ${persons}\n` + `Preis: ${priceText}` + distanceLine + `\nZahlungsart: ${paymentLabel}` + standortLine + confirmLine;
         const wa = ("TURBOPACK compile-time value", "41766113131") || "41766113131";
         const whatsappUrl = `https://wa.me/${wa}?text=${encodeURIComponent(msg)}`;
         setResult({
@@ -409,7 +410,7 @@ function BookingModal({ open, onClose, prefillPickup, prefillDestination }) {
                     children: "✕"
                 }, void 0, false, {
                     fileName: "[project]/components/booking/BookingModal.jsx",
-                    lineNumber: 191,
+                    lineNumber: 197,
                     columnNumber: 9
                 }, this),
                 result ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -420,7 +421,7 @@ function BookingModal({ open, onClose, prefillPickup, prefillDestination }) {
                             children: "✓"
                         }, void 0, false, {
                             fileName: "[project]/components/booking/BookingModal.jsx",
-                            lineNumber: 203,
+                            lineNumber: 209,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -428,7 +429,7 @@ function BookingModal({ open, onClose, prefillPickup, prefillDestination }) {
                             children: result.shortId ? `Bestellung #${result.shortId} angefragt` : "Bestellung angefragt"
                         }, void 0, false, {
                             fileName: "[project]/components/booking/BookingModal.jsx",
-                            lineNumber: 206,
+                            lineNumber: 212,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -439,7 +440,7 @@ function BookingModal({ open, onClose, prefillPickup, prefillDestination }) {
                                     children: "bestätigt"
                                 }, void 0, false, {
                                     fileName: "[project]/components/booking/BookingModal.jsx",
-                                    lineNumber: 210,
+                                    lineNumber: 216,
                                     columnNumber: 40
                                 }, this),
                                 ", sobald wir uns bei Ihnen melden. Bitte tippen Sie unten auf ",
@@ -447,14 +448,14 @@ function BookingModal({ open, onClose, prefillPickup, prefillDestination }) {
                                     children: '„WhatsApp öffnen"'
                                 }, void 0, false, {
                                     fileName: "[project]/components/booking/BookingModal.jsx",
-                                    lineNumber: 211,
+                                    lineNumber: 217,
                                     columnNumber: 42
                                 }, this),
                                 " und senden Sie die Nachricht ab."
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/booking/BookingModal.jsx",
-                            lineNumber: 209,
+                            lineNumber: 215,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -466,7 +467,7 @@ function BookingModal({ open, onClose, prefillPickup, prefillDestination }) {
                             children: "WhatsApp öffnen und senden"
                         }, void 0, false, {
                             fileName: "[project]/components/booking/BookingModal.jsx",
-                            lineNumber: 213,
+                            lineNumber: 219,
                             columnNumber: 13
                         }, this),
                         result.id && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -476,7 +477,7 @@ function BookingModal({ open, onClose, prefillPickup, prefillDestination }) {
                             children: "Bestellstatus prüfen"
                         }, void 0, false, {
                             fileName: "[project]/components/booking/BookingModal.jsx",
-                            lineNumber: 223,
+                            lineNumber: 229,
                             columnNumber: 15
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -486,13 +487,13 @@ function BookingModal({ open, onClose, prefillPickup, prefillDestination }) {
                             children: "Schliessen"
                         }, void 0, false, {
                             fileName: "[project]/components/booking/BookingModal.jsx",
-                            lineNumber: 231,
+                            lineNumber: 237,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/booking/BookingModal.jsx",
-                    lineNumber: 202,
+                    lineNumber: 208,
                     columnNumber: 11
                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
                     onSubmit: handleSubmit,
@@ -503,7 +504,7 @@ function BookingModal({ open, onClose, prefillPickup, prefillDestination }) {
                             children: "Online Taxi bestellen"
                         }, void 0, false, {
                             fileName: "[project]/components/booking/BookingModal.jsx",
-                            lineNumber: 241,
+                            lineNumber: 247,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -511,7 +512,7 @@ function BookingModal({ open, onClose, prefillPickup, prefillDestination }) {
                             children: "Fahrt in wenigen Sekunden anfragen. Bezahlung im Fahrzeug – keine Kartendaten nötig."
                         }, void 0, false, {
                             fileName: "[project]/components/booking/BookingModal.jsx",
-                            lineNumber: 242,
+                            lineNumber: 248,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -522,7 +523,7 @@ function BookingModal({ open, onClose, prefillPickup, prefillDestination }) {
                                     children: "Abholadresse"
                                 }, void 0, false, {
                                     fileName: "[project]/components/booking/BookingModal.jsx",
-                                    lineNumber: 247,
+                                    lineNumber: 253,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$booking$2f$AddressAutocomplete$2e$jsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -532,13 +533,13 @@ function BookingModal({ open, onClose, prefillPickup, prefillDestination }) {
                                     testId: "booking-pickup-input"
                                 }, void 0, false, {
                                     fileName: "[project]/components/booking/BookingModal.jsx",
-                                    lineNumber: 248,
+                                    lineNumber: 254,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/booking/BookingModal.jsx",
-                            lineNumber: 246,
+                            lineNumber: 252,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -549,7 +550,7 @@ function BookingModal({ open, onClose, prefillPickup, prefillDestination }) {
                                     children: "Zieladresse"
                                 }, void 0, false, {
                                     fileName: "[project]/components/booking/BookingModal.jsx",
-                                    lineNumber: 252,
+                                    lineNumber: 258,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$booking$2f$AddressAutocomplete$2e$jsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -559,13 +560,13 @@ function BookingModal({ open, onClose, prefillPickup, prefillDestination }) {
                                     testId: "booking-destination-input"
                                 }, void 0, false, {
                                     fileName: "[project]/components/booking/BookingModal.jsx",
-                                    lineNumber: 253,
+                                    lineNumber: 259,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/booking/BookingModal.jsx",
-                            lineNumber: 251,
+                            lineNumber: 257,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -579,7 +580,7 @@ function BookingModal({ open, onClose, prefillPickup, prefillDestination }) {
                                             children: "Wann?"
                                         }, void 0, false, {
                                             fileName: "[project]/components/booking/BookingModal.jsx",
-                                            lineNumber: 258,
+                                            lineNumber: 264,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -594,7 +595,7 @@ function BookingModal({ open, onClose, prefillPickup, prefillDestination }) {
                                                     children: "Jetzt"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/booking/BookingModal.jsx",
-                                                    lineNumber: 260,
+                                                    lineNumber: 266,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -602,19 +603,19 @@ function BookingModal({ open, onClose, prefillPickup, prefillDestination }) {
                                                     children: "Termin wählen"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/booking/BookingModal.jsx",
-                                                    lineNumber: 261,
+                                                    lineNumber: 267,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/booking/BookingModal.jsx",
-                                            lineNumber: 259,
+                                            lineNumber: 265,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/booking/BookingModal.jsx",
-                                    lineNumber: 257,
+                                    lineNumber: 263,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -625,7 +626,7 @@ function BookingModal({ open, onClose, prefillPickup, prefillDestination }) {
                                             children: "Personen"
                                         }, void 0, false, {
                                             fileName: "[project]/components/booking/BookingModal.jsx",
-                                            lineNumber: 265,
+                                            lineNumber: 271,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -648,24 +649,24 @@ function BookingModal({ open, onClose, prefillPickup, prefillDestination }) {
                                                     children: n
                                                 }, n, false, {
                                                     fileName: "[project]/components/booking/BookingModal.jsx",
-                                                    lineNumber: 267,
+                                                    lineNumber: 273,
                                                     columnNumber: 57
                                                 }, this))
                                         }, void 0, false, {
                                             fileName: "[project]/components/booking/BookingModal.jsx",
-                                            lineNumber: 266,
+                                            lineNumber: 272,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/booking/BookingModal.jsx",
-                                    lineNumber: 264,
+                                    lineNumber: 270,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/booking/BookingModal.jsx",
-                            lineNumber: 256,
+                            lineNumber: 262,
                             columnNumber: 13
                         }, this),
                         whenType === "scheduled" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -676,7 +677,7 @@ function BookingModal({ open, onClose, prefillPickup, prefillDestination }) {
                                     children: "Datum & Uhrzeit"
                                 }, void 0, false, {
                                     fileName: "[project]/components/booking/BookingModal.jsx",
-                                    lineNumber: 274,
+                                    lineNumber: 280,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -689,13 +690,13 @@ function BookingModal({ open, onClose, prefillPickup, prefillDestination }) {
                                     required: true
                                 }, void 0, false, {
                                     fileName: "[project]/components/booking/BookingModal.jsx",
-                                    lineNumber: 275,
+                                    lineNumber: 281,
                                     columnNumber: 17
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/booking/BookingModal.jsx",
-                            lineNumber: 273,
+                            lineNumber: 279,
                             columnNumber: 15
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -709,7 +710,7 @@ function BookingModal({ open, onClose, prefillPickup, prefillDestination }) {
                                             children: "Name"
                                         }, void 0, false, {
                                             fileName: "[project]/components/booking/BookingModal.jsx",
-                                            lineNumber: 281,
+                                            lineNumber: 287,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -722,13 +723,13 @@ function BookingModal({ open, onClose, prefillPickup, prefillDestination }) {
                                             required: true
                                         }, void 0, false, {
                                             fileName: "[project]/components/booking/BookingModal.jsx",
-                                            lineNumber: 282,
+                                            lineNumber: 288,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/booking/BookingModal.jsx",
-                                    lineNumber: 280,
+                                    lineNumber: 286,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -739,7 +740,7 @@ function BookingModal({ open, onClose, prefillPickup, prefillDestination }) {
                                             children: "Telefon"
                                         }, void 0, false, {
                                             fileName: "[project]/components/booking/BookingModal.jsx",
-                                            lineNumber: 285,
+                                            lineNumber: 291,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -753,19 +754,19 @@ function BookingModal({ open, onClose, prefillPickup, prefillDestination }) {
                                             required: true
                                         }, void 0, false, {
                                             fileName: "[project]/components/booking/BookingModal.jsx",
-                                            lineNumber: 286,
+                                            lineNumber: 292,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/booking/BookingModal.jsx",
-                                    lineNumber: 284,
+                                    lineNumber: 290,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/booking/BookingModal.jsx",
-                            lineNumber: 279,
+                            lineNumber: 285,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -776,7 +777,7 @@ function BookingModal({ open, onClose, prefillPickup, prefillDestination }) {
                                     children: "Zahlungsart (im Fahrzeug)"
                                 }, void 0, false, {
                                     fileName: "[project]/components/booking/BookingModal.jsx",
-                                    lineNumber: 291,
+                                    lineNumber: 297,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -791,7 +792,7 @@ function BookingModal({ open, onClose, prefillPickup, prefillDestination }) {
                                             children: "Bar"
                                         }, void 0, false, {
                                             fileName: "[project]/components/booking/BookingModal.jsx",
-                                            lineNumber: 293,
+                                            lineNumber: 299,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -799,7 +800,7 @@ function BookingModal({ open, onClose, prefillPickup, prefillDestination }) {
                                             children: "Karte"
                                         }, void 0, false, {
                                             fileName: "[project]/components/booking/BookingModal.jsx",
-                                            lineNumber: 294,
+                                            lineNumber: 300,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -807,19 +808,19 @@ function BookingModal({ open, onClose, prefillPickup, prefillDestination }) {
                                             children: "TWINT"
                                         }, void 0, false, {
                                             fileName: "[project]/components/booking/BookingModal.jsx",
-                                            lineNumber: 295,
+                                            lineNumber: 301,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/booking/BookingModal.jsx",
-                                    lineNumber: 292,
+                                    lineNumber: 298,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/booking/BookingModal.jsx",
-                            lineNumber: 290,
+                            lineNumber: 296,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -831,7 +832,7 @@ function BookingModal({ open, onClose, prefillPickup, prefillDestination }) {
                                     children: "Preis wird berechnet…"
                                 }, void 0, false, {
                                     fileName: "[project]/components/booking/BookingModal.jsx",
-                                    lineNumber: 300,
+                                    lineNumber: 306,
                                     columnNumber: 32
                                 }, this),
                                 priceError && !priceLoading && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -843,7 +844,7 @@ function BookingModal({ open, onClose, prefillPickup, prefillDestination }) {
                                             children: priceError.code === "address_not_found" ? "Adresse konnte nicht gefunden werden." : priceError.code === "key_missing" ? "Preisrechner nicht konfiguriert (Serverschlüssel fehlt)." : priceError.code === "key_denied" ? "Preisrechner momentan gesperrt (API-Schlüssel abgelehnt)." : priceError.code === "quota_exceeded" ? "Preisrechner-Kontingent erschöpft." : priceError.code === "invalid_request" ? "Adresse ungültig – bitte präzisieren." : "Preis wird nach Anfrage bestätigt (Fahrpreis-Berechnung derzeit nicht verfügbar)."
                                         }, void 0, false, {
                                             fileName: "[project]/components/booking/BookingModal.jsx",
-                                            lineNumber: 303,
+                                            lineNumber: 309,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -851,7 +852,7 @@ function BookingModal({ open, onClose, prefillPickup, prefillDestination }) {
                                             children: "Ihre Bestellung kann trotzdem gesendet werden. Der Preis wird telefonisch bestätigt."
                                         }, void 0, false, {
                                             fileName: "[project]/components/booking/BookingModal.jsx",
-                                            lineNumber: 316,
+                                            lineNumber: 322,
                                             columnNumber: 19
                                         }, this),
                                         priceError.detail && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -863,13 +864,13 @@ function BookingModal({ open, onClose, prefillPickup, prefillDestination }) {
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/booking/BookingModal.jsx",
-                                            lineNumber: 320,
+                                            lineNumber: 326,
                                             columnNumber: 21
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/booking/BookingModal.jsx",
-                                    lineNumber: 302,
+                                    lineNumber: 308,
                                     columnNumber: 17
                                 }, this),
                                 priceInfo && !priceLoading && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -882,7 +883,7 @@ function BookingModal({ open, onClose, prefillPickup, prefillDestination }) {
                                                     children: "Fahrpreis"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/booking/BookingModal.jsx",
-                                                    lineNumber: 329,
+                                                    lineNumber: 335,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -893,13 +894,13 @@ function BookingModal({ open, onClose, prefillPickup, prefillDestination }) {
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/booking/BookingModal.jsx",
-                                                    lineNumber: 330,
+                                                    lineNumber: 336,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/booking/BookingModal.jsx",
-                                            lineNumber: 328,
+                                            lineNumber: 334,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -912,13 +913,13 @@ function BookingModal({ open, onClose, prefillPickup, prefillDestination }) {
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/booking/BookingModal.jsx",
-                                            lineNumber: 332,
+                                            lineNumber: 338,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/booking/BookingModal.jsx",
-                                    lineNumber: 327,
+                                    lineNumber: 333,
                                     columnNumber: 17
                                 }, this),
                                 !priceLoading && !priceError && !priceInfo && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -926,13 +927,13 @@ function BookingModal({ open, onClose, prefillPickup, prefillDestination }) {
                                     children: "Preis erscheint automatisch, sobald Sie beide Adressen eingegeben haben."
                                 }, void 0, false, {
                                     fileName: "[project]/components/booking/BookingModal.jsx",
-                                    lineNumber: 336,
+                                    lineNumber: 342,
                                     columnNumber: 17
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/booking/BookingModal.jsx",
-                            lineNumber: 299,
+                            lineNumber: 305,
                             columnNumber: 13
                         }, this),
                         submitError && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -941,7 +942,7 @@ function BookingModal({ open, onClose, prefillPickup, prefillDestination }) {
                             children: submitError
                         }, void 0, false, {
                             fileName: "[project]/components/booking/BookingModal.jsx",
-                            lineNumber: 341,
+                            lineNumber: 347,
                             columnNumber: 15
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -952,7 +953,7 @@ function BookingModal({ open, onClose, prefillPickup, prefillDestination }) {
                             children: submitting ? "Wird gesendet…" : "Bestellung senden (per WhatsApp)"
                         }, void 0, false, {
                             fileName: "[project]/components/booking/BookingModal.jsx",
-                            lineNumber: 344,
+                            lineNumber: 350,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -960,24 +961,24 @@ function BookingModal({ open, onClose, prefillPickup, prefillDestination }) {
                             children: "Beim Absenden wird einmalig Ihr Standort abgefragt – nur mit Ihrer Zustimmung."
                         }, void 0, false, {
                             fileName: "[project]/components/booking/BookingModal.jsx",
-                            lineNumber: 347,
+                            lineNumber: 353,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/booking/BookingModal.jsx",
-                    lineNumber: 240,
+                    lineNumber: 246,
                     columnNumber: 11
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/components/booking/BookingModal.jsx",
-            lineNumber: 186,
+            lineNumber: 192,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/components/booking/BookingModal.jsx",
-        lineNumber: 181,
+        lineNumber: 187,
         columnNumber: 5
     }, this);
 }
@@ -1261,13 +1262,23 @@ function Header() {
                                 lineNumber: 71,
                                 columnNumber: 11
                             }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$booking$2f$BookingButton$2e$jsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                variant: "compact",
-                                label: "Online bestellen",
-                                testId: "header-booking-button"
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                href: "/admin/bookings",
+                                className: "text-xs text-gray-400 hover:text-nova-gold transition-colors border border-white/10 rounded-full px-3 py-2 min-h-[44px] inline-flex items-center",
+                                "data-testid": "header-admin-link",
+                                children: "🔐 Admin"
                             }, void 0, false, {
                                 fileName: "[project]/components/layout/Header.jsx",
                                 lineNumber: 72,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$booking$2f$BookingButton$2e$jsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                variant: "compact",
+                                label: "💬 Per WhatsApp bestellen",
+                                testId: "header-booking-button"
+                            }, void 0, false, {
+                                fileName: "[project]/components/layout/Header.jsx",
+                                lineNumber: 79,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -1277,7 +1288,7 @@ function Header() {
                                 children: "076 611 31 31"
                             }, void 0, false, {
                                 fileName: "[project]/components/layout/Header.jsx",
-                                lineNumber: 73,
+                                lineNumber: 80,
                                 columnNumber: 11
                             }, this)
                         ]
@@ -1298,7 +1309,7 @@ function Header() {
                                 children: "Menü"
                             }, void 0, false, {
                                 fileName: "[project]/components/layout/Header.jsx",
-                                lineNumber: 89,
+                                lineNumber: 96,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1308,26 +1319,26 @@ function Header() {
                                         className: "block h-[2px] w-4 bg-current"
                                     }, void 0, false, {
                                         fileName: "[project]/components/layout/Header.jsx",
-                                        lineNumber: 91,
+                                        lineNumber: 98,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         className: "block h-[2px] w-4 bg-current"
                                     }, void 0, false, {
                                         fileName: "[project]/components/layout/Header.jsx",
-                                        lineNumber: 92,
+                                        lineNumber: 99,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/layout/Header.jsx",
-                                lineNumber: 90,
+                                lineNumber: 97,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/layout/Header.jsx",
-                        lineNumber: 82,
+                        lineNumber: 89,
                         columnNumber: 9
                     }, this)
                 ]
@@ -1350,12 +1361,12 @@ function Header() {
                                     children: item.label
                                 }, item.href, false, {
                                     fileName: "[project]/components/layout/Header.jsx",
-                                    lineNumber: 102,
+                                    lineNumber: 109,
                                     columnNumber: 17
                                 }, this))
                         }, void 0, false, {
                             fileName: "[project]/components/layout/Header.jsx",
-                            lineNumber: 100,
+                            lineNumber: 107,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1366,7 +1377,7 @@ function Header() {
                                     children: "Servicegebiete"
                                 }, void 0, false, {
                                     fileName: "[project]/components/layout/Header.jsx",
-                                    lineNumber: 114,
+                                    lineNumber: 121,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1378,18 +1389,18 @@ function Header() {
                                             children: item.label
                                         }, item.href, false, {
                                             fileName: "[project]/components/layout/Header.jsx",
-                                            lineNumber: 119,
+                                            lineNumber: 126,
                                             columnNumber: 19
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/components/layout/Header.jsx",
-                                    lineNumber: 117,
+                                    lineNumber: 124,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/layout/Header.jsx",
-                            lineNumber: 113,
+                            lineNumber: 120,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1398,12 +1409,12 @@ function Header() {
                                 currentLocale: "de"
                             }, void 0, false, {
                                 fileName: "[project]/components/layout/Header.jsx",
-                                lineNumber: 132,
+                                lineNumber: 139,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/components/layout/Header.jsx",
-                            lineNumber: 131,
+                            lineNumber: 138,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -1413,18 +1424,28 @@ function Header() {
                             children: "Jetzt anrufen"
                         }, void 0, false, {
                             fileName: "[project]/components/layout/Header.jsx",
-                            lineNumber: 135,
+                            lineNumber: 142,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                            href: "/admin/bookings",
+                            className: "block text-xs text-gray-400 hover:text-nova-gold pt-2 border-t border-white/10",
+                            onClick: ()=>setMenuOpen(false),
+                            children: "🔐 Admin – Bestellungen verwalten"
+                        }, void 0, false, {
+                            fileName: "[project]/components/layout/Header.jsx",
+                            lineNumber: 150,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/layout/Header.jsx",
-                    lineNumber: 99,
+                    lineNumber: 106,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/layout/Header.jsx",
-                lineNumber: 98,
+                lineNumber: 105,
                 columnNumber: 9
             }, this)
         ]

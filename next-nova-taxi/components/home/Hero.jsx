@@ -85,8 +85,9 @@ export default function Hero() {
 
           <div className="flex flex-col sm:flex-row gap-4">
             <Link
-              href="#services"
+              href="/preise"
               className="inline-flex items-center justify-center rounded-full bg-nova-gold px-7 py-4 text-sm font-semibold text-black shadow-lg shadow-yellow-500/20 hover:bg-nova-gold-soft transition-colors min-h-[48px]"
+              data-testid="hero-preise-link"
             >
               Preis & Angebote ansehen
             </Link>
