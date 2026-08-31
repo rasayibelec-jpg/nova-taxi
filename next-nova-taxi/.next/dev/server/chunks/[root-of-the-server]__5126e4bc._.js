@@ -84,42 +84,59 @@ async function getBookingsCollection() {
     return db.collection("bookings");
 }
 }),
-"[project]/app/api/bookings/[id]/route.js [app-route] (ecmascript)", ((__turbopack_context__) => {
+"[project]/app/api/admin/bookings/[id]/route.js [app-route] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
 __turbopack_context__.s([
-    "GET",
-    ()=>GET,
+    "DELETE",
+    ()=>DELETE,
     "dynamic",
-    ()=>dynamic
+    ()=>dynamic,
+    "runtime",
+    ()=>runtime
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/server.js [app-route] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$mongodb$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/mongodb.js [app-route] (ecmascript)");
 ;
 ;
 const dynamic = "force-dynamic";
-async function GET(req, { params }) {
+const runtime = "nodejs";
+function isAuthorized(req) {
+    const expected = process.env.ADMIN_PASSWORD || "";
+    if (!expected) return false;
+    const auth = req.headers.get("x-admin-key") || "";
+    return auth && auth === expected;
+}
+async function DELETE(req, { params }) {
+    if (!isAuthorized(req)) {
+        return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
+            error: "unauthorized"
+        }, {
+            status: 401
+        });
+    }
     try {
         const { id } = await params;
         const col = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$mongodb$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["getBookingsCollection"])();
-        const doc = await col.findOne({
+        const result = await col.deleteOne({
             id
-        }, {
-            projection: {
-                _id: 0,
-                confirmToken: 0
-            }
         });
-        if (!doc) return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
-            error: "not_found"
-        }, {
-            status: 404
-        });
-        return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json(doc);
-    } catch (err) {
-        console.error("[bookings/get]", err);
+        if (result.deletedCount === 0) {
+            return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
+                error: "not_found"
+            }, {
+                status: 404
+            });
+        }
         return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
-            error: "internal"
+            ok: true,
+            deletedId: id
+        });
+    } catch (err) {
+        console.error("[admin/bookings/delete]", err);
+        return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
+            error: "internal",
+            detail: String(err?.message || err)
         }, {
             status: 500
         });
@@ -128,4 +145,4 @@ async function GET(req, { params }) {
 }),
 ];
 
-//# sourceMappingURL=%5Broot-of-the-server%5D__37de7065._.js.map
+//# sourceMappingURL=%5Broot-of-the-server%5D__5126e4bc._.js.map

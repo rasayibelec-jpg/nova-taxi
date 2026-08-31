@@ -9,7 +9,7 @@ from pathlib import Path
 from pydantic import BaseModel, Field, EmailStr
 from typing import List, Optional
 import uuid
-from datetime import datetime, date, timezone, timedelta
+from datetime import datetime, timezone, timedelta
 import pytz
 from email_service import email_service
 from google_maps_service import google_maps_service
@@ -515,7 +515,7 @@ async def get_all_bookings(request: Request):
                 if isinstance(booking['created_at'], str):
                     try:
                         dt = datetime.fromisoformat(booking['created_at'].replace('Z', '+00:00'))
-                    except:
+                    except Exception:
                         dt = datetime.fromisoformat(booking['created_at'])
                 else:
                     dt = booking['created_at']
@@ -533,7 +533,7 @@ async def get_all_bookings(request: Request):
                 if isinstance(booking['pickup_datetime'], str):
                     try:
                         dt = datetime.fromisoformat(booking['pickup_datetime'].replace('Z', '+00:00'))
-                    except:
+                    except Exception:
                         dt = datetime.fromisoformat(booking['pickup_datetime'])
                 else:
                     dt = booking['pickup_datetime']
@@ -551,7 +551,7 @@ async def get_all_bookings(request: Request):
                 if isinstance(booking['updated_at'], str):
                     try:
                         dt = datetime.fromisoformat(booking['updated_at'].replace('Z', '+00:00'))
-                    except:
+                    except Exception:
                         dt = datetime.fromisoformat(booking['updated_at'])
                 else:
                     dt = booking['updated_at']

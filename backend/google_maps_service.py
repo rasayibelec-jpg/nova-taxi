@@ -528,7 +528,7 @@ class GoogleMapsDistanceService:
             logger.error(f"Route calculation error ({option}): {str(e)}")
             raise e
     
-    async def calculate_multiple_routes(self, route_pairs: List[Tuple[str, str]]) -> List[Dict]:
+    async def calculate_multiple_routes_parallel(self, route_pairs: List[Tuple[str, str]]) -> List[Dict]:
         """Calculate multiple routes in parallel for efficiency"""
         try:
             tasks = []

@@ -119,7 +119,7 @@ class BookingService:
             # Parse as naive datetime first
             try:
                 pickup_datetime_naive = datetime.fromisoformat(pickup_datetime_str)
-            except:
+            except Exception:
                 # Try alternative parsing
                 pickup_datetime_naive = datetime.strptime(pickup_datetime_str, '%Y-%m-%dT%H:%M:%S')
             

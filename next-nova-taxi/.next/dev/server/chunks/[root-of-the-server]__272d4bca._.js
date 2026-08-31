@@ -84,48 +84,96 @@ async function getBookingsCollection() {
     return db.collection("bookings");
 }
 }),
-"[project]/app/api/bookings/[id]/route.js [app-route] (ecmascript)", ((__turbopack_context__) => {
+"[project]/app/api/whatsapp/webhook/route.js [app-route] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
 __turbopack_context__.s([
     "GET",
     ()=>GET,
+    "POST",
+    ()=>POST,
     "dynamic",
-    ()=>dynamic
+    ()=>dynamic,
+    "runtime",
+    ()=>runtime
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/server.js [app-route] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$mongodb$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/mongodb.js [app-route] (ecmascript)");
 ;
 ;
 const dynamic = "force-dynamic";
-async function GET(req, { params }) {
-    try {
-        const { id } = await params;
-        const col = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$mongodb$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["getBookingsCollection"])();
-        const doc = await col.findOne({
-            id
-        }, {
-            projection: {
-                _id: 0,
-                confirmToken: 0
+const runtime = "nodejs";
+async function GET(req) {
+    const url = new URL(req.url);
+    const mode = url.searchParams.get("hub.mode");
+    const token = url.searchParams.get("hub.verify_token");
+    const challenge = url.searchParams.get("hub.challenge");
+    const expected = process.env.WHATSAPP_WEBHOOK_VERIFY_TOKEN;
+    if (mode === "subscribe" && token && expected && token === expected) {
+        return new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"](challenge || "", {
+            status: 200,
+            headers: {
+                "content-type": "text/plain"
             }
         });
-        if (!doc) return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
-            error: "not_found"
-        }, {
-            status: 404
-        });
-        return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json(doc);
-    } catch (err) {
-        console.error("[bookings/get]", err);
+    }
+    return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
+        error: "forbidden"
+    }, {
+        status: 403
+    });
+}
+async function POST(req) {
+    try {
+        const body = await req.json().catch(()=>({}));
+        // Structure: entry[].changes[].value.statuses[]
+        const entries = Array.isArray(body?.entry) ? body.entry : [];
+        const col = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$mongodb$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["getBookingsCollection"])();
+        const updates = [];
+        for (const entry of entries){
+            for (const change of entry.changes || []){
+                const statuses = change?.value?.statuses || [];
+                for (const s of statuses){
+                    const wamid = s?.id;
+                    const status = s?.status; // sent | delivered | read | failed
+                    const timestamp = s?.timestamp ? new Date(Number(s.timestamp) * 1000).toISOString() : new Date().toISOString();
+                    if (!wamid || !status) continue;
+                    updates.push(col.updateOne({
+                        "delivery.wamid": wamid
+                    }, {
+                        $set: {
+                            "delivery.lastStatus": status,
+                            "delivery.lastStatusAt": timestamp
+                        },
+                        $push: {
+                            "delivery.history": {
+                                status,
+                                at: timestamp,
+                                error: s?.errors?.[0]?.title || null
+                            }
+                        }
+                    }));
+                }
+            }
+        }
+        if (updates.length) await Promise.all(updates);
         return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
-            error: "internal"
+            ok: true,
+            processed: updates.length
+        });
+    } catch (err) {
+        console.error("[whatsapp/webhook]", err);
+        // Always return 200 to Meta so it doesn't retry aggressively;
+        // we log the error server-side.
+        return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
+            ok: false,
+            error: String(err?.message || err)
         }, {
-            status: 500
+            status: 200
         });
     }
 }
 }),
 ];
 
-//# sourceMappingURL=%5Broot-of-the-server%5D__37de7065._.js.map
+//# sourceMappingURL=%5Broot-of-the-server%5D__272d4bca._.js.map

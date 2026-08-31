@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
+import Link from "next/link";
 
 const STORAGE_KEY = "novaTaxiAdminKey";
 
@@ -8,11 +9,14 @@ export default function AdminBookingsPage() {
   const [adminKey, setAdminKey] = useState("");
   const [keyInput, setKeyInput] = useState("");
   const [bookings, setBookings] = useState([]);
+  const [stats, setStats] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [busyId, setBusyId] = useState(null);
   const [showAll, setShowAll] = useState(false);
   const [toast, setToast] = useState(null);
+  const [noteDrafts, setNoteDrafts] = useState({});
+  const [savingNoteId, setSavingNoteId] = useState(null);
 
   useEffect(() => {
     if (!toast) return;
@@ -32,22 +36,32 @@ export default function AdminBookingsPage() {
       setLoading(true);
       setError(null);
       try {
-        const res = await fetch(`/api/admin/bookings${all ? "?all=1" : ""}`, {
-          headers: { "x-admin-key": key },
-          cache: "no-store",
-        });
-        if (res.status === 401) {
+        const [bRes, sRes] = await Promise.all([
+          fetch(`/api/admin/bookings${all ? "?all=1" : ""}`, {
+            headers: { "x-admin-key": key },
+            cache: "no-store",
+          }),
+          fetch(`/api/admin/stats`, {
+            headers: { "x-admin-key": key },
+            cache: "no-store",
+          }),
+        ]);
+        if (bRes.status === 401) {
           setError("Falsches Passwort.");
           setAdminKey("");
           if (typeof window !== "undefined") window.localStorage.removeItem(STORAGE_KEY);
           return;
         }
-        const data = await res.json().catch(() => ({}));
-        if (!res.ok) {
-          setError("Fehler: " + (data?.detail || data?.error || res.status));
+        const data = await bRes.json().catch(() => ({}));
+        if (!bRes.ok) {
+          setError("Fehler: " + (data?.detail || data?.error || bRes.status));
           return;
         }
         setBookings(data.bookings || []);
+        if (sRes.ok) {
+          const s = await sRes.json().catch(() => null);
+          if (s) setStats(s);
+        }
       } catch (e) {
         setError("Fehler: " + (e?.message || "unknown"));
       } finally {
@@ -136,6 +150,58 @@ export default function AdminBookingsPage() {
     }
   }
 
+  async function saveNote(bookingId) {
+    const note = (noteDrafts[bookingId] ?? "").trim();
+    setSavingNoteId(bookingId);
+    try {
+      const res = await fetch(`/api/admin/bookings/${bookingId}/note`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json", "x-admin-key": adminKey },
+        body: JSON.stringify({ note }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        alert("Fehler: " + (data?.detail || data?.error || res.status));
+        return;
+      }
+      setBookings((prev) =>
+        prev.map((b) =>
+          b.id === bookingId ? { ...b, adminNote: note, adminNoteUpdatedAt: new Date().toISOString() } : b
+        )
+      );
+      setToast({ type: "success", text: "Notiz gespeichert." });
+    } catch (e) {
+      alert("Fehler: " + (e?.message || "unknown"));
+    } finally {
+      setSavingNoteId(null);
+    }
+  }
+
+  async function deleteBooking(bookingId, shortId) {
+    if (!confirm(`Bestellung #${shortId} wirklich endgültig löschen?\nDies kann nicht rückgängig gemacht werden.`)) {
+      return;
+    }
+    setBusyId(bookingId);
+    try {
+      const res = await fetch(`/api/admin/bookings/${bookingId}`, {
+        method: "DELETE",
+        headers: { "x-admin-key": adminKey },
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        alert("Fehler: " + (data?.detail || data?.error || res.status));
+        return;
+      }
+      setBookings((prev) => prev.filter((b) => b.id !== bookingId));
+      setToast({ type: "success", text: `Bestellung #${shortId} gelöscht.` });
+      load(adminKey, showAll);
+    } catch (e) {
+      alert("Fehler: " + (e?.message || "unknown"));
+    } finally {
+      setBusyId(null);
+    }
+  }
+
   if (!adminKey) {
     return (
       <div className="section-padding">
@@ -187,6 +253,13 @@ export default function AdminBookingsPage() {
             )}
           </div>
           <div className="flex items-center gap-2">
+            <Link
+              href="/admin/setup"
+              className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-nova-gold hover:bg-white/10"
+              data-testid="admin-setup-link"
+            >
+              📘 Setup Guide
+            </Link>
             <label className="text-xs text-gray-400 flex items-center gap-2">
               <input
                 type="checkbox"
@@ -226,6 +299,52 @@ export default function AdminBookingsPage() {
             data-testid="admin-toast"
           >
             {toast.text}
+          </div>
+        )}
+
+        {stats && (
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3" data-testid="admin-stats">
+            <div className="rounded-xl border border-white/10 bg-white/5 p-4">
+              <p className="text-[10px] uppercase tracking-widest text-gray-500">Heute</p>
+              <p className="text-2xl font-semibold text-white mt-1">{stats.today.count}</p>
+              <p className="text-xs text-nova-gold mt-0.5">CHF {stats.today.revenueCHF.toFixed(2)}</p>
+            </div>
+            <div className="rounded-xl border border-white/10 bg-white/5 p-4">
+              <p className="text-[10px] uppercase tracking-widest text-gray-500">7 Tage</p>
+              <p className="text-2xl font-semibold text-white mt-1">{stats.last7Days.count}</p>
+              <p className="text-xs text-nova-gold mt-0.5">CHF {stats.last7Days.revenueCHF.toFixed(2)}</p>
+            </div>
+            <div className="rounded-xl border border-white/10 bg-white/5 p-4">
+              <p className="text-[10px] uppercase tracking-widest text-gray-500">30 Tage</p>
+              <p className="text-2xl font-semibold text-white mt-1">{stats.last30Days.count}</p>
+              <p className="text-xs text-nova-gold mt-0.5">CHF {stats.last30Days.revenueCHF.toFixed(2)}</p>
+            </div>
+            <div className="rounded-xl border border-amber-500/40 bg-amber-500/5 p-4">
+              <p className="text-[10px] uppercase tracking-widest text-amber-300/70">Angefragt</p>
+              <p className="text-2xl font-semibold text-amber-300 mt-1">{stats.pendingCount}</p>
+              <p className="text-xs text-amber-300/70 mt-0.5">warten auf Entscheidung</p>
+            </div>
+          </div>
+        )}
+
+        {stats && stats.last7Days.count > 0 && (
+          <div className="rounded-xl border border-white/10 bg-white/5 p-4">
+            <p className="text-xs text-gray-400 mb-3">Stündliche Verteilung (letzte 7 Tage)</p>
+            <div className="flex items-end gap-1 h-20">
+              {stats.hourly.map((count, h) => {
+                const max = Math.max(...stats.hourly, 1);
+                const height = Math.max(4, Math.round((count / max) * 72));
+                return (
+                  <div key={h} className="flex-1 flex flex-col items-center gap-1" title={`${h}:00 – ${count} Fahrten`}>
+                    <div
+                      className="w-full rounded-sm bg-nova-gold/70 hover:bg-nova-gold transition-colors"
+                      style={{ height: `${height}px` }}
+                    />
+                    <span className="text-[9px] text-gray-500">{h}</span>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         )}
         {!loading && bookings.length === 0 && !error && (
@@ -312,6 +431,69 @@ export default function AdminBookingsPage() {
                   </a>
                 )}
 
+                {/* Internal admin note (persisted per booking) */}
+                <div className="pt-1">
+                  <label className="text-xs text-gray-500 block mb-1">
+                    Interne Notiz
+                    {b.adminNoteUpdatedAt && (
+                      <span className="ml-2 text-[10px] text-gray-600">
+                        · zuletzt {new Date(b.adminNoteUpdatedAt).toLocaleString("de-CH")}
+                      </span>
+                    )}
+                  </label>
+                  <div className="flex gap-2">
+                    <input
+                      type="text"
+                      maxLength={500}
+                      placeholder="z.B. Kunde ruft zurück"
+                      value={noteDrafts[b.id] ?? b.adminNote ?? ""}
+                      onChange={(e) =>
+                        setNoteDrafts((d) => ({ ...d, [b.id]: e.target.value }))
+                      }
+                      className="flex-1 rounded-lg border border-white/10 bg-black/40 px-3 py-2 text-sm text-white placeholder:text-gray-500 focus:border-nova-gold focus:outline-none focus:ring-1 focus:ring-nova-gold/30"
+                      data-testid={`admin-note-input-${shortId}`}
+                    />
+                    <button
+                      type="button"
+                      onClick={() => saveNote(b.id)}
+                      disabled={savingNoteId === b.id}
+                      className="rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-xs text-white hover:bg-white/10 disabled:opacity-40"
+                      data-testid={`admin-note-save-${shortId}`}
+                    >
+                      {savingNoteId === b.id ? "…" : "Speichern"}
+                    </button>
+                  </div>
+                </div>
+
+                {/* Delivery status of the customer notification */}
+                {b.delivery && b.delivery.attempted && (
+                  <div className="text-[11px] text-gray-500 flex flex-wrap items-center gap-2">
+                    <span>WhatsApp-Zustellung:</span>
+                    {b.delivery.ok ? (
+                      <>
+                        <span className="text-emerald-400 font-semibold">
+                          {b.delivery.lastStatus === "read"
+                            ? "✓✓ gelesen"
+                            : b.delivery.lastStatus === "delivered"
+                            ? "✓✓ zugestellt"
+                            : b.delivery.lastStatus === "sent"
+                            ? "✓ gesendet"
+                            : b.delivery.lastStatus === "failed"
+                            ? "✕ fehlgeschlagen"
+                            : "✓ akzeptiert"}
+                        </span>
+                        {b.delivery.mode === "template" && (
+                          <span className="text-gray-500">(Template)</span>
+                        )}
+                      </>
+                    ) : (
+                      <span className="text-red-400">
+                        Fehler: {b.delivery.error || "unbekannt"}
+                      </span>
+                    )}
+                  </div>
+                )}
+
                 <div className="flex flex-wrap gap-2 pt-2">
                   <button
                     type="button"
@@ -336,6 +518,16 @@ export default function AdminBookingsPage() {
                   {!isPending && (
                     <span className="text-xs text-gray-500 self-center">Bereits verarbeitet.</span>
                   )}
+                  <button
+                    type="button"
+                    disabled={busyId === b.id}
+                    onClick={() => deleteBooking(b.id, shortId)}
+                    className="ml-auto rounded-full border border-red-500/40 text-red-300 hover:bg-red-500/10 px-4 py-2 text-xs font-medium disabled:opacity-40 disabled:cursor-not-allowed"
+                    data-testid={`admin-delete-${shortId}`}
+                    title="Bestellung endgültig löschen"
+                  >
+                    🗑 Löschen
+                  </button>
                 </div>
               </div>
             );
