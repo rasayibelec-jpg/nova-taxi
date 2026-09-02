@@ -516,6 +516,10 @@ p {
   height: 100%;
 }
 
+.max-h-60 {
+  max-height: 15rem;
+}
+
 .min-h-\[44px\] {
   min-height: 44px;
 }
@@ -630,6 +634,10 @@ p {
 
 .animate-spin {
   animation: 1s linear infinite spin;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 .list-inside {
@@ -776,6 +784,10 @@ p {
   align-self: center;
 }
 
+.overflow-auto {
+  overflow: auto;
+}
+
 .overflow-hidden {
   overflow: hidden;
 }
@@ -870,6 +882,16 @@ p {
 
 .border-emerald-500\/40 {
   border-color: #10b98166;
+}
+
+.border-gray-100 {
+  --tw-border-opacity: 1;
+  border-color: rgb(243 244 246 / var(--tw-border-opacity, 1));
+}
+
+.border-gray-200 {
+  --tw-border-opacity: 1;
+  border-color: rgb(229 231 235 / var(--tw-border-opacity, 1));
 }
 
 .border-gray-300 {
@@ -1426,6 +1448,10 @@ p {
   text-transform: uppercase;
 }
 
+.italic {
+  font-style: italic;
+}
+
 .not-italic {
   font-style: normal;
 }
@@ -1866,6 +1892,11 @@ a {
 .hover\:bg-emerald-600:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(5 150 105 / var(--tw-bg-opacity, 1));
+}
+
+.hover\:bg-gray-100:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity, 1));
 }
 
 .hover\:bg-gray-200:hover {

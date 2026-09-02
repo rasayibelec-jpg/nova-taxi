@@ -84,12 +84,28 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 var _s = __turbopack_context__.k.signature();
 "use client";
 ;
+// Static mock suggestions for development (avoids billable Google API calls).
+// Enable with NEXT_PUBLIC_MOCK_PLACES=1
+const MOCK_SUGGESTIONS = [
+    "Bahnhof Arth-Goldau, 6410 Goldau, Schweiz",
+    "Bahnhof Luzern, 6003 Luzern, Schweiz",
+    "Flughafen Zürich, 8058 Zürich-Flughafen, Schweiz",
+    "Bahnhof Zug, 6300 Zug, Schweiz",
+    "Bahnhof Schwyz, 6440 Schwyz, Schweiz",
+    "Türlihof 4, 6414 Oberarth, Schweiz",
+    "Weggis, 6353 Weggis, Schweiz",
+    "Vitznau, 6354 Vitznau, Schweiz"
+];
 function AddressAutocomplete({ value, onChange, placeholder, testId }) {
     _s();
     const inputRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
     const [loaded, setLoaded] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [mockOpen, setMockOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const useMock = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env.NEXT_PUBLIC_MOCK_PLACES === "1";
+    // Load the Google Maps Places script once (skipped in mock mode)
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "AddressAutocomplete.useEffect": ()=>{
+            if (useMock) return;
             const key = ("TURBOPACK compile-time value", "AIzaSyAR5af36hrIBOOBP5lIjXYLqtngK2mmkXU");
             if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
             ;
@@ -114,9 +130,21 @@ function AddressAutocomplete({ value, onChange, placeholder, testId }) {
             })["AddressAutocomplete.useEffect"];
             document.head.appendChild(script);
         }
-    }["AddressAutocomplete.useEffect"], []);
+    }["AddressAutocomplete.useEffect"], [
+        useMock
+    ]);
+    // Attach Autocomplete widget with cost-optimised fields (Basic Data tier only).
+    //
+    // Cost notes:
+    // - fields limited to Basic Data ONLY: formatted_address, geometry, place_id.
+    //   We intentionally drop `name`, opening_hours, photos, rating, reviews, etc.
+    //   (those move billing into the Atmosphere/Contact tiers ~6× more expensive).
+    // - The widget automatically manages the Autocomplete session token,
+    //   bundling predictions + the (implicit) details fetch into ONE billable
+    //   session, provided the requested fields stay in Basic Data.
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "AddressAutocomplete.useEffect": ()=>{
+            if (useMock) return;
             if (!loaded || !inputRef.current) return;
             const ac = new window.google.maps.places.Autocomplete(inputRef.current, {
                 componentRestrictions: {
@@ -129,18 +157,17 @@ function AddressAutocomplete({ value, onChange, placeholder, testId }) {
                 },
                 fields: [
                     "formatted_address",
-                    "name",
-                    "geometry"
+                    "geometry",
+                    "place_id"
                 ],
                 types: [
-                    "geocode",
-                    "establishment"
+                    "geocode"
                 ]
             });
             const listener = ac.addListener("place_changed", {
                 "AddressAutocomplete.useEffect.listener": ()=>{
                     const place = ac.getPlace();
-                    const label = place.formatted_address || place.name || inputRef.current.value;
+                    const label = place.formatted_address || inputRef.current.value;
                     if (label) onChange(label);
                 }
             }["AddressAutocomplete.useEffect.listener"]);
@@ -150,8 +177,77 @@ function AddressAutocomplete({ value, onChange, placeholder, testId }) {
         }
     }["AddressAutocomplete.useEffect"], [
         loaded,
-        onChange
+        onChange,
+        useMock
     ]);
+    // --- Mock mode (development only) --------------------------------------
+    if (useMock) {
+        const q = (value || "").toLowerCase().trim();
+        const filtered = q.length >= 2 ? MOCK_SUGGESTIONS.filter((s)=>s.toLowerCase().includes(q)) : MOCK_SUGGESTIONS;
+        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            className: "relative",
+            children: [
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                    ref: inputRef,
+                    type: "text",
+                    value: value,
+                    onChange: (e)=>{
+                        onChange(e.target.value);
+                        setMockOpen(true);
+                    },
+                    onFocus: ()=>setMockOpen(true),
+                    onBlur: ()=>setTimeout(()=>setMockOpen(false), 150),
+                    placeholder: placeholder,
+                    "data-testid": testId,
+                    className: "w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-base text-black placeholder:text-gray-500 focus:border-nova-gold focus:outline-none focus:ring-2 focus:ring-nova-gold/30",
+                    style: {
+                        color: "#000000",
+                        backgroundColor: "#FFFFFF"
+                    },
+                    autoComplete: "off"
+                }, void 0, false, {
+                    fileName: "[project]/components/booking/AddressAutocomplete.jsx",
+                    lineNumber: 85,
+                    columnNumber: 9
+                }, this),
+                mockOpen && filtered.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
+                    className: "absolute z-50 mt-1 w-full rounded-lg border border-gray-200 bg-white shadow-lg max-h-60 overflow-auto",
+                    children: [
+                        filtered.slice(0, 6).map((s)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                onMouseDown: (e)=>{
+                                    e.preventDefault();
+                                    onChange(s);
+                                    setMockOpen(false);
+                                },
+                                className: "px-3 py-2 text-sm text-black hover:bg-gray-100 cursor-pointer",
+                                children: s
+                            }, s, false, {
+                                fileName: "[project]/components/booking/AddressAutocomplete.jsx",
+                                lineNumber: 104,
+                                columnNumber: 15
+                            }, this)),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                            className: "px-3 py-1 text-[10px] text-gray-400 border-t border-gray-100 italic",
+                            children: "MOCK MODE (NEXT_PUBLIC_MOCK_PLACES=1)"
+                        }, void 0, false, {
+                            fileName: "[project]/components/booking/AddressAutocomplete.jsx",
+                            lineNumber: 116,
+                            columnNumber: 13
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/components/booking/AddressAutocomplete.jsx",
+                    lineNumber: 102,
+                    columnNumber: 11
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "[project]/components/booking/AddressAutocomplete.jsx",
+            lineNumber: 84,
+            columnNumber: 7
+        }, this);
+    }
+    // --- Real Google Autocomplete ------------------------------------------
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
         ref: inputRef,
         type: "text",
@@ -167,11 +263,11 @@ function AddressAutocomplete({ value, onChange, placeholder, testId }) {
         autoComplete: "off"
     }, void 0, false, {
         fileName: "[project]/components/booking/AddressAutocomplete.jsx",
-        lineNumber: 49,
+        lineNumber: 127,
         columnNumber: 5
     }, this);
 }
-_s(AddressAutocomplete, "4EMKjT+UBtbIsWXUgi5StOpVVpg=");
+_s(AddressAutocomplete, "W0Xdt39GwzLwIrDtN1YMmnvI/Tk=");
 _c = AddressAutocomplete;
 var _c;
 __turbopack_context__.k.register(_c, "AddressAutocomplete");
