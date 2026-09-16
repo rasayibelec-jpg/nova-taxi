@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import Link from "next/link";
 
 const STORAGE_KEY = "novaTaxiAdminKey";
+const SOUND_PREF_KEY = "novaTaxiAdminSound";
 
 export default function AdminBookingsPage() {
   const [adminKey, setAdminKey] = useState("");
@@ -17,12 +18,55 @@ export default function AdminBookingsPage() {
   const [toast, setToast] = useState(null);
   const [noteDrafts, setNoteDrafts] = useState({});
   const [savingNoteId, setSavingNoteId] = useState(null);
+  const [soundOn, setSoundOn] = useState(false);
+  const [historyById, setHistoryById] = useState({}); // {bookingId: {loading, count, bookings}}
+  const [expandedHistory, setExpandedHistory] = useState({});
+  const lastPendingIdsRef = useRef(new Set());
+  const isFirstLoadRef = useRef(true);
 
   useEffect(() => {
     if (!toast) return;
     const t = setTimeout(() => setToast(null), 5000);
     return () => clearTimeout(t);
   }, [toast]);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    setSoundOn(window.localStorage.getItem(SOUND_PREF_KEY) === "1");
+  }, []);
+
+  function toggleSound() {
+    setSoundOn((v) => {
+      const next = !v;
+      if (typeof window !== "undefined") {
+        window.localStorage.setItem(SOUND_PREF_KEY, next ? "1" : "0");
+      }
+      if (next) playBeep(); // audible confirmation
+      return next;
+    });
+  }
+
+  function playBeep() {
+    if (typeof window === "undefined") return;
+    try {
+      const Ctx = window.AudioContext || window.webkitAudioContext;
+      if (!Ctx) return;
+      const ctx = new Ctx();
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = "sine";
+      osc.frequency.setValueAtTime(880, ctx.currentTime);
+      gain.gain.setValueAtTime(0.0001, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.35, ctx.currentTime + 0.02);
+      gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.6);
+      osc.connect(gain).connect(ctx.destination);
+      osc.start();
+      osc.stop(ctx.currentTime + 0.65);
+      osc.onended = () => ctx.close();
+    } catch {
+      /* ignore */
+    }
+  }
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -58,6 +102,27 @@ export default function AdminBookingsPage() {
           return;
         }
         setBookings(data.bookings || []);
+        // Ses bildirimi: yeni pending sipariş algılansa çal
+        const pendingIds = new Set(
+          (data.bookings || [])
+            .filter((b) => b.status === "pending" || b.status === "requested")
+            .map((b) => b.id)
+        );
+        if (!isFirstLoadRef.current) {
+          let hasNew = false;
+          for (const id of pendingIds) {
+            if (!lastPendingIdsRef.current.has(id)) {
+              hasNew = true;
+              break;
+            }
+          }
+          if (hasNew && soundOn) playBeep();
+          if (hasNew) {
+            setToast({ type: "success", text: "🔔 Neue Bestellung eingegangen!" });
+          }
+        }
+        lastPendingIdsRef.current = pendingIds;
+        isFirstLoadRef.current = false;
         if (sRes.ok) {
           const s = await sRes.json().catch(() => null);
           if (s) setStats(s);
@@ -202,6 +267,37 @@ export default function AdminBookingsPage() {
     }
   }
 
+  async function toggleCustomerHistory(bookingId, phone) {
+    const wasExpanded = expandedHistory[bookingId];
+    setExpandedHistory((prev) => ({ ...prev, [bookingId]: !wasExpanded }));
+    if (wasExpanded) return;
+    if (historyById[bookingId]?.loaded) return;
+    setHistoryById((prev) => ({ ...prev, [bookingId]: { loading: true } }));
+    try {
+      const res = await fetch(
+        `/api/admin/customer-history?phone=${encodeURIComponent(phone)}&excludeId=${encodeURIComponent(bookingId)}`,
+        { headers: { "x-admin-key": adminKey }, cache: "no-store" }
+      );
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setHistoryById((prev) => ({
+          ...prev,
+          [bookingId]: { loading: false, loaded: true, error: data?.error || "err", bookings: [] },
+        }));
+        return;
+      }
+      setHistoryById((prev) => ({
+        ...prev,
+        [bookingId]: { loading: false, loaded: true, count: data.count, bookings: data.bookings || [] },
+      }));
+    } catch (e) {
+      setHistoryById((prev) => ({
+        ...prev,
+        [bookingId]: { loading: false, loaded: true, error: String(e?.message || e), bookings: [] },
+      }));
+    }
+  }
+
   if (!adminKey) {
     return (
       <div className="section-padding">
@@ -252,7 +348,7 @@ export default function AdminBookingsPage() {
               </p>
             )}
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 flex-wrap">
             <Link
               href="/admin/setup"
               className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-nova-gold hover:bg-white/10"
@@ -260,6 +356,27 @@ export default function AdminBookingsPage() {
             >
               📘 Setup Guide
             </Link>
+            <button
+              type="button"
+              onClick={toggleSound}
+              className={`rounded-full border px-4 py-2 text-xs transition-colors ${
+                soundOn
+                  ? "border-emerald-500/40 bg-emerald-500/10 text-emerald-200"
+                  : "border-white/10 bg-white/5 text-gray-400 hover:text-white"
+              }`}
+              title={soundOn ? "Ton bei neuer Bestellung aktiviert" : "Ton deaktiviert"}
+              data-testid="admin-sound-toggle"
+            >
+              {soundOn ? "🔔 Ton an" : "🔕 Ton aus"}
+            </button>
+            <a
+              href={`/api/admin/bookings/export?key=${encodeURIComponent(adminKey)}`}
+              className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-white hover:bg-white/10"
+              data-testid="admin-export-csv"
+              title="Alle Bestellungen als CSV herunterladen"
+            >
+              ⬇ CSV Export
+            </a>
             <label className="text-xs text-gray-400 flex items-center gap-2">
               <input
                 type="checkbox"
@@ -493,6 +610,62 @@ export default function AdminBookingsPage() {
                     )}
                   </div>
                 )}
+
+                {/* Customer history for the same phone number */}
+                <div className="pt-1">
+                  <button
+                    type="button"
+                    onClick={() => toggleCustomerHistory(b.id, b.customerPhone)}
+                    className="text-xs text-gray-400 hover:text-nova-gold inline-flex items-center gap-1"
+                    data-testid={`admin-history-toggle-${shortId}`}
+                  >
+                    <span>{expandedHistory[b.id] ? "▾" : "▸"}</span>
+                    <span>🕓 Kundenhistorie ({b.customerPhone})</span>
+                  </button>
+                  {expandedHistory[b.id] && (
+                    <div className="mt-2 rounded-lg bg-black/40 border border-white/5 p-3 text-xs">
+                      {historyById[b.id]?.loading && (
+                        <p className="text-gray-500">Lädt Vorbestellungen…</p>
+                      )}
+                      {historyById[b.id]?.loaded && (historyById[b.id]?.bookings?.length ?? 0) === 0 && (
+                        <p className="text-gray-500">Keine früheren Bestellungen für diese Nummer.</p>
+                      )}
+                      {historyById[b.id]?.bookings?.length > 0 && (
+                        <div className="space-y-1.5">
+                          <p className="text-[10px] uppercase tracking-widest text-gray-500 mb-2">
+                            {historyById[b.id].count} frühere Fahrt(en)
+                          </p>
+                          {historyById[b.id].bookings.map((prev) => {
+                            const prevShort = String(prev.id).substring(0, 8).toUpperCase();
+                            const prevStatus = {
+                              pending: "🟡",
+                              requested: "🟡",
+                              confirmed: "🟢",
+                              rejected: "🔴",
+                              cancelled: "⚫",
+                            }[prev.status] || "⚪";
+                            return (
+                              <div
+                                key={prev.id}
+                                className="flex flex-wrap items-center gap-x-3 gap-y-1 text-gray-300 border-b border-white/5 pb-1.5 last:border-0"
+                              >
+                                <span className="font-mono text-gray-500">#{prevShort}</span>
+                                <span>{prevStatus}</span>
+                                <span className="text-gray-500">
+                                  {prev.createdAt ? new Date(prev.createdAt).toLocaleDateString("de-CH") : ""}
+                                </span>
+                                <span>{prev.pickupAddress} → {prev.destinationAddress}</span>
+                                <span className="text-nova-gold ml-auto">
+                                  {prev.priceCHF != null ? `CHF ${Number(prev.priceCHF).toFixed(2)}` : ""}
+                                </span>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
 
                 <div className="flex flex-wrap gap-2 pt-2">
                   <button

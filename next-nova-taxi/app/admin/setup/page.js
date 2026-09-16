@@ -151,6 +151,71 @@ export default function AdminSetupPage() {
           </p>
         </section>
 
+        {/* Section 5: Resend email */}
+        <section className="rounded-2xl border border-white/10 bg-white/5 p-6 space-y-4">
+          <h2 className="text-xl font-semibold text-white">5. Email-Benachrichtigungen via Resend</h2>
+          <p className="text-sm text-gray-400">
+            Damit Sie bei jeder neuen Bestellung <strong>auch per E-Mail</strong> an <code>info@nova-taxi.com</code> benachrichtigt werden:
+          </p>
+          <ol className="list-decimal list-inside space-y-2 text-sm text-gray-200 marker:text-nova-gold">
+            <li>
+              Auf{" "}
+              <a
+                href="https://resend.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-nova-gold underline"
+              >
+                resend.com
+              </a>{" "}
+              registrieren (kostenloser Plan: 3'000 Mails/Monat).
+            </li>
+            <li>
+              <strong>API Keys → Create API Key</strong> → Name z.B. <code>nova-taxi-prod</code> →
+              Permission <strong>„Sending access"</strong> → <strong>Add</strong>. Den Schlüssel
+              (<code>re_…</code>) sofort kopieren.
+            </li>
+            <li>
+              <strong>Domains → Add Domain → nova-taxi.com</strong>. Resend zeigt Ihnen 3 DNS-Records
+              (MX/SPF + 2× DKIM). Fügen Sie diese im DNS-Panel Ihres Domain-Anbieters ein und warten
+              Sie 5-15 min auf „Verified" (grüner Haken).
+            </li>
+            <li>
+              <strong>Auf Vercel</strong> → Environment Variables → hinzufügen (Prod+Preview+Dev):
+              <div className="overflow-x-auto mt-2">
+                <table className="w-full text-sm">
+                  <tbody className="text-gray-200 [&_td]:py-1.5 [&_td]:pr-4 [&_code]:text-nova-gold">
+                    <tr>
+                      <td><code>RESEND_API_KEY</code></td>
+                      <td className="text-gray-400">der <code>re_…</code>-Schlüssel</td>
+                    </tr>
+                    <tr>
+                      <td><code>ADMIN_EMAIL</code></td>
+                      <td className="text-gray-400"><code>info@nova-taxi.com</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>SENDER_EMAIL</code></td>
+                      <td className="text-gray-400">
+                        <code>Nova Taxi &lt;no-reply@nova-taxi.com&gt;</code> (nach Verifizierung)
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </li>
+            <li>
+              <strong>Redeploy</strong>. Danach unter <a href="/api/pricing/diag" target="_blank" rel="noopener noreferrer" className="text-nova-gold underline">/api/pricing/diag</a>{" "}
+              prüfen: <code>RESEND_API_KEY_present: true</code>.
+            </li>
+          </ol>
+          <div className="rounded-lg bg-amber-500/10 border border-amber-500/30 p-3 text-xs text-amber-200">
+            <strong>Tipp:</strong> Zum Test vor der Domain-Verifizierung können Sie
+            {" "}<code>SENDER_EMAIL</code> weglassen — dann sendet Resend über
+            {" "}<code>onboarding@resend.dev</code>. Aber Achtung: In diesem Sandbox-Modus kommen die
+            Mails nur bei der E-Mail-Adresse an, mit der Sie sich bei Resend registriert haben.
+          </div>
+        </section>
+
         {/* Section 4: Webhook + template */}
         <section className="rounded-2xl border border-white/10 bg-white/5 p-6 space-y-4">
           <h2 className="text-xl font-semibold text-white">

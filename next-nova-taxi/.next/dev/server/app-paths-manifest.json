@@ -1,4 +1,5 @@
 {
-  "/api/bookings/route": "app/api/bookings/route.js",
-  "/api/pricing/diag/route": "app/api/pricing/diag/route.js"
+  "/api/admin/bookings/export/route": "app/api/admin/bookings/export/route.js",
+  "/api/admin/customer-history/route": "app/api/admin/customer-history/route.js",
+  "/api/bookings/route": "app/api/bookings/route.js"
 }
