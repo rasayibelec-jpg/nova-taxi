@@ -189,6 +189,11 @@ User must deploy to Vercel via "Save to GitHub" to see live changes.
 | `WHATSAPP_TEMPLATE_NAME` | Server (optional) | Name of an approved utility template with 1 body parameter, used as a fallback when the 24h customer service window is closed (Meta error 131047). If unset, the API will simply report the error to the admin. |
 | `WHATSAPP_TEMPLATE_LANGUAGE` | Server (optional) | Language code of the template (e.g. `de`, `en_US`). |
 | `WHATSAPP_BUSINESS_ACCOUNT_ID` | Server (optional) | WABA ID – kept for reference / future template management. |
+| `ADMIN_WHATSAPP_NUMBER` | Server (optional) | International WhatsApp number of the driver/admin to notify on new bookings. Defaults to `NEXT_PUBLIC_WHATSAPP_NUMBER` then `41766113131`. |
+| `WHATSAPP_WEBHOOK_VERIFY_TOKEN` | Server (optional) | Random string used by Meta to verify the delivery webhook at `/api/whatsapp/webhook`. |
+| `RESEND_API_KEY` | Server (optional) | Resend API key for admin email notifications. Enables email to `ADMIN_EMAIL` after new bookings. |
+| `SENDER_EMAIL` | Server (optional) | From-address for outgoing email, e.g. `Nova Taxi <no-reply@nova-taxi.com>`. Requires domain verification in Resend. Falls back to `onboarding@resend.dev` (sandbox – only delivers to Resend account owner). |
+| `ADMIN_EMAIL` | Server (optional) | Recipient for admin booking notifications. Defaults to `info@nova-taxi.com`. |
 
 ---
 
