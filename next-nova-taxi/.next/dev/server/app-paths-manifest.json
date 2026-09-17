@@ -1,5 +1,7 @@
 {
   "/api/admin/bookings/export/route": "app/api/admin/bookings/export/route.js",
-  "/api/admin/customer-history/route": "app/api/admin/customer-history/route.js",
-  "/api/bookings/route": "app/api/bookings/route.js"
+  "/api/bookings/[id]/decision/route": "app/api/bookings/[id]/decision/route.js",
+  "/api/bookings/route": "app/api/bookings/route.js",
+  "/api/pricing/diag/route": "app/api/pricing/diag/route.js",
+  "/api/whatsapp/webhook/route": "app/api/whatsapp/webhook/route.js"
 }

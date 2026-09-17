@@ -136,6 +136,10 @@ export default function AdminSetupPage() {
                   <td className="text-gray-400">frei wählbarer Random-String, z.B. <code>nova-webhook-2026</code></td>
                 </tr>
                 <tr className="border-b border-white/5">
+                  <td><code>WHATSAPP_APP_SECRET</code> <span className="text-[10px] text-gray-500">(empfohlen)</span></td>
+                  <td className="text-gray-400">App-Secret aus <strong>App Settings → Basic</strong> (Meta App-Dashboard). Absichert Webhook gegen gefälschte Anfragen.</td>
+                </tr>
+                <tr className="border-b border-white/5">
                   <td><code>WHATSAPP_TEMPLATE_NAME</code> <span className="text-[10px] text-gray-500">(optional)</span></td>
                   <td className="text-gray-400"><code>nova_taxi_decision</code> (siehe Schritt 4)</td>
                 </tr>

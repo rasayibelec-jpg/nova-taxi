@@ -267,6 +267,29 @@ export default function AdminBookingsPage() {
     }
   }
 
+  async function exportCsv() {
+    try {
+      const res = await fetch("/api/admin/bookings/export", {
+        headers: { "x-admin-key": adminKey },
+      });
+      if (!res.ok) {
+        alert("Export fehlgeschlagen: " + res.status);
+        return;
+      }
+      const blob = await res.blob();
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `nova-taxi-bookings-${new Date().toISOString().slice(0, 10)}.csv`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    } catch (e) {
+      alert("Export fehlgeschlagen: " + (e?.message || "unknown"));
+    }
+  }
+
   async function toggleCustomerHistory(bookingId, phone) {
     const wasExpanded = expandedHistory[bookingId];
     setExpandedHistory((prev) => ({ ...prev, [bookingId]: !wasExpanded }));
@@ -369,14 +392,15 @@ export default function AdminBookingsPage() {
             >
               {soundOn ? "🔔 Ton an" : "🔕 Ton aus"}
             </button>
-            <a
-              href={`/api/admin/bookings/export?key=${encodeURIComponent(adminKey)}`}
+            <button
+              type="button"
+              onClick={exportCsv}
               className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-white hover:bg-white/10"
               data-testid="admin-export-csv"
               title="Alle Bestellungen als CSV herunterladen"
             >
               ⬇ CSV Export
-            </a>
+            </button>
             <label className="text-xs text-gray-400 flex items-center gap-2">
               <input
                 type="checkbox"

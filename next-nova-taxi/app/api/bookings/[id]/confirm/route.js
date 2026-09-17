@@ -5,7 +5,8 @@ import { createHmac, timingSafeEqual } from "crypto";
 export const dynamic = "force-dynamic";
 
 function verifyToken(bookingId, token) {
-  const secret = process.env.DRIVER_CONFIRM_SECRET || "dev-secret";
+  const secret = process.env.DRIVER_CONFIRM_SECRET;
+  if (!secret) return false;
   const expected = createHmac("sha256", secret).update(bookingId).digest("hex").slice(0, 24);
   if (!token || token.length !== expected.length) return false;
   return timingSafeEqual(Buffer.from(expected), Buffer.from(token));

@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { getBookingsCollection } from "@/lib/mongodb";
 import { isWhatsAppApiConfigured, sendCustomerMessage } from "@/lib/whatsapp";
+import { timingSafeEq } from "@/lib/admin-auth";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -9,7 +10,7 @@ function isAuthorized(req) {
   const expected = process.env.ADMIN_PASSWORD || "";
   if (!expected) return false;
   const auth = req.headers.get("x-admin-key") || "";
-  return auth && auth === expected;
+  return timingSafeEq(auth, expected);
 }
 
 function normalizePhoneForWaLink(raw) {

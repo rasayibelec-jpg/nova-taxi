@@ -7,7 +7,8 @@ export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 
 function verifyToken(bookingId, token) {
-  const secret = process.env.DRIVER_CONFIRM_SECRET || "dev-secret";
+  const secret = process.env.DRIVER_CONFIRM_SECRET;
+  if (!secret) return false; // fail closed – no dev fallback in prod
   const expected = createHmac("sha256", secret).update(bookingId).digest("hex").slice(0, 24);
   if (!token || token.length !== expected.length) return false;
   return timingSafeEqual(Buffer.from(expected), Buffer.from(token));

@@ -1,11 +1,20 @@
 import { NextResponse } from "next/server";
+import { timingSafeEq } from "@/lib/admin-auth";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 
-// Diagnostic endpoint (no secrets leaked) to help debug production pricing issues.
-// Access via /api/pricing/diag on your deployed host.
-export async function GET() {
+// SEC-002: admin-auth protected. Provide the admin key via `x-admin-key` header
+// or `?key=` query parameter so operators can hit it from a browser.
+export async function GET(req) {
+  const expected = process.env.ADMIN_PASSWORD || "";
+  const url = new URL(req.url);
+  const provided =
+    req.headers.get("x-admin-key") || url.searchParams.get("key") || "";
+  if (!expected || !timingSafeEq(provided, expected)) {
+    return NextResponse.json({ error: "unauthorized" }, { status: 401 });
+  }
+
   const serverKey = process.env.GOOGLE_MAPS_API_KEY || "";
   const publicKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "";
   const mongo = process.env.MONGO_URL || "";

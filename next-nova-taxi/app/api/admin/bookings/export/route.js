@@ -1,27 +1,20 @@
 import { getBookingsCollection } from "@/lib/mongodb";
+import { isAdminAuthorized } from "@/lib/admin-auth";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 
-function isAuthorized(req) {
-  const expected = process.env.ADMIN_PASSWORD || "";
-  if (!expected) return false;
-  // Support key both as header (fetch) and query param (direct browser download)
-  const url = new URL(req.url);
-  const qKey = url.searchParams.get("key") || "";
-  const hKey = req.headers.get("x-admin-key") || "";
-  const provided = hKey || qKey;
-  return provided && provided === expected;
-}
-
 function csvEscape(v) {
   if (v == null) return "";
-  const s = String(v).replace(/"/g, '""').replace(/\r?\n/g, " ");
+  let s = String(v).replace(/\r?\n/g, " ");
+  // SEC-004: neutralize CSV formula injection into spreadsheets
+  if (/^[=+\-@\t\r|%]/.test(s)) s = "'" + s;
+  s = s.replace(/"/g, '""');
   return /[",;\n]/.test(s) ? `"${s}"` : s;
 }
 
 export async function GET(req) {
-  if (!isAuthorized(req)) {
+  if (!isAdminAuthorized(req)) {
     return new Response(JSON.stringify({ error: "unauthorized" }), {
       status: 401,
       headers: { "content-type": "application/json" },

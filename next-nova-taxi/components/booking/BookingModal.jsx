@@ -95,7 +95,6 @@ export default function BookingModal({ open, onClose, prefillPickup, prefillDest
     const geo = await getGeoOnce();
 
     let bookingId = null;
-    let confirmToken = null;
     try {
       const ac = new AbortController();
       const timer = setTimeout(() => ac.abort(), 8000);
@@ -112,17 +111,19 @@ export default function BookingModal({ open, onClose, prefillPickup, prefillDest
           customerName: name,
           customerPhone: phone,
           paymentMethod: payment,
-          priceCHF: priceInfo?.priceCHF ?? null,
-          distanceKm: priceInfo?.distanceKm ?? null,
           geo,
           lang: "de",
         }),
       });
       clearTimeout(timer);
+      if (res.status === 429) {
+        setSubmitError("Zu viele Anfragen. Bitte in einer Minute erneut versuchen.");
+        setSubmitting(false);
+        return;
+      }
       if (res.ok) {
         const data = await res.json();
         bookingId = data.id;
-        confirmToken = data.confirmToken;
       }
     } catch {
       // Silent — WhatsApp fallback below still works.
@@ -140,10 +141,8 @@ export default function BookingModal({ open, onClose, prefillPickup, prefillDest
       ? `\nStandort: https://maps.google.com/?q=${geo.lat},${geo.lng}`
       : "";
     const shortId = bookingId ? String(bookingId).substring(0, 8).toUpperCase() : null;
-    const confirmLine =
-      bookingId && confirmToken
-        ? `\n\nBestellung bestätigen:\n${window.location.origin}/bestellung/${bookingId}/bestaetigen?token=${confirmToken}`
-        : "";
+    // Security fix (SEC-001): no confirm-token URL in the customer's outgoing message.
+    // The admin receives the tokenized decision link via server-side WhatsApp/email.
 
     const idLine = shortId ? `Neue Bestellung\n#${shortId}:` : `Neue Bestellung:`;
     const msg =
@@ -157,8 +156,7 @@ export default function BookingModal({ open, onClose, prefillPickup, prefillDest
       `Preis: ${priceText}` +
       distanceLine +
       `\nZahlungsart: ${paymentLabel}` +
-      standortLine +
-      confirmLine;
+      standortLine;
 
     const wa = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "41766113131";
     const whatsappUrl = `https://wa.me/${wa}?text=${encodeURIComponent(msg)}`;
