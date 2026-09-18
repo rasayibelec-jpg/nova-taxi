@@ -720,6 +720,21 @@ p {
   gap: 2rem;
 }
 
+.gap-x-3 {
+  -moz-column-gap: .75rem;
+  column-gap: .75rem;
+}
+
+.gap-y-1 {
+  row-gap: .25rem;
+}
+
+.space-y-0\.5 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(.125rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(.125rem * var(--tw-space-y-reverse));
+}
+
 .space-y-1 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(.25rem * calc(1 - var(--tw-space-y-reverse)));
@@ -798,6 +813,12 @@ p {
 
 .overflow-y-auto {
   overflow-y: auto;
+}
+
+.truncate {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .break-words {
@@ -927,6 +948,10 @@ p {
 
 .border-nova-gold\/40 {
   border-color: #fbbf2466;
+}
+
+.border-nova-gold\/50 {
+  border-color: #fbbf2480;
 }
 
 .border-nova-gold\/60 {
@@ -1299,6 +1324,11 @@ p {
   padding-right: 2rem;
 }
 
+.py-0\.5 {
+  padding-top: .125rem;
+  padding-bottom: .125rem;
+}
+
 .py-1 {
   padding-top: .25rem;
   padding-bottom: .25rem;
@@ -1342,6 +1372,10 @@ p {
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+
+.pb-1\.5 {
+  padding-bottom: .375rem;
 }
 
 .pr-4 {
@@ -1522,6 +1556,10 @@ p {
   color: rgb(0 0 0 / var(--tw-text-opacity, 1));
 }
 
+.text-emerald-100\/80 {
+  color: #d1fae5cc;
+}
+
 .text-emerald-200 {
   --tw-text-opacity: 1;
   color: rgb(167 243 208 / var(--tw-text-opacity, 1));
@@ -1622,6 +1660,10 @@ p {
 
 .opacity-0 {
   opacity: 0;
+}
+
+.opacity-70 {
+  opacity: .7;
 }
 
 .shadow-2xl {
@@ -1858,6 +1900,10 @@ a {
 .placeholder\:text-gray-500::placeholder {
   --tw-text-opacity: 1;
   color: rgb(107 114 128 / var(--tw-text-opacity, 1));
+}
+
+.last\:border-0:last-child {
+  border-width: 0;
 }
 
 .hover\:-translate-y-1:hover {
@@ -2162,6 +2208,11 @@ a {
 .\[\&_code\]\:text-nova-gold code {
   --tw-text-opacity: 1;
   color: rgb(251 191 36 / var(--tw-text-opacity, 1));
+}
+
+.\[\&_td\]\:py-1\.5 td {
+  padding-top: .375rem;
+  padding-bottom: .375rem;
 }
 
 .\[\&_td\]\:py-2 td {

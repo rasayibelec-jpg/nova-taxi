@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///app/next-nova-taxi/app/admin/layout.js"],"sourcesContent":["export const metadata = {\n  robots: { index: false, follow: false, nocache: true, googleBot: { index: false, follow: false } },\n  title: \"Admin – Nova Taxi\",\n};\n\nexport default function AdminLayout({ children }) {\n  return <>{children}</>;\n}\n"],"names":[],"mappings":";;;;;;;;AAAO,MAAM,WAAW;IACtB,QAAQ;QAAE,OAAO;QAAO,QAAQ;QAAO,SAAS;QAAM,WAAW;YAAE,OAAO;YAAO,QAAQ;QAAM;IAAE;IACjG,OAAO;AACT;AAEe,SAAS,YAAY,EAAE,QAAQ,EAAE;IAC9C,qBAAO;kBAAG;;AACZ"}}]
+}

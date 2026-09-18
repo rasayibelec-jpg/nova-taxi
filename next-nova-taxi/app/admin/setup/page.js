@@ -20,13 +20,26 @@ export default function AdminSetupPage() {
         </div>
 
         <p className="text-sm text-gray-400">
-          Diese Anleitung zeigt Schritt für Schritt, wie Sie die drei fehlenden Meta / WhatsApp-Zugänge
-          einrichten. Danach werden Bestätigungen automatisch aus der Nova&nbsp;Taxi WhatsApp-Business-Nummer versendet.
+          Diese Anleitung zeigt Schritt für Schritt, wie Sie optionale Integrationen einrichten.
+          <strong className="text-white"> Die Website funktioniert ohne diese Setups vollständig</strong> –
+          Bestellungen erreichen Sie weiterhin über die WhatsApp Business App auf Ihrem Handy.
         </p>
 
+        <div className="rounded-2xl border border-emerald-500/40 bg-emerald-500/5 p-4 text-sm text-emerald-200">
+          <p className="font-semibold mb-1">✓ Aktueller Status</p>
+          <ul className="list-disc list-inside space-y-0.5 text-emerald-100/80 text-xs">
+            <li>Bestellungen kommen über die WhatsApp Business App direkt aufs Handy (manuelle Antwort).</li>
+            <li>Empfohlen: Nur Abschnitt <strong>5. Resend E-Mail</strong> einrichten – reicht als Backup.</li>
+            <li>Abschnitte <strong>1-4</strong> (WhatsApp Cloud API) sind <strong>OPTIONAL</strong> und aktuell übersprungen.</li>
+          </ul>
+        </div>
+
         {/* Section 1: Meta Business + WhatsApp */}
-        <section className="rounded-2xl border border-white/10 bg-white/5 p-6 space-y-4">
-          <h2 className="text-xl font-semibold text-white">1. WhatsApp Business Cloud API aktivieren</h2>
+        <section className="rounded-2xl border border-white/10 bg-white/5 p-6 space-y-4 opacity-70">
+          <div className="flex items-center gap-2 flex-wrap">
+            <h2 className="text-xl font-semibold text-white">1. WhatsApp Business Cloud API aktivieren</h2>
+            <span className="text-[10px] uppercase tracking-widest px-2 py-0.5 rounded-full border border-gray-500/40 text-gray-400">Optional · übersprungen</span>
+          </div>
           <ol className="list-decimal list-inside space-y-2 text-sm text-gray-200 marker:text-nova-gold">
             <li>
               Öffnen Sie{" "}
@@ -64,8 +77,11 @@ export default function AdminSetupPage() {
         </section>
 
         {/* Section 2: Permanent token */}
-        <section className="rounded-2xl border border-white/10 bg-white/5 p-6 space-y-4">
-          <h2 className="text-xl font-semibold text-white">2. Dauerhaften API-Token erstellen</h2>
+        <section className="rounded-2xl border border-white/10 bg-white/5 p-6 space-y-4 opacity-70">
+          <div className="flex items-center gap-2 flex-wrap">
+            <h2 className="text-xl font-semibold text-white">2. Dauerhaften API-Token erstellen</h2>
+            <span className="text-[10px] uppercase tracking-widest px-2 py-0.5 rounded-full border border-gray-500/40 text-gray-400">Optional · übersprungen</span>
+          </div>
           <p className="text-sm text-gray-400">
             Der Test-Token aus dem Dashboard läuft nach 24 h ab. Für den Live-Betrieb brauchen Sie einen
             <strong> System-User-Token</strong>:
@@ -104,11 +120,13 @@ export default function AdminSetupPage() {
         </section>
 
         {/* Section 3: Vercel env vars */}
-        <section className="rounded-2xl border border-nova-gold/40 bg-nova-gold/5 p-6 space-y-4">
-          <h2 className="text-xl font-semibold text-white">3. Auf Vercel eintragen</h2>
+        <section className="rounded-2xl border border-white/10 bg-white/5 p-6 space-y-4 opacity-70">
+          <div className="flex items-center gap-2 flex-wrap">
+            <h2 className="text-xl font-semibold text-white">3. WhatsApp-Vars auf Vercel eintragen</h2>
+            <span className="text-[10px] uppercase tracking-widest px-2 py-0.5 rounded-full border border-gray-500/40 text-gray-400">Optional · übersprungen</span>
+          </div>
           <p className="text-sm text-gray-300">
-            <strong>Vercel Dashboard</strong> → Nova Taxi → <strong>Settings → Environment Variables</strong>.
-            Für jede Variable auf <strong>Add New</strong> klicken, Production+Preview+Development ankreuzen:
+            Nur relevant, wenn Sie später doch die WhatsApp Cloud API aktivieren möchten.
           </p>
           <div className="overflow-x-auto">
             <table className="w-full text-sm text-left">
@@ -155,11 +173,16 @@ export default function AdminSetupPage() {
           </p>
         </section>
 
-        {/* Section 5: Resend email */}
-        <section className="rounded-2xl border border-white/10 bg-white/5 p-6 space-y-4">
-          <h2 className="text-xl font-semibold text-white">5. Email-Benachrichtigungen via Resend</h2>
-          <p className="text-sm text-gray-400">
-            Damit Sie bei jeder neuen Bestellung <strong>auch per E-Mail</strong> an <code>info@nova-taxi.com</code> benachrichtigt werden:
+        {/* Section 5: Resend email — MAIN RECOMMENDED SETUP */}
+        <section className="rounded-2xl border border-nova-gold/40 bg-nova-gold/5 p-6 space-y-4">
+          <div className="flex items-center gap-2 flex-wrap">
+            <h2 className="text-xl font-semibold text-white">Email-Benachrichtigungen via Resend</h2>
+            <span className="text-[10px] uppercase tracking-widest px-2 py-0.5 rounded-full border border-nova-gold/50 text-nova-gold">Empfohlen</span>
+          </div>
+          <p className="text-sm text-gray-300">
+            <strong>Dies ist die einzige Integration, die eingerichtet werden muss.</strong> Damit Sie
+            bei jeder neuen Bestellung <strong>zusätzlich zur WhatsApp-Nachricht</strong> auch per
+            E-Mail an <code>info@nova-taxi.com</code> benachrichtigt werden:
           </p>
           <ol className="list-decimal list-inside space-y-2 text-sm text-gray-200 marker:text-nova-gold">
             <li>
@@ -221,10 +244,13 @@ export default function AdminSetupPage() {
         </section>
 
         {/* Section 4: Webhook + template */}
-        <section className="rounded-2xl border border-white/10 bg-white/5 p-6 space-y-4">
-          <h2 className="text-xl font-semibold text-white">
-            4. Webhook + Template (empfohlen)
-          </h2>
+        <section className="rounded-2xl border border-white/10 bg-white/5 p-6 space-y-4 opacity-70">
+          <div className="flex items-center gap-2 flex-wrap">
+            <h2 className="text-xl font-semibold text-white">
+              4. Webhook + Template
+            </h2>
+            <span className="text-[10px] uppercase tracking-widest px-2 py-0.5 rounded-full border border-gray-500/40 text-gray-400">Optional · übersprungen</span>
+          </div>
           <p className="text-sm text-gray-400">
             Ohne diese zwei Punkte funktioniert der Auto-Versand innerhalb 24 h nach Kundenkontakt, aber:
           </p>
@@ -259,23 +285,23 @@ export default function AdminSetupPage() {
 
         {/* Section 5: verification */}
         <section className="rounded-2xl border border-emerald-500/40 bg-emerald-500/5 p-6 space-y-3">
-          <h2 className="text-xl font-semibold text-white">5. Verifizieren</h2>
+          <h2 className="text-xl font-semibold text-white">Verifizieren (nach Resend-Setup)</h2>
           <ol className="list-decimal list-inside space-y-2 text-sm text-gray-200 marker:text-emerald-400">
             <li>
               Öffnen Sie{" "}
               <a
-                href="/api/pricing/diag"
+                href="/api/pricing/diag?key="
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-nova-gold underline"
               >
                 /api/pricing/diag
               </a>{" "}
-              – <code>WHATSAPP_API_TOKEN_present</code> und <code>WHATSAPP_PHONE_NUMBER_ID_present</code> müssen <strong>true</strong> sein.
+              (mit Admin-Key als <code>?key=…</code>) – <code>RESEND_API_KEY_present</code> muss <strong>true</strong> sein.
             </li>
             <li>Eine Test-Bestellung aufgeben.</li>
             <li>
-              Im Panel <strong>✓ Annehmen</strong> klicken → grüner Toast „automatisch gesendet" erscheint und der Kunde bekommt die Nachricht direkt aus der Business-Nummer.
+              Sie erhalten <strong>zwei Benachrichtigungen</strong>: (1) die gewohnte WhatsApp-Nachricht in Ihrer Business App (wie bisher, manuelle Antwort) und (2) eine E-Mail an <code>info@nova-taxi.com</code>.
             </li>
           </ol>
         </section>
