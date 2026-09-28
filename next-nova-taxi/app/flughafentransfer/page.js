@@ -99,30 +99,83 @@ export default function FlughafentransferPage() {
           </div>
         </div>
 
-        {/* Beispielrouten und FAQ */}
+        {/* Preistabelle Flughafentransfer */}
         <div className="space-y-6 pt-8 border-t border-white/10">
-          <h2 className="text-xl font-semibold text-white">
-            Beliebte Flughafentransfer-Routen
-          </h2>
+          <div className="space-y-2">
+            <h2 className="text-xl md:text-2xl font-semibold text-white">
+              ✈️ Flughafentransfer – Luzern, Zug, Schwyz &amp; Umgebung
+            </h2>
+            <p className="text-sm text-gray-400">
+              Richtpreise ab dem jeweiligen Ortszentrum zu den Flughäfen Zürich und Basel (EuroAirport).
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-white/10 bg-white/5 overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-white/10 bg-white/5">
+                    <th className="text-left px-4 py-3 text-xs uppercase tracking-widest text-gray-400 font-medium">
+                      Abfahrtsort
+                    </th>
+                    <th className="text-left px-4 py-3 text-xs uppercase tracking-widest text-gray-400 font-medium">
+                      Zürich Flughafen
+                    </th>
+                    <th className="text-left px-4 py-3 text-xs uppercase tracking-widest text-gray-400 font-medium">
+                      EuroAirport Basel
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-white/5">
+                  {[
+                    ["Luzern", "ab CHF 272.–", "ab CHF 447.–"],
+                    ["Zug", "ab CHF 181.–", "ab CHF 468.–"],
+                    ["Schwyz", "ab CHF 276.–", "ab CHF 561.–"],
+                    ["Arth-Goldau", "ab CHF 264.–", "ab CHF 519.–"],
+                    ["Brunnen", "ab CHF 313.–", "ab CHF 565.–"],
+                    ["Küssnacht am Rigi", "ab CHF 232.–", "ab CHF 490.–"],
+                    ["Weggis", "ab CHF 260.–", "ab CHF 527.–"],
+                    ["Vitznau", "ab CHF 282.–", "ab CHF 519.–"],
+                    ["Unterägeri", "ab CHF 192.–", "ab CHF 506.–"],
+                    ["Oberägeri", "ab CHF 202.–", "ab CHF 502.–"],
+                  ].map(([ort, zrh, bsl]) => (
+                    <tr key={ort} className="hover:bg-white/5 transition-colors">
+                      <td className="px-4 py-3 text-white font-medium">{ort}</td>
+                      <td className="px-4 py-3 text-nova-gold">{zrh}</td>
+                      <td className="px-4 py-3 text-nova-gold">{bsl}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
           <div className="grid gap-4 md:grid-cols-3">
-            <div className="space-y-2 rounded-xl bg-white/5 p-4">
-              <h3 className="font-medium text-nova-gold">Schwyz → Flughafen Zürich</h3>
-              <p className="text-sm text-gray-400">
-                Ca. 45-55 Min. Fahrzeit. Festpreis auf Anfrage.
-              </p>
+            <div className="rounded-xl bg-white/5 p-4">
+              <p className="text-xs uppercase tracking-widest text-gray-500 mb-1">Grundtaxe</p>
+              <p className="text-lg font-semibold text-white">CHF 6.60</p>
             </div>
-            <div className="space-y-2 rounded-xl bg-white/5 p-4">
-              <h3 className="font-medium text-nova-gold">Luzern → Flughafen Zürich</h3>
-              <p className="text-sm text-gray-400">
-                Ca. 50-60 Min. Fahrzeit. Festpreis auf Anfrage.
-              </p>
+            <div className="rounded-xl bg-white/5 p-4">
+              <p className="text-xs uppercase tracking-widest text-gray-500 mb-1">Kilometerpreis</p>
+              <p className="text-lg font-semibold text-white">CHF 4.20 / km</p>
             </div>
-            <div className="space-y-2 rounded-xl bg-white/5 p-4">
-              <h3 className="font-medium text-nova-gold">Zug → Flughafen Zürich</h3>
-              <p className="text-sm text-gray-400">
-                Ca. 35-45 Min. Fahrzeit. Festpreis auf Anfrage.
-              </p>
+            <div className="rounded-xl bg-white/5 p-4">
+              <p className="text-xs uppercase tracking-widest text-gray-500 mb-1">Wartezeit</p>
+              <p className="text-lg font-semibold text-white">CHF 72.– / Stunde</p>
             </div>
+          </div>
+
+          <p className="text-xs text-gray-400 italic leading-relaxed">
+            Alle Preise verstehen sich als Richtpreise ab dem jeweiligen Ortszentrum. Der definitive
+            Fahrpreis wird anhand der tatsächlichen Abholadresse und Fahrstrecke berechnet.
+          </p>
+
+          <div className="pt-2">
+            <BookingButton
+              prefillDestination="Flughafen Zürich"
+              label="Jetzt Flughafentransfer online buchen"
+              testId="flughafen-preise-booking-button"
+            />
           </div>
         </div>
 
