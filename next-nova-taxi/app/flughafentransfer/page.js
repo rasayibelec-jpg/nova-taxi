@@ -100,7 +100,7 @@ export default function FlughafentransferPage() {
         </div>
 
         {/* Preistabelle Flughafentransfer */}
-        <div className="space-y-6 pt-8 border-t border-white/10">
+        <div id="preise" className="space-y-6 pt-8 border-t border-white/10 scroll-mt-24">
           <div className="space-y-2">
             <h2 className="text-xl md:text-2xl font-semibold text-white">
               ✈️ Flughafentransfer – Luzern, Zug, Schwyz &amp; Umgebung
