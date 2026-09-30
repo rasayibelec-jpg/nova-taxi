@@ -1,0 +1,47 @@
+{
+  "summary": "Retest of EN Hero CTA 'View Prices & Services' after main agent added #preise anchor and price table to /app/next-nova-taxi/app/en/flughafentransfer/page.js. Verified on Next.js dev server (localhost:3100). All 4 requested scenarios now pass: EN desktop, EN mobile, DE regression, DE BookingModal.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {"ui_bugs": [], "integration_issues": [], "design_issues": []},
+  "test_results": {
+    "desktop_1440_EN": {
+      "btn_text": "View Prices & Services",
+      "href": "/en/flughafentransfer#preise",
+      "url_after_click": "http://localhost:3100/en/flughafentransfer#preise",
+      "preise_anchor_present": true,
+      "scrollY_after_click": 748,
+      "prices_present": {"Lucerne from CHF 245": true, "Zug from CHF 165": true, "EuroAirport Basel": true}
+    },
+    "mobile_390_EN": {
+      "btn_visible": true,
+      "preise_anchor_present": true,
+      "scrollY_after_click": 1055,
+      "prices_present": {"Lucerne from CHF 245": true, "Zug from CHF 165": true, "EuroAirport Basel": true}
+    },
+    "desktop_1440_DE_regression": {
+      "btn_text": "Preis & Angebote ansehen",
+      "href": "/flughafentransfer#preise",
+      "preise_anchor_present": true,
+      "scrollY_after_click": 909,
+      "has_CHF_245": true
+    },
+    "mobile_390_DE_regression": {
+      "preise_anchor_present": true,
+      "scrollY_after_click": 1375,
+      "has_CHF_245": true
+    },
+    "booking_modal_de_hero": {"opens": true, "modal_title": "Online Taxi bestellen"}
+  },
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "Note (unchanged from iteration_5): supervisor still runs the unrelated CRA app on port 3000; Next.js Nova Taxi runs on 3100 only when started manually. If Next.js is the intended prod frontend, main agent should reconfigure supervisor/REACT_APP_BACKEND_URL/routing – out of scope for this task but worth flagging again."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A (skipped per request)", "frontend": "100% (4/4 flows pass)"},
+  "test_credentials": "None required (public pages).",
+  "seed_data_creation": "None.",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Next.js dev server started via: cd /app/next-nova-taxi && yarn dev -p 3100. Port 3000 is the unrelated CRA Türlihof app. Both DE and EN Hero CTAs now correctly navigate to /flughafentransfer#preise and /en/flughafentransfer#preise, scroll to anchor, and display the price table with 'from CHF 245.–' (Lucerne), 'from CHF 165.–' (Zug), and 'EuroAirport Basel' column. BookingModal opens as expected on 'Online Taxi bestellen'.",
+  "rca of the issue": "N/A – previous gap (EN page missing #preise + table) was resolved by main agent adding <div id='preise' scroll-mt-24> block with the English price table (10 rows including 'Lucerne from CHF 245.–', 'Zug from CHF 165.–', EuroAirport Basel column) at /app/next-nova-taxi/app/en/flughafentransfer/page.js line 78."
+}
