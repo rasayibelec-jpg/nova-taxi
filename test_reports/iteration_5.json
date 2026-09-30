@@ -1,0 +1,69 @@
+{
+  "summary": "Frontend-only test of the Hero CTA 'Preis & Angebote ansehen' routing change on Next.js Nova Taxi (started local dev server on port 3100 because port 3000 hosts the unrelated CRA 'Türlihof' preview). Verified button behaviour, design classes, anchor scrolling and BookingModal on desktop (1440x800) and mobile (390x800) for both DE and EN. DE flow works fully. EN flow has a gap: /en/flughafentransfer has no #preise anchor and no price table, so navigation succeeds but scroll-to-preise + price rendering do not work.",
+  "backend_issues": { "critical": [], "minor": [] },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [
+      {
+        "flow": "EN Hero CTA 'View Prices & Services' → /en/flughafentransfer#preise",
+        "issue": "The EN Flughafentransfer page (/app/next-nova-taxi/app/en/flughafentransfer/page.js) does NOT contain an element with id='preise' and does NOT render the price table (no 'ab CHF 245', no 'EuroAirport Basel'). Consequently, clicking the EN hero CTA lands the user on the EN airport-transfer page, but there is no anchor to scroll to and no price list to view. The DE page has the anchor and full price table – it works correctly.",
+        "affected_selectors": ["#preise on /en/flughafentransfer", "table with 'EuroAirport Basel' header"]
+      }
+    ],
+    "design_issues": []
+  },
+  "test_results": {
+    "desktop_1440_DE": {
+      "button_visible": true,
+      "button_text": "Preis & Angebote ansehen",
+      "href": "/flughafentransfer#preise",
+      "required_classes_present": ["bg-nova-gold", "rounded-full", "text-black", "min-h-[48px]"],
+      "navigation_url_after_click": "http://localhost:3100/flughafentransfer#preise",
+      "preise_anchor_present": true,
+      "scrollY_after_click": 909,
+      "heading_visible": "✈️ Flughafentransfer – Luzern, Zug, Schwyz & Umgebung (visible=true)",
+      "prices_present": {"Luzern ab CHF 245": true, "Zug ab CHF 165": true, "EuroAirport Basel": true},
+      "booking_modal_opens_on_hero_booking_button": true
+    },
+    "mobile_390_DE": {
+      "button_visible": true,
+      "href": "/flughafentransfer#preise",
+      "required_classes_present": ["bg-nova-gold", "rounded-full", "text-black", "min-h-[48px]"],
+      "scrollY_after_click": 1375,
+      "preise_anchor_present": true,
+      "heading_visible": true,
+      "prices_present": true,
+      "booking_modal_opens": true
+    },
+    "desktop_1440_EN": {
+      "button_text": "View Prices & Services",
+      "href": "/en/flughafentransfer#preise",
+      "required_classes_present": ["bg-nova-gold", "rounded-full", "text-black", "min-h-[48px]"],
+      "navigation_url_after_click": "http://localhost:3100/en/flughafentransfer#preise",
+      "preise_anchor_present": false,
+      "price_table_present": false
+    },
+    "mobile_390_EN": {
+      "preise_anchor_present": false,
+      "price_table_present": false
+    }
+  },
+  "test_report_links": [],
+  "action_items": [
+    "Add id='preise' anchor + price table (or reuse DE table content translated) to /app/next-nova-taxi/app/en/flughafentransfer/page.js so that the EN CTA target #preise actually resolves and shows prices. Alternatively, if EN is not intended to have prices, change the EN hero CTA href in HeroEN.jsx to a section that exists on the EN page or point it to the DE page.",
+    "Note: /app/next-nova-taxi is NOT served by supervisor on port 3000 – port 3000 is the old CRA 'Türlihof' app. If the Next.js project is the intended production frontend, main agent should reconfigure supervisor/routing accordingly (out of scope for this task but worth flagging)."
+  ],
+  "critical_code_review_comments": [
+    "HeroEN.jsx href='/en/flughafentransfer#preise' but the target page has no #preise element and no price table – inconsistency between DE and EN pages.",
+    "Design classes on hero-preise-link are unchanged from spec (bg-nova-gold, rounded-full, text-black, min-h-[48px]) – confirmed.",
+    "Preview URL in .env still points to the CRA app – confirmed the Next.js dev server had to be started manually on 3100 for testing."
+  ],
+  "updated_files": [],
+  "success_rate": { "backend": "N/A (not tested per request)", "frontend": "88% (7/8 flows pass; EN #preise anchor+table missing)" },
+  "test_credentials": "None required (public pages).",
+  "seed_data_creation": "None.",
+  "retest_needed": true,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Next.js dev server was started manually via: cd /app/next-nova-taxi && yarn dev -p 3100. Port 3000 is the CRA Türlihof app (unrelated). Use http://localhost:3100 for Nova Taxi Next.js. DE hero CTA fully works incl. scroll to #preise (scrollY 909 desktop / 1375 mobile). EN CTA navigates but page lacks #preise + price table.",
+  "rca of the issue": "Only DE flughafentransfer/page.js was updated to include <div id='preise' className='... scroll-mt-24'> and the full price table. The English counterpart at /app/next-nova-taxi/app/en/flughafentransfer/page.js was not updated in the same commit, so the anchor and prices are missing on the EN route while the HeroEN.jsx CTA still links to /en/flughafentransfer#preise."
+}
