@@ -106,7 +106,7 @@ export default function FlughafentransferPage() {
               ✈️ Flughafentransfer – Luzern, Zug, Schwyz &amp; Umgebung
             </h2>
             <p className="text-sm text-gray-400">
-              Richtpreise ab dem jeweiligen Ortszentrum zu den Flughäfen Zürich und Basel (EuroAirport).
+              Komfortabler und zuverlässiger Flughafentransfer zum Flughafen Zürich (ZRH) und EuroAirport Basel (BSL).
             </p>
           </div>
 
@@ -118,31 +118,31 @@ export default function FlughafentransferPage() {
                     <th className="text-left px-4 py-3 text-xs uppercase tracking-widest text-gray-400 font-medium">
                       Abfahrtsort
                     </th>
-                    <th className="text-left px-4 py-3 text-xs uppercase tracking-widest text-gray-400 font-medium">
+                    <th className="text-right px-4 py-3 text-xs uppercase tracking-widest text-gray-400 font-medium">
                       Zürich Flughafen
                     </th>
-                    <th className="text-left px-4 py-3 text-xs uppercase tracking-widest text-gray-400 font-medium">
+                    <th className="text-right px-4 py-3 text-xs uppercase tracking-widest text-gray-400 font-medium">
                       EuroAirport Basel
                     </th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-white/5">
                   {[
-                    ["Luzern", "ab CHF 272.–", "ab CHF 447.–"],
-                    ["Zug", "ab CHF 181.–", "ab CHF 468.–"],
-                    ["Schwyz", "ab CHF 276.–", "ab CHF 561.–"],
-                    ["Arth-Goldau", "ab CHF 264.–", "ab CHF 519.–"],
-                    ["Brunnen", "ab CHF 313.–", "ab CHF 565.–"],
-                    ["Küssnacht am Rigi", "ab CHF 232.–", "ab CHF 490.–"],
-                    ["Weggis", "ab CHF 260.–", "ab CHF 527.–"],
-                    ["Vitznau", "ab CHF 282.–", "ab CHF 519.–"],
-                    ["Unterägeri", "ab CHF 192.–", "ab CHF 506.–"],
-                    ["Oberägeri", "ab CHF 202.–", "ab CHF 502.–"],
+                    ["Luzern", "ab CHF 245.–", "ab CHF 399.–"],
+                    ["Zug", "ab CHF 165.–", "ab CHF 419.–"],
+                    ["Schwyz", "ab CHF 249.–", "ab CHF 505.–"],
+                    ["Arth-Goldau", "ab CHF 239.–", "ab CHF 469.–"],
+                    ["Brunnen", "ab CHF 279.–", "ab CHF 509.–"],
+                    ["Küssnacht am Rigi", "ab CHF 209.–", "ab CHF 439.–"],
+                    ["Weggis", "ab CHF 235.–", "ab CHF 475.–"],
+                    ["Vitznau", "ab CHF 255.–", "ab CHF 469.–"],
+                    ["Unterägeri", "ab CHF 175.–", "ab CHF 455.–"],
+                    ["Oberägeri", "ab CHF 185.–", "ab CHF 455.–"],
                   ].map(([ort, zrh, bsl]) => (
                     <tr key={ort} className="hover:bg-white/5 transition-colors">
-                      <td className="px-4 py-3 text-white font-medium">{ort}</td>
-                      <td className="px-4 py-3 text-nova-gold">{zrh}</td>
-                      <td className="px-4 py-3 text-nova-gold">{bsl}</td>
+                      <td className="px-4 py-3 text-white font-medium whitespace-nowrap">{ort}</td>
+                      <td className="px-4 py-3 text-right text-nova-gold whitespace-nowrap">{zrh}</td>
+                      <td className="px-4 py-3 text-right text-nova-gold whitespace-nowrap">{bsl}</td>
                     </tr>
                   ))}
                 </tbody>
