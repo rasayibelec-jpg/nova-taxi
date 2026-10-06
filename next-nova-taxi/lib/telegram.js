@@ -28,12 +28,20 @@ export async function sendTelegramMessage(text, options = {}) {
   };
   if (options.parseMode) payload.parse_mode = options.parseMode;
 
-  const res = await fetch(url, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload),
-    cache: "no-store",
-  });
+  const ac = new AbortController();
+  const timer = setTimeout(() => ac.abort(), 10_000);
+  let res;
+  try {
+    res = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+      cache: "no-store",
+      signal: ac.signal,
+    });
+  } finally {
+    clearTimeout(timer);
+  }
   const data = await res.json().catch(() => ({}));
   if (!res.ok || data?.ok === false) {
     const err = new Error(

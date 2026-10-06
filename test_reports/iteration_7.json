@@ -1,0 +1,52 @@
+{
+  "summary": "Backend-only testing of new Telegram integration in Next.js app (/app/next-nova-taxi) on port 3100. Verified POST /api/bookings now invokes Telegram sendMessage (previously missing), tracks result in adminTelegramNotification field, persists it to MongoDB, and that /api/pricing/diag exposes a telegramTest probe. All 8 pytest tests passed.",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [
+    "/app/backend/tests/test_telegram_bookings.py",
+    "/app/test_reports/pytest/telegram_results.xml"
+  ],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "adminTelegramNotification in response includes chatId only in MongoDB doc but not in response (expected since response is intentionally minimal). OK.",
+    "Mongo update after notification uses .catch(() => {}) — silently swallows persistence errors; low-priority robustness note.",
+    "sendTelegramMessage uses fetch directly without timeout — a slow Telegram API response could stall booking creation. Consider AbortController with 10s timeout for production hardening.",
+    "TELEGRAM_CHAT_ID is returned verbatim in both diag env dump and booking Mongo doc; acceptable since diag is admin-auth protected, but note PII/leak surface."
+  ],
+  "updated_files": [
+    "/app/next-nova-taxi/.env.local (restored to invalid test creds after tests)",
+    "/app/backend/tests/test_telegram_bookings.py (new)"
+  ],
+  "success_rate": {"backend": "100%", "frontend": "skipped"},
+  "test_credentials": "ADMIN_PASSWORD=NovaTaxi2026Admin for /api/pricing/diag (via x-admin-key header). Telegram creds in .env.local: TELEGRAM_BOT_TOKEN=invalid_test_token, TELEGRAM_CHAT_ID=-100000 (intentional invalid for proof-of-invocation).",
+  "seed_data_creation": "Test bookings prefixed TEST_ are inserted and cleaned up by MongoDB fixture teardown. No persistent seed data.",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Next.js dev server runs on port 3100 via `cd /app/next-nova-taxi && yarn dev -p 3100` (NOT supervisor-managed; separate from CRA frontend on 3000). To change env for tests, rewrite /app/next-nova-taxi/.env.local and restart the yarn/next process (pkill -9 -f 'next dev' then relaunch). Current .env.local is left with invalid Telegram creds so repeated runs produce deterministic 404 'Not Found' error. All 8 tests in test_telegram_bookings.py pass.",
+  "verification_evidence": {
+    "invalid_token_response": {
+      "status": 201,
+      "adminTelegramNotification": {"attempted": true, "ok": false},
+      "mongo_doc_adminTelegramNotification": {"attempted": true, "ok": false, "error": "Not Found", "errorCode": 404}
+    },
+    "no_env_response": {"adminTelegramNotification": {"attempted": false, "ok": false}},
+    "diag_telegramTest_invalid": {"ok": false, "bot": null, "error": "present"},
+    "rate_limit": "5 req/min returns 429 for 6th+ request from same IP; rate-limited requests never reach Telegram send code path (short-circuit before body parsing)."
+  },
+  "tests_mapped_to_assertions": {
+    "POST /api/bookings with valid Telegram creds -> ok=true": "NOT tested — no real Telegram token available. Covered indirectly by diag probe code path and the invalid-token test which proves the fetch is invoked.",
+    "POST /api/bookings WITHOUT Telegram env vars -> attempted=false": "PASS (TestNoTelegramEnv::test_booking_without_telegram)",
+    "POST /api/bookings with INVALID token -> attempted=true, ok=false, error contains Telegram description": "PASS — error='Not Found', errorCode=404 bubbled from Telegram API",
+    "MongoDB persistence of adminTelegramNotification": "PASS (TestInvalidToken::test_booking_with_invalid_telegram verifies doc fields)",
+    "/api/pricing/diag telegramTest object": "PASS (both invalid-token and absent-env scenarios)",
+    "buildAdminMessage includes shortId/name/phone/pickup/destination/price/confirm link w/ token": "PASS indirectly — doc.confirmToken stored, shortId matches response, confirmToken NOT leaked to public response (SEC-001)",
+    "Rate-limit 429 and no Telegram send on rate-limited requests": "PASS (TestRateLimit::test_rate_limit_429) — 429 returned before body parsing so Telegram code unreachable"
+  }
+}
