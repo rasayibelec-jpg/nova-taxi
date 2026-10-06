@@ -43,6 +43,9 @@ export async function GET(req) {
       RESEND_API_KEY_present: Boolean(process.env.RESEND_API_KEY),
       SENDER_EMAIL: process.env.SENDER_EMAIL || null,
       ADMIN_EMAIL: process.env.ADMIN_EMAIL || null,
+      TELEGRAM_BOT_TOKEN_present: Boolean(process.env.TELEGRAM_BOT_TOKEN),
+      TELEGRAM_CHAT_ID_present: Boolean(process.env.TELEGRAM_CHAT_ID),
+      TELEGRAM_CHAT_ID: process.env.TELEGRAM_CHAT_ID || null,
       NEXT_PUBLIC_WHATSAPP_NUMBER_present: Boolean(whatsapp),
       NEXT_PUBLIC_WHATSAPP_NUMBER: whatsapp || null,
       NODE_ENV: process.env.NODE_ENV || null,
@@ -51,6 +54,7 @@ export async function GET(req) {
     },
     googleTest: null,
     mongoTest: null,
+    telegramTest: null,
   };
 
   // Perform a live Distance Matrix probe if the server key is set
@@ -89,6 +93,38 @@ export async function GET(req) {
     }
   } else {
     result.mongoTest = { ok: false, error: "MONGO_URL or DB_NAME missing" };
+  }
+
+  // Live Telegram bot probe (does NOT send a message, only verifies the token
+  // and chat visibility via getMe + getChat endpoints).
+  const tgToken = process.env.TELEGRAM_BOT_TOKEN;
+  const tgChatId = process.env.TELEGRAM_CHAT_ID;
+  if (tgToken) {
+    try {
+      const me = await fetch(`https://api.telegram.org/bot${tgToken}/getMe`, {
+        cache: "no-store",
+      }).then((r) => r.json());
+      let chat = null;
+      if (tgChatId) {
+        chat = await fetch(
+          `https://api.telegram.org/bot${tgToken}/getChat?chat_id=${encodeURIComponent(tgChatId)}`,
+          { cache: "no-store" }
+        ).then((r) => r.json());
+      }
+      result.telegramTest = {
+        ok: Boolean(me?.ok) && (tgChatId ? Boolean(chat?.ok) : true),
+        bot: me?.ok ? { username: me.result?.username, id: me.result?.id } : null,
+        chat: chat?.ok
+          ? { type: chat.result?.type, title: chat.result?.title || chat.result?.username || null }
+          : null,
+        error:
+          me?.description || chat?.description || (!tgChatId ? "TELEGRAM_CHAT_ID missing" : null),
+      };
+    } catch (err) {
+      result.telegramTest = { ok: false, error: String(err?.message || err) };
+    }
+  } else {
+    result.telegramTest = { ok: false, error: "TELEGRAM_BOT_TOKEN missing" };
   }
 
   return NextResponse.json(result, { status: 200 });

@@ -3,6 +3,7 @@ import { randomUUID, createHmac } from "crypto";
 import { getBookingsCollection } from "@/lib/mongodb";
 import { isWhatsAppApiConfigured, sendWhatsAppText } from "@/lib/whatsapp";
 import { isEmailApiConfigured, sendEmail } from "@/lib/email";
+import { isTelegramApiConfigured, sendTelegramMessage } from "@/lib/telegram";
 import { fetchDistance, calculatePrice } from "@/lib/pricing";
 import { escapeHtml } from "@/lib/admin-auth";
 import { rateLimit, getClientIp } from "@/lib/rate-limit";
@@ -210,6 +211,7 @@ export async function POST(req) {
       confirmedAt: null,
       adminNotification: { attempted: false, ok: false },
       adminEmailNotification: { attempted: false, ok: false },
+      adminTelegramNotification: { attempted: false, ok: false },
     };
 
     const col = await getBookingsCollection();
@@ -277,9 +279,49 @@ export async function POST(req) {
       }
     }
 
-    if (adminNotification.attempted || adminEmailNotification.attempted) {
+    // Telegram admin notification
+    let adminTelegramNotification = { attempted: false, ok: false };
+    if (isTelegramApiConfigured()) {
+      adminTelegramNotification.attempted = true;
+      try {
+        const text = buildAdminMessage(booking, origin);
+        const result = await sendTelegramMessage(text, { disableWebPagePreview: true });
+        adminTelegramNotification = {
+          attempted: true,
+          ok: true,
+          messageId: result?.messageId || null,
+          chatId: process.env.TELEGRAM_CHAT_ID,
+        };
+      } catch (err) {
+        console.error(
+          "[bookings/create] admin telegram send failed",
+          err?.telegramError || err?.message
+        );
+        adminTelegramNotification = {
+          attempted: true,
+          ok: false,
+          error: err?.telegramError?.description || String(err?.message || err),
+          errorCode: err?.telegramError?.error_code ?? null,
+        };
+      }
+    }
+
+    if (
+      adminNotification.attempted ||
+      adminEmailNotification.attempted ||
+      adminTelegramNotification.attempted
+    ) {
       await col
-        .updateOne({ id }, { $set: { adminNotification, adminEmailNotification } })
+        .updateOne(
+          { id },
+          {
+            $set: {
+              adminNotification,
+              adminEmailNotification,
+              adminTelegramNotification,
+            },
+          }
+        )
         .catch(() => {});
     }
 
@@ -302,6 +344,10 @@ export async function POST(req) {
         adminEmailNotification: {
           attempted: adminEmailNotification.attempted,
           ok: adminEmailNotification.ok,
+        },
+        adminTelegramNotification: {
+          attempted: adminTelegramNotification.attempted,
+          ok: adminTelegramNotification.ok,
         },
       },
       { status: 201 }
