@@ -197,6 +197,12 @@ User must deploy to Vercel via "Save to GitHub" to see live changes.
 
 ---
 
+## Cookie Consent (2026-06)
+- `components/layout/CookieBanner.jsx` – fixed bottom banner (DE / EN on `/en/*`), hidden on `/admin/*`
+- Buttons: "Alle akzeptieren" (`all`) / "Nur notwendige" (`necessary`); stored in localStorage + cookie `novaCookieConsent` (1 year)
+- Google Consent Mode v2: default `denied` set via inline script in `app/layout.js` head; updated to `granted` on accept
+- Slide-up animation in `app/globals.css` (`.cookie-banner`)
+
 ## Notes for Next Developer
 1. User prefers Turkish for communication
 2. Site is deployed via GitHub -> Vercel pipeline

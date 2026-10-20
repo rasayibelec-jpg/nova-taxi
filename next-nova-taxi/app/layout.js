@@ -4,6 +4,7 @@ import Script from "next/script";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import WhatsAppFloating from "@/components/layout/WhatsAppFloating";
+import CookieBanner from "@/components/layout/CookieBanner";
 import { BookingProvider } from "@/components/booking/BookingProvider";
 
 const inter = Inter({ subsets: ["latin"], display: "swap" });
@@ -185,6 +186,12 @@ export default function RootLayout({ children }) {
           media="(max-width: 768px)"
         />
         <script
+          id="consent-default"
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}var c=null;try{c=localStorage.getItem('novaCookieConsent');}catch(e){}var g=c==='all'?'granted':'denied';gtag('consent','default',{analytics_storage:g,ad_storage:g,ad_user_data:g,ad_personalization:g,functionality_storage:'granted',security_storage:'granted'});`,
+          }}
+        />
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
@@ -258,6 +265,7 @@ export default function RootLayout({ children }) {
             <main id="main-content" role="main">{children}</main>
             <Footer />
             <WhatsAppFloating />
+            <CookieBanner />
           </BookingProvider>
         </div>
       </body>
