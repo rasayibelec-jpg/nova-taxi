@@ -1,9 +1,9 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Taxi Schwyz | Flughafentransfer & 24h Service - Nova Taxi",
-  description: "Taxi Schwyz – Ihr zuverlässiger Taxiservice in der Kantonshauptstadt. Flughafentransfer Zürich, Mythen-Region, 24/7 erreichbar. Jetzt anrufen: 076 611 31 31",
-  keywords: ["Taxi Schwyz", "Flughafentransfer Schwyz", "Taxi Kanton Schwyz", "Mythen Taxi", "24h Taxi Schwyz"],
+  title: "Taxi Schwyz | Flughafentransfer & Taxiservice - Nova Taxi",
+  description: "Taxi Schwyz – Ihr zuverlässiger Taxiservice in der Kantonshauptstadt. Flughafentransfer Zürich, Mythen-Region. Jetzt anrufen: 076 611 31 31",
+  keywords: ["Taxi Schwyz", "Flughafentransfer Schwyz", "Taxi Kanton Schwyz", "Mythen Taxi"],
 };
 
 export default function TaxiSchwyzPage() {
@@ -13,7 +13,7 @@ export default function TaxiSchwyzPage() {
         {/* Hero Section */}
         <div className="max-w-4xl space-y-6">
           <p className="text-xs uppercase tracking-[0.4em] text-nova-gold">
-            Taxi Schwyz – 24/7 Service
+            Taxi Schwyz
           </p>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
             Ihr Taxi in Schwyz
@@ -82,8 +82,8 @@ export default function TaxiSchwyzPage() {
             <div className="flex items-start gap-3">
               <span className="text-nova-gold text-xl">✓</span>
               <div>
-                <p className="font-semibold text-white">24/7 Verfügbar</p>
-                <p className="text-sm text-gray-400">Tag und Nacht für Sie erreichbar</p>
+                <p className="font-semibold text-white">Verfügbar</p>
+                <p className="text-sm text-gray-400">Für Sie erreichbar</p>
               </div>
             </div>
             <div className="flex items-start gap-3">

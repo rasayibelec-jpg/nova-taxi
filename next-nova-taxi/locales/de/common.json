@@ -16,7 +16,7 @@
   "hero": {
     "subtitle": "Premium Taxi-Service",
     "title": "Nova Taxi – moderne Fahrten in der gesamten Zentralschweiz.",
-    "description": "Flughafentransfer, Businessfahrten, Kurierfahrten oder die Fahrt nach Hause – Nova Taxi bringt Sie sicher und pünktlich ans Ziel. 24/7 erreichbar, mit persönlichem Service.",
+    "description": "Flughafentransfer, Businessfahrten, Kurierfahrten oder die Fahrt nach Hause – Nova Taxi bringt Sie sicher und pünktlich ans Ziel. Mit persönlichem Service.",
     "cta": "Preis & Angebote ansehen",
     "availability": "Sofort verfügbar in Arth-Goldau, Luzern, Zug & Umgebung",
     "tags": "Flughafentransfer • Business • Kurier • Lokal"
@@ -90,7 +90,7 @@
     },
     "contact": {
       "metaTitle": "Kontakt | Nova Taxi",
-      "metaDescription": "Kontakt zu Nova Taxi – 24/7 erreichbar für Fahrten, Anfragen und Angebote in der Zentralschweiz.",
+      "metaDescription": "Kontakt zu Nova Taxi – für Fahrten, Anfragen und Angebote in der Zentralschweiz.",
       "subtitle": "Kontakt",
       "title": "So erreichen Sie Nova Taxi.",
       "description": "Egal ob sofortige Fahrt, geplante Buchung oder eine allgemeine Anfrage – wir sind gerne für Sie da.",
@@ -204,6 +204,6 @@
     "address": "Adresse",
     "callNow": "Direkt anrufen",
     "emailInquiry": "Anfrage per E-Mail",
-    "24h": "24/7 Telefon"
+    "24h": "Telefon"
   }
 }

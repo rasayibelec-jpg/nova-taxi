@@ -1,7 +1,7 @@
 export const metadata = {
   title: "Contact | Nova Taxi",
   description:
-    "Contact Nova Taxi – available 24/7 for rides, inquiries and offers in Central Switzerland.",
+    "Contact Nova Taxi – for rides, inquiries and offers in Central Switzerland.",
   alternates: {
     canonical: "https://www.nova-taxi.com/en/kontakt",
     languages: {

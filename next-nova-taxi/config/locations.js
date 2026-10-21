@@ -5,7 +5,7 @@ export const locations = {
       "Nova Taxi – Ihr moderner Taxi-Service in Arth-Goldau. Pünktliche Fahrten, Flughafentransfers und Businessfahrten in der ganzen Zentralschweiz.",
     h1: "Taxi in Arth-Goldau",
     intro:
-      "Mit Nova Taxi erreichen Sie Arth-Goldau, Luzern, Zug und den Flughafen Zürich komfortabel und zuverlässig – rund um die Uhr.",
+      "Mit Nova Taxi erreichen Sie Arth-Goldau, Luzern, Zug und den Flughafen Zürich komfortabel und zuverlässig.",
     highlightPoints: [
       "Verlässliche Fahrten zwischen Arth-Goldau und den wichtigsten Verkehrsknoten",
       "Ideale Lage für Fahrten Richtung Luzern, Zug und Innerschweiz",
@@ -263,20 +263,20 @@ export const locations = {
   baar: {
     title: "Taxi Baar | Nova Taxi – Ihr Taxi in Baar, Kanton Zug",
     metaDescription:
-      "Taxi Baar – Nova Taxi bringt Sie zuverlässig zum Flughafen Zürich, Bahnhof Zug und in die gesamte Zentralschweiz. 24h erreichbar.",
+      "Taxi Baar – Nova Taxi bringt Sie zuverlässig zum Flughafen Zürich, Bahnhof Zug und in die gesamte Zentralschweiz.",
     h1: "Taxi in Baar",
     intro:
       "Von Baar aus verbindet Nova Taxi Sie schnell und bequem mit Zug, Luzern und dem Flughafen Zürich. Ihr zuverlässiges Taxi im Kanton Zug.",
     highlightPoints: [
       "Schnelle Verbindung zum Bahnhof Zug und Flughafen Zürich",
       "Ideal für Geschäftsreisende und Pendler",
-      "Günstiges Taxi in der Nähe – 24h verfügbar"
+      "Günstiges Taxi in der Nähe"
     ]
   },
   cham: {
     title: "Taxi Cham | Nova Taxi – Flughafentransfer & Taxiservice",
     metaDescription:
-      "Taxi Cham – Nova Taxi für Flughafentransfer Zürich, Business-Fahrten und Stadtfahrten. 24/7 erreichbar in Cham und Umgebung.",
+      "Taxi Cham – Nova Taxi für Flughafentransfer Zürich, Business-Fahrten und Stadtfahrten in Cham und Umgebung.",
     h1: "Taxi in Cham",
     intro:
       "In Cham am Zugersee ist Nova Taxi Ihr Partner für Flughafentransfers, Business-Fahrten und alltägliche Wege in der Zentralschweiz.",
@@ -287,7 +287,7 @@ export const locations = {
     ]
   },
   steinhausen: {
-    title: "Taxi Steinhausen | Nova Taxi – 24h Taxi Zentralschweiz",
+    title: "Taxi Steinhausen | Nova Taxi – Taxi Zentralschweiz",
     metaDescription:
       "Taxi Steinhausen – schnell und zuverlässig zum Flughafen, Bahnhof oder Business-Termin. Nova Taxi – Ihr Taxi in der Zentralschweiz.",
     h1: "Taxi in Steinhausen",
@@ -316,7 +316,7 @@ export const locations = {
   einsiedeln: {
     title: "Taxi Einsiedeln | Nova Taxi – Taxi zum Kloster & Flughafen",
     metaDescription:
-      "Taxi Einsiedeln – zuverlässige Fahrten zum Kloster, Bahnhof und Flughafen Zürich. Nova Taxi – Ihr 24h Taxi in der Zentralschweiz.",
+      "Taxi Einsiedeln – zuverlässige Fahrten zum Kloster, Bahnhof und Flughafen Zürich. Nova Taxi – Ihr Taxi in der Zentralschweiz.",
     h1: "Taxi in Einsiedeln",
     intro:
       "Einsiedeln mit seinem berühmten Kloster – Nova Taxi verbindet den Wallfahrtsort mit Zürich, dem Flughafen und der Zentralschweiz.",
@@ -343,7 +343,7 @@ export const locations = {
   horw: {
     title: "Taxi Horw | Nova Taxi – Ihr Taxi bei Luzern",
     metaDescription:
-      "Taxi Horw – Nova Taxi für Fahrten nach Luzern, zum Pilatus und Flughafen Zürich. 24h Taxi Zentralschweiz.",
+      "Taxi Horw – Nova Taxi für Fahrten nach Luzern, zum Pilatus und Flughafen Zürich. Taxi Zentralschweiz.",
     h1: "Taxi in Horw",
     intro:
       "Horw am Fusse des Pilatus – Nova Taxi verbindet Sie mit Luzern, dem Flughafen Zürich und touristischen Zielen in der Region.",
@@ -363,7 +363,7 @@ export const locations = {
     highlightPoints: [
       "Bahnhof Taxi Sursee – schnelle Abholung",
       "Günstiges Taxi in der Nähe",
-      "24h Taxi auch nachts und am Wochenende"
+      "Taxi auch nachts und am Wochenende"
     ]
   },
 };

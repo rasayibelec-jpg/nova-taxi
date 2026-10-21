@@ -1,8 +1,8 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Taxi Arth-Goldau | Flughafentransfer & 24h Service - Nova Taxi",
-  description: "Taxi Arth-Goldau – Ihr zuverlässiger Taxiservice. Flughafentransfer Zürich, Bahnhof Arth-Goldau, Rigi-Transfers. 24/7 erreichbar. Jetzt anrufen: 076 611 31 31",
+  title: "Taxi Arth-Goldau | Flughafentransfer & Taxiservice - Nova Taxi",
+  description: "Taxi Arth-Goldau – Ihr zuverlässiger Taxiservice. Flughafentransfer Zürich, Bahnhof Arth-Goldau, Rigi-Transfers. Jetzt anrufen: 076 611 31 31",
   keywords: ["Taxi Arth-Goldau", "Taxi Goldau", "Flughafentransfer Arth-Goldau", "Bahnhof Arth-Goldau Taxi", "Rigi Transfer"],
 };
 
@@ -13,7 +13,7 @@ export default function TaxiArthGoldauPage() {
         {/* Hero Section */}
         <div className="max-w-4xl space-y-6">
           <p className="text-xs uppercase tracking-[0.4em] text-nova-gold">
-            Taxi Arth-Goldau – 24/7 Service
+            Taxi Arth-Goldau
           </p>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
             Ihr Taxi in Arth-Goldau
@@ -21,7 +21,7 @@ export default function TaxiArthGoldauPage() {
           <p className="text-lg md:text-xl text-gray-200 leading-relaxed">
             Nova Taxi ist Ihr <strong>zuverlässiger Partner</strong> für Taxifahrten in Arth-Goldau. 
             Ob <strong>Flughafentransfer nach Zürich</strong>, Abholung am <strong>Bahnhof Arth-Goldau</strong> 
-            oder Transfers zur <strong>Rigi</strong> – wir sind rund um die Uhr für Sie da.
+            oder Transfers zur <strong>Rigi</strong> – wir sind gerne für Sie da.
           </p>
         </div>
 
@@ -82,7 +82,7 @@ export default function TaxiArthGoldauPage() {
             <div className="flex items-start gap-3">
               <span className="text-nova-gold text-xl">✓</span>
               <div>
-                <p className="font-semibold text-white">24/7 Verfügbar</p>
+                <p className="font-semibold text-white">Verfügbar</p>
                 <p className="text-sm text-gray-400">Auch nachts und am Wochenende</p>
               </div>
             </div>

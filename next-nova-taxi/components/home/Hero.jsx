@@ -70,7 +70,7 @@ export default function Hero() {
       <div className="container grid gap-10 md:grid-cols-[1.1fr,0.9fr] items-center relative z-10">
         <div className="space-y-8">
           <p className="text-xs uppercase tracking-[0.4em] text-gray-400">
-            Taxi Zentralschweiz – 24/7 Service
+            Taxi Zentralschweiz
           </p>
           <div className="space-y-4">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white leading-tight">
@@ -79,7 +79,7 @@ export default function Hero() {
             <p className="text-sm md:text-base text-gray-200 max-w-xl leading-relaxed">
               Flughafentransfer Zürich, Businessfahrten, Kurierfahrten oder die Fahrt
               nach Hause – Nova Taxi bringt Sie sicher und pünktlich ans Ziel.
-              24h erreichbar, mit persönlichem Service. Taxi bestellen: 076 611 31 31
+              Mit persönlichem Service. Taxi bestellen: 076 611 31 31
             </p>
           </div>
 
@@ -103,7 +103,7 @@ export default function Hero() {
           <div className="flex flex-wrap items-center gap-4 text-xs text-gray-200">
             <span className="inline-flex items-center gap-2 py-2">
               <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" aria-hidden="true" />
-              <span>24h Taxi Zentralschweiz – Arth-Goldau, Luzern, Zug, Schwyz & Umgebung</span>
+              <span>Taxi Zentralschweiz – Arth-Goldau, Luzern, Zug, Schwyz & Umgebung</span>
             </span>
             <span className="text-gray-300 py-2">
               Flughafentransfer Zürich • VIP & Business Transfer • Kurierdienst • Bahnhof Taxi

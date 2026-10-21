@@ -2,8 +2,8 @@ import Link from "next/link";
 
 export const metadata = {
   title: "Taxi Goldau | Bahnhof & Rigi Transfer - Nova Taxi",
-  description: "Taxi Goldau – Ihr zuverlässiger Taxiservice am Bahnhof Goldau. Flughafentransfer Zürich, Rigi-Transfers, 24/7 erreichbar. Jetzt anrufen: 076 611 31 31",
-  keywords: ["Taxi Goldau", "Bahnhof Goldau Taxi", "Flughafentransfer Goldau", "Rigi Transfer Goldau", "24h Taxi Goldau"],
+  description: "Taxi Goldau – Ihr zuverlässiger Taxiservice am Bahnhof Goldau. Flughafentransfer Zürich, Rigi-Transfers. Jetzt anrufen: 076 611 31 31",
+  keywords: ["Taxi Goldau", "Bahnhof Goldau Taxi", "Flughafentransfer Goldau", "Rigi Transfer Goldau"],
 };
 
 export default function TaxiGoldauPage() {
@@ -13,7 +13,7 @@ export default function TaxiGoldauPage() {
         {/* Hero Section */}
         <div className="max-w-4xl space-y-6">
           <p className="text-xs uppercase tracking-[0.4em] text-nova-gold">
-            Taxi Goldau – 24/7 Service
+            Taxi Goldau
           </p>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
             Ihr Taxi in Goldau
@@ -114,7 +114,7 @@ export default function TaxiGoldauPage() {
             <div className="flex items-start gap-3">
               <span className="text-nova-gold text-xl">✓</span>
               <div>
-                <p className="font-semibold text-white">24/7 Verfügbar</p>
+                <p className="font-semibold text-white">Verfügbar</p>
                 <p className="text-sm text-gray-400">Auch bei Nachtfahrten und am Wochenende</p>
               </div>
             </div>

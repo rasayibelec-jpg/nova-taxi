@@ -17,7 +17,7 @@ export const metadata = {
     template: "%s | Nova Taxi",
   },
   description:
-    "Nova Taxi – modern premium taxi service in Central Switzerland. Airport transfers, business rides, courier services and more. Available 24/7 at 076 611 31 31.",
+    "Nova Taxi – modern premium taxi service in Central Switzerland. Airport transfers, business rides, courier services and more. Call 076 611 31 31.",
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },

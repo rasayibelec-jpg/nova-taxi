@@ -3,7 +3,7 @@
     "title": "Taxi Arth-Goldau | Nova Taxi",
     "metaDescription": "Nova Taxi – Your modern taxi service in Arth-Goldau. Punctual rides, airport transfers and business trips throughout Central Switzerland.",
     "h1": "Taxi in Arth-Goldau",
-    "intro": "With Nova Taxi, you can comfortably and reliably reach Arth-Goldau, Lucerne, Zug and Zurich Airport – around the clock.",
+    "intro": "With Nova Taxi, you can comfortably and reliably reach Arth-Goldau, Lucerne, Zug and Zurich Airport.",
     "highlightPoints": [
       "Reliable rides between Arth-Goldau and major transport hubs",
       "Ideal location for rides to Lucerne, Zug and Central Switzerland",
@@ -221,18 +221,18 @@
   },
   "baar": {
     "title": "Taxi Baar | Nova Taxi – Your Taxi in Canton Zug",
-    "metaDescription": "Taxi Baar – Nova Taxi takes you reliably to Zurich Airport, Zug train station and throughout Central Switzerland. Available 24/7.",
+    "metaDescription": "Taxi Baar – Nova Taxi takes you reliably to Zurich Airport, Zug train station and throughout Central Switzerland.",
     "h1": "Taxi in Baar",
     "intro": "From Baar, Nova Taxi connects you quickly and comfortably with Zug, Lucerne and Zurich Airport. Your reliable taxi in Canton Zug.",
     "highlightPoints": [
       "Fast connection to Zug train station and Zurich Airport",
       "Ideal for business travelers and commuters",
-      "Affordable taxi nearby – available 24/7"
+      "Affordable taxi nearby"
     ]
   },
   "cham": {
     "title": "Taxi Cham | Nova Taxi – Airport Transfer & Taxi Service",
-    "metaDescription": "Taxi Cham – Nova Taxi for Zurich airport transfers, business trips and city rides. Available 24/7 in Cham and surroundings.",
+    "metaDescription": "Taxi Cham – Nova Taxi for Zurich airport transfers, business trips and city rides in Cham and surroundings.",
     "h1": "Taxi in Cham",
     "intro": "In Cham on Lake Zug, Nova Taxi is your partner for airport transfers, business trips and everyday journeys in Central Switzerland.",
     "highlightPoints": [
@@ -242,7 +242,7 @@
     ]
   },
   "steinhausen": {
-    "title": "Taxi Steinhausen | Nova Taxi – 24h Taxi Central Switzerland",
+    "title": "Taxi Steinhausen | Nova Taxi – Taxi Central Switzerland",
     "metaDescription": "Taxi Steinhausen – fast and reliable to the airport, train station or business meeting. Nova Taxi – your taxi in Central Switzerland.",
     "h1": "Taxi in Steinhausen",
     "intro": "Steinhausen is centrally located between Zug and Cham. Nova Taxi connects you with train stations, airports and business addresses.",
@@ -265,7 +265,7 @@
   },
   "einsiedeln": {
     "title": "Taxi Einsiedeln | Nova Taxi – Taxi to the Monastery & Airport",
-    "metaDescription": "Taxi Einsiedeln – reliable rides to the monastery, train station and Zurich Airport. Nova Taxi – your 24h taxi in Central Switzerland.",
+    "metaDescription": "Taxi Einsiedeln – reliable rides to the monastery, train station and Zurich Airport. Nova Taxi – your taxi in Central Switzerland.",
     "h1": "Taxi in Einsiedeln",
     "intro": "Einsiedeln with its famous monastery – Nova Taxi connects the pilgrimage site with Zurich, the airport and Central Switzerland.",
     "highlightPoints": [
@@ -287,7 +287,7 @@
   },
   "horw": {
     "title": "Taxi Horw | Nova Taxi – Your Taxi near Lucerne",
-    "metaDescription": "Taxi Horw – Nova Taxi for rides to Lucerne, Mount Pilatus and Zurich Airport. 24h taxi Central Switzerland.",
+    "metaDescription": "Taxi Horw – Nova Taxi for rides to Lucerne, Mount Pilatus and Zurich Airport. Taxi Central Switzerland.",
     "h1": "Taxi in Horw",
     "intro": "Horw at the foot of Mount Pilatus – Nova Taxi connects you with Lucerne, Zurich Airport and tourist destinations in the region.",
     "highlightPoints": [
@@ -304,7 +304,7 @@
     "highlightPoints": [
       "Sursee train station taxi – quick pickup",
       "Affordable taxi nearby",
-      "24h taxi also at night and on weekends"
+      "Taxi also at night and on weekends"
     ]
   }
 }

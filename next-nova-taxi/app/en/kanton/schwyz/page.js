@@ -72,7 +72,7 @@ export default function CantonSchwyzPage() {
             Nova Taxi is your reliable taxi service in Canton Schwyz. From <strong>Arth-Goldau</strong> to 
             <strong> Schwyz</strong> to <strong>Einsiedeln</strong> – we take you safely and punctually 
             to your destination. Whether airport transfer to Zurich, train station pickup or local rides: 
-            We are available <strong>24 hours, 7 days a week</strong>.
+            We are happy to help.
           </p>
         </div>
 
@@ -181,7 +181,7 @@ export default function CantonSchwyzPage() {
           <div className="space-y-2">
             <h3 className="text-lg font-semibold text-white">Availability</h3>
             <p className="text-sm text-gray-300">
-              24 hours, 7 days a week. Also on holidays and weekends for you.
+              Also on holidays and weekends for you.
             </p>
           </div>
           <div className="space-y-2">

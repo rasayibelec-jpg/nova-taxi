@@ -50,13 +50,7 @@ function generateSchema(location, locationName, slug) {
         "postalCode": "6414",
         "addressCountry": "CH"
       },
-      "telephone": "+41766113131",
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        "opens": "00:00",
-        "closes": "23:59"
-      }
+      "telephone": "+41766113131"
     },
     "availableChannel": {
       "@type": "ServiceChannel",
@@ -84,14 +78,13 @@ export async function generateMetadata({ params }) {
 
   return {
     title: `Taxi ${locationName} | Airport Transfer & Taxi Service - Nova Taxi`,
-    description: `Taxi ${locationName} in Canton ${canton.name} – Nova Taxi offers Zurich airport transfers, train station transfers and local rides. Available 24/7. Call 076 611 31 31`,
+    description: `Taxi ${locationName} in Canton ${canton.name} – Nova Taxi offers Zurich airport transfers, train station transfers and local rides. Call 076 611 31 31`,
     keywords: [
       `Taxi ${locationName}`,
       `Book taxi ${locationName}`,
       `Airport transfer ${locationName}`,
       `Station taxi ${locationName}`,
-      `Taxi Canton ${canton.name}`,
-      "24h Taxi Central Switzerland"
+      `Taxi Canton ${canton.name}`
     ],
     alternates: {
       canonical: `https://www.nova-taxi.com/en/ort/${slug}`,
@@ -149,7 +142,7 @@ export default async function LocationPageEN({ params }) {
             <p className="text-sm text-gray-300">
               Looking to <strong>book a taxi in {locationName}</strong>? Nova Taxi is your 
               reliable partner for <strong>Zurich airport transfers</strong>, train station pickups 
-              and local rides in Canton {canton.name}. We are available <strong>24 hours, 7 days</strong> a week.
+              and local rides in Canton {canton.name}. We are happy to help.
             </p>
           </div>
 
@@ -256,7 +249,7 @@ export default async function LocationPageEN({ params }) {
             <div className="rounded-xl bg-white/5 border border-white/10 p-5">
               <h3 className="font-semibold text-white mb-2">Availability</h3>
               <p className="text-sm text-gray-300">
-                24 hours, 7 days a week. Also on holidays and weekends.
+                Also on holidays and weekends.
               </p>
             </div>
             <div className="rounded-xl bg-white/5 border border-white/10 p-5">

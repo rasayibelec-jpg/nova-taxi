@@ -203,6 +203,10 @@ User must deploy to Vercel via "Save to GitHub" to see live changes.
 - Google Consent Mode v2: default `denied` set via inline script in `app/layout.js` head; updated to `granted` on accept
 - Slide-up animation in `app/globals.css` (`.cookie-banner`)
 
+## 24/7 Claims Removed (2026-06)
+- All "24/7 / 24h / rund um die Uhr / Tag und Nacht / 24 Stunden / around the clock" claims removed from pages, meta, keywords, JSON-LD (openingHoursSpecification deleted in app/layout.js, app/ort/[slug], app/en/ort/[slug]), locales and config/locations.js
+- DO NOT reintroduce 24/7 availability claims
+
 ## Notes for Next Developer
 1. User prefers Turkish for communication
 2. Site is deployed via GitHub -> Vercel pipeline

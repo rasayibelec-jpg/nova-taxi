@@ -237,7 +237,7 @@ export default function CantonLucernePage() {
           <div className="space-y-2">
             <h3 className="text-lg font-semibold text-white">Availability</h3>
             <p className="text-sm text-gray-300">
-              Available around the clock. Especially important for hotel guests and early flights.
+              Reachable for you – especially important for hotel guests and early flights.
             </p>
           </div>
           <div className="space-y-2">

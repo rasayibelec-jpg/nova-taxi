@@ -72,7 +72,7 @@ export default function KantonSchwyzPage() {
             Nova Taxi ist Ihr zuverlässiger Taxiservice im Kanton Schwyz. Von <strong>Arth-Goldau</strong> über 
             <strong> Schwyz</strong> bis <strong>Einsiedeln</strong> – wir bringen Sie sicher und pünktlich 
             ans Ziel. Ob Flughafentransfer nach Zürich, Bahnhof-Abholung oder lokale Fahrten: 
-            Wir sind <strong>24 Stunden, 7 Tage die Woche</strong> für Sie da.
+            Wir sind gerne für Sie da.
           </p>
         </div>
 
@@ -181,7 +181,7 @@ export default function KantonSchwyzPage() {
           <div className="space-y-2">
             <h3 className="text-lg font-semibold text-white">🕐 Verfügbarkeit</h3>
             <p className="text-sm text-gray-300">
-              24 Stunden, 7 Tage die Woche. Auch an Feiertagen und Wochenenden für Sie im Einsatz.
+              Auch an Feiertagen und Wochenenden für Sie im Einsatz.
             </p>
           </div>
           <div className="space-y-2">

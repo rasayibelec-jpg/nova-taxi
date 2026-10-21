@@ -51,7 +51,7 @@ export default function KurierfahrtenPage() {
             </ul>
             <div className="pt-4 space-y-2 text-sm text-gray-400">
               <p>
-                <strong>24/7 Kurierdienst</strong> – Auch ausserhalb der Geschäftszeiten.
+                <strong>Kurierdienst</strong> – Auch ausserhalb der Geschäftszeiten.
               </p>
               <p>
                 Alle Sendungen werden <strong>vertraulich</strong> behandelt und 

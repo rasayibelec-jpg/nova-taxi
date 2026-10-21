@@ -57,7 +57,7 @@ export default function AirportTransferPageEN() {
                 href="tel:+41766113131"
                 className="block rounded-full bg-nova-gold px-5 py-3 text-center text-sm font-semibold text-black hover:bg-nova-gold-soft transition-colors"
               >
-                24/7 Phone: 076 611 31 31
+                Phone: 076 611 31 31
               </a>
               <a
                 href="mailto:info@nova-taxi.com"

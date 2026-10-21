@@ -56,8 +56,8 @@ export default function FlughafentransferPage() {
             </ul>
             <div className="pt-4 space-y-2 text-sm text-gray-400">
               <p>
-                <strong>24/7 Taxiservice</strong> – Frühflüge, Spätflüge, kein Problem! 
-                Wir sind rund um die Uhr für Sie da.
+                <strong>Taxiservice</strong> – Frühflüge, Spätflüge, kein Problem! 
+                Wir sind gerne für Sie da.
               </p>
             </div>
           </div>
@@ -75,7 +75,7 @@ export default function FlughafentransferPage() {
                 href="tel:+41766113131"
                 className="block rounded-full bg-nova-gold px-5 py-3 text-center text-sm font-semibold text-black hover:bg-nova-gold-soft transition-colors"
               >
-                ☎ 24/7 Telefon: 076 611 31 31
+                ☎ Telefon: 076 611 31 31
               </a>
               <a
                 href="https://wa.me/41766113131"

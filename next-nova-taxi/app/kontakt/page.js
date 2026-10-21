@@ -1,14 +1,13 @@
 export const metadata = {
   title: "Kontakt | Taxi bestellen Schwyz, Luzern & Zug - Nova Taxi",
   description:
-    "Taxi bestellen in der Zentralschweiz! Nova Taxi – 24/7 erreichbar für Fahrten, Flughafentransfers und Anfragen in Schwyz, Luzern & Zug. ☎ 076 611 31 31",
+    "Taxi bestellen in der Zentralschweiz! Nova Taxi – Ihr Partner für Fahrten, Flughafentransfers und Anfragen in Schwyz, Luzern & Zug. ☎ 076 611 31 31",
   keywords: [
     "Taxi bestellen",
     "Taxi Telefonnummer",
     "Taxi Schwyz",
     "Taxi Luzern",
     "Taxi Zug",
-    "24/7 Taxi",
     "Taxi kontakt"
   ],
 };
@@ -19,14 +18,14 @@ export default function KontaktPage() {
       <div className="container space-y-8">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.4em] text-nova-muted">
-            Taxi bestellen – 24/7 Taxiservice
+            Taxi bestellen
           </p>
           <h1 className="text-3xl md:text-4xl font-semibold text-white">
             Taxi bestellen in Schwyz, Luzern & Zug
           </h1>
           <p className="text-sm md:text-base text-gray-300 leading-relaxed">
             Egal ob sofortige Fahrt, geplante Buchung oder eine allgemeine
-            Anfrage – wir sind gerne für Sie da. <strong>24/7 Taxiservice</strong> in der 
+            Anfrage – wir sind gerne für Sie da. <strong>Taxiservice</strong> in der 
             gesamten Zentralschweiz.
           </p>
         </div>

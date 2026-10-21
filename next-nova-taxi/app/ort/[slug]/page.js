@@ -50,13 +50,7 @@ function generateSchema(location, locationName, slug) {
         "postalCode": "6414",
         "addressCountry": "CH"
       },
-      "telephone": "+41766113131",
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        "opens": "00:00",
-        "closes": "23:59"
-      }
+      "telephone": "+41766113131"
     },
     "availableChannel": {
       "@type": "ServiceChannel",
@@ -83,14 +77,13 @@ export async function generateMetadata({ params }) {
 
   return {
     title: `Taxi ${locationName} | Flughafentransfer & Taxiservice - Nova Taxi`,
-    description: `Taxi ${locationName} im Kanton ${kanton.name} – Nova Taxi bietet Flughafentransfer Zürich, Bahnhof-Transfers und lokale Fahrten. 24/7 erreichbar. ☎ 076 611 31 31`,
+    description: `Taxi ${locationName} im Kanton ${kanton.name} – Nova Taxi bietet Flughafentransfer Zürich, Bahnhof-Transfers und lokale Fahrten. ☎ 076 611 31 31`,
     keywords: [
       `Taxi ${locationName}`,
       `Taxi buchen ${locationName}`,
       `Flughafentransfer ${locationName}`,
       `Bahnhof Taxi ${locationName}`,
-      `Taxi Kanton ${kanton.name}`,
-      "24h Taxi Zentralschweiz"
+      `Taxi Kanton ${kanton.name}`
     ],
     alternates: {
       canonical: `https://www.nova-taxi.com/ort/${slug}`,
@@ -147,7 +140,7 @@ export default async function LocationPage({ params }) {
             <p className="text-sm text-gray-300">
               Sie möchten ein <strong>Taxi in {locationName}</strong> buchen? Nova Taxi ist Ihr 
               zuverlässiger Partner für <strong>Flughafentransfer Zürich</strong>, Bahnhof-Abholungen 
-              und lokale Fahrten im Kanton {kanton.name}. Wir sind <strong>24 Stunden, 7 Tage</strong> für Sie erreichbar.
+              und lokale Fahrten im Kanton {kanton.name}. Wir sind gerne für Sie da.
             </p>
           </div>
 
@@ -255,7 +248,7 @@ export default async function LocationPage({ params }) {
             <div className="rounded-xl bg-white/5 border border-white/10 p-5">
               <h3 className="font-semibold text-white mb-2">🕐 Verfügbarkeit</h3>
               <p className="text-sm text-gray-300">
-                24 Stunden, 7 Tage die Woche. Auch an Feiertagen und Wochenenden im Einsatz.
+                Auch an Feiertagen und Wochenenden im Einsatz.
               </p>
             </div>
             <div className="rounded-xl bg-white/5 border border-white/10 p-5">

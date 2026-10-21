@@ -50,7 +50,7 @@ export default function BusinessPage() {
             </ul>
             <div className="pt-4 space-y-2 text-sm text-gray-400">
               <p>
-                <strong>24/7 Taxiservice</strong> – Auch für frühe Meetings oder späte Events.
+                <strong>Taxiservice</strong> – Auch für frühe Meetings oder späte Events.
               </p>
               <p>
                 <strong>Grossraumtaxi</strong> – Für Gruppen und Delegationen auf Anfrage.

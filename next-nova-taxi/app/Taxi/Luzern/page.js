@@ -1,8 +1,8 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Taxi Luzern | Flughafentransfer & 24h Service - Nova Taxi",
-  description: "Taxi Luzern – Ihr Premium-Taxiservice in der Tourismusstadt. Flughafentransfer Zürich, Pilatus, Rigi, KKL. 24/7 erreichbar. Jetzt anrufen: 076 611 31 31",
+  title: "Taxi Luzern | Flughafentransfer & Taxiservice - Nova Taxi",
+  description: "Taxi Luzern – Ihr Premium-Taxiservice in der Tourismusstadt. Flughafentransfer Zürich, Pilatus, Rigi, KKL. Jetzt anrufen: 076 611 31 31",
   keywords: ["Taxi Luzern", "Flughafentransfer Luzern", "Taxi Vierwaldstättersee", "Pilatus Transfer", "KKL Taxi"],
 };
 
@@ -13,7 +13,7 @@ export default function TaxiLuzernPage() {
         {/* Hero Section */}
         <div className="max-w-4xl space-y-6">
           <p className="text-xs uppercase tracking-[0.4em] text-nova-gold">
-            Taxi Luzern – 24/7 Service
+            Taxi Luzern
           </p>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
             Ihr Taxi in Luzern
@@ -123,7 +123,7 @@ export default function TaxiLuzernPage() {
             <div className="flex items-start gap-3">
               <span className="text-nova-gold text-xl">✓</span>
               <div>
-                <p className="font-semibold text-white">24/7 Verfügbar</p>
+                <p className="font-semibold text-white">Verfügbar</p>
                 <p className="text-sm text-gray-400">Auch für frühe Flüge und späte Ankünfte</p>
               </div>
             </div>

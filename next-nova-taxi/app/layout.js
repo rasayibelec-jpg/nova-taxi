@@ -19,7 +19,7 @@ const GOOGLE_ADS_ID_2 = "AW-11210946531";
 export const metadata = {
   metadataBase: new URL("https://www.nova-taxi.com"),
   title: {
-    default: "Nova Taxi | Ihr Taxi in Schwyz, Luzern & Zug – 24/7 Service",
+    default: "Nova Taxi | Ihr Taxi in Schwyz, Luzern & Zug",
     template: "%s | Nova Taxi Zentralschweiz",
   },
   description:
@@ -31,7 +31,6 @@ export const metadata = {
     "Taxi Zug",
     "Flughafentransfer Zürich",
     "Flughafentaxi Zentralschweiz",
-    "24h Taxi",
     "Taxi bestellen",
     "VIP Transfer",
     "Business Taxi",
@@ -54,7 +53,7 @@ export const metadata = {
     type: "website",
     locale: "de_CH",
     siteName: "Nova Taxi",
-    title: "Nova Taxi | Ihr Taxi in Schwyz, Luzern & Zug – 24/7 Service",
+    title: "Nova Taxi | Ihr Taxi in Schwyz, Luzern & Zug",
     description:
       "Nova Taxi ist Ihr zuverlässiger Partner in der Zentralschweiz. Flughafentransfer Zürich, Business-Fahrten und Stadt-Taxi. Jetzt anrufen!",
     url: "https://www.nova-taxi.com/",
@@ -69,7 +68,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nova Taxi | Ihr Taxi in Schwyz, Luzern & Zug – 24/7 Service",
+    title: "Nova Taxi | Ihr Taxi in Schwyz, Luzern & Zug",
     description:
       "Nova Taxi ist Ihr zuverlässiger Partner in der Zentralschweiz. Flughafentransfer Zürich, Business-Fahrten und Stadt-Taxi.",
   },
@@ -88,7 +87,7 @@ export default function RootLayout({ children }) {
     "@type": "LocalBusiness",
     "@id": "https://www.nova-taxi.com",
     "name": "Nova Taxi",
-    "description": "Ihr professioneller Taxiservice für die Regionen Schwyz, Luzern und Zug. Spezialisiert auf Flughafentransfers nach Zürich, Geschäftstermine und komfortable Stadtfahrten. 24/7 für Sie erreichbar.",
+    "description": "Ihr professioneller Taxiservice für die Regionen Schwyz, Luzern und Zug. Spezialisiert auf Flughafentransfers nach Zürich, Geschäftstermine und komfortable Stadtfahrten.",
     "url": "https://www.nova-taxi.com",
     "telephone": "+41766113131",
     "email": "info@nova-taxi.com",
@@ -104,12 +103,6 @@ export default function RootLayout({ children }) {
       "@type": "GeoCoordinates",
       "latitude": "47.0500",
       "longitude": "8.5200"
-    },
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-      "opens": "00:00",
-      "closes": "23:59"
     },
     "priceRange": "$$",
     "paymentAccepted": ["Cash", "Credit Card", "Debit Card"],

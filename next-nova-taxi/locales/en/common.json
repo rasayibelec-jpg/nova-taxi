@@ -16,7 +16,7 @@
   "hero": {
     "subtitle": "Premium Taxi Service",
     "title": "Nova Taxi – Modern rides throughout Central Switzerland.",
-    "description": "Airport transfers, business trips, courier services or just a ride home – Nova Taxi takes you safely and punctually to your destination. Available 24/7 with personal service.",
+    "description": "Airport transfers, business trips, courier services or just a ride home – Nova Taxi takes you safely and punctually to your destination. With personal service.",
     "cta": "View Prices & Services",
     "availability": "Immediately available in Arth-Goldau, Lucerne, Zug & surrounding areas",
     "tags": "Airport Transfer • Business • Courier • Local"
@@ -90,7 +90,7 @@
     },
     "contact": {
       "metaTitle": "Contact | Nova Taxi",
-      "metaDescription": "Contact Nova Taxi – available 24/7 for rides, inquiries and offers in Central Switzerland.",
+      "metaDescription": "Contact Nova Taxi – for rides, inquiries and offers in Central Switzerland.",
       "subtitle": "Contact",
       "title": "How to reach Nova Taxi.",
       "description": "Whether immediate ride, planned booking or general inquiry – we're happy to help.",
@@ -204,6 +204,6 @@
     "address": "Address",
     "callNow": "Call Now",
     "emailInquiry": "Email Inquiry",
-    "24h": "24/7 Phone"
+    "24h": "Phone"
   }
 }

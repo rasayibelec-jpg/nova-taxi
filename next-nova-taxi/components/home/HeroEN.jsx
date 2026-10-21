@@ -70,7 +70,7 @@ export default function HeroEN() {
       <div className="container grid gap-10 md:grid-cols-[1.1fr,0.9fr] items-center relative z-10">
         <div className="space-y-8">
           <p className="text-xs uppercase tracking-[0.4em] text-gray-400">
-            Premium Taxi Service – 24/7
+            Premium Taxi Service
           </p>
           <div className="space-y-4">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white leading-tight">
@@ -79,7 +79,7 @@ export default function HeroEN() {
             <p className="text-sm md:text-base text-gray-200 max-w-xl leading-relaxed">
               Airport transfers, business trips, courier services or just a ride
               home – Nova Taxi takes you safely and punctually to your destination.
-              Available 24/7 with personal service.
+              With personal service.
             </p>
           </div>
 

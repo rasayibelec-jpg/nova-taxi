@@ -40,7 +40,7 @@ const images = [
   },
   {
     src: "/gallery/gallery-5",
-    alt: "Nova Taxi bei Nachtfahrt in Luzern – 24h Taxiservice",
+    alt: "Nova Taxi bei Nachtfahrt in Luzern",
     width: 800,
     height: 600,
   },
@@ -91,7 +91,7 @@ export default function GaleriePage() {
             Taxi buchen in der Zentralschweiz
           </h2>
           <p className="text-sm text-gray-200 mb-4">
-            Möchten Sie eine Fahrt mit Nova Taxi buchen? Wir bieten <strong>24/7 Taxiservice</strong> in 
+            Möchten Sie eine Fahrt mit Nova Taxi buchen? Wir bieten <strong>Taxiservice</strong> in 
             Schwyz, Luzern, Zug und der gesamten Zentralschweiz.
           </p>
           <div className="flex flex-col sm:flex-row gap-3">

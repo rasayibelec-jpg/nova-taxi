@@ -5,7 +5,7 @@ import ContactStripEN from "@/components/home/ContactStripEN";
 
 export const metadata = {
   title: "Nova Taxi | Premium Taxi Service in Central Switzerland",
-  description: "Nova Taxi – modern premium taxi service in Central Switzerland. Airport transfers, business rides, courier services and more. Available 24/7.",
+  description: "Nova Taxi – modern premium taxi service in Central Switzerland. Airport transfers, business rides, courier services and more.",
   alternates: {
     canonical: "https://www.nova-taxi.com/en",
     languages: {

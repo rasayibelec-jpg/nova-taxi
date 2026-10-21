@@ -1,14 +1,13 @@
 export const metadata = {
   title: "Über uns | Taxi Zentralschweiz - Nova Taxi Schwyz, Luzern & Zug",
   description:
-    "Nova Taxi – Ihr professioneller Taxiservice in der Zentralschweiz. Erfahren Sie mehr über unseren 24/7 Service in Schwyz, Luzern und Zug. Zuverlässig und pünktlich!",
+    "Nova Taxi – Ihr professioneller Taxiservice in der Zentralschweiz. Erfahren Sie mehr über unseren Service in Schwyz, Luzern und Zug. Zuverlässig und pünktlich!",
   keywords: [
     "Taxi Zentralschweiz",
     "Taxiservice Schwyz",
     "Taxi Luzern",
     "Taxi Zug",
-    "Professioneller Taxiservice",
-    "24h Taxi"
+    "Professioneller Taxiservice"
   ],
 };
 
@@ -37,7 +36,7 @@ export default function UeberUnsPage() {
               Was uns wichtig ist:
             </h2>
             <ul className="space-y-2">
-              <li>• <strong>Pünktlichkeit und Verlässlichkeit</strong> – 24/7 Taxiservice</li>
+              <li>• <strong>Pünktlichkeit und Verlässlichkeit</strong></li>
               <li>• Freundlicher, respektvoller Umgang</li>
               <li>• Saubere, gepflegte Fahrzeuge</li>
               <li>• <strong>Grossraumtaxi</strong> für Gruppen auf Anfrage</li>

@@ -237,7 +237,7 @@ export default function KantonLuzernPage() {
           <div className="space-y-2">
             <h3 className="text-lg font-semibold text-white">🕐 Verfügbarkeit</h3>
             <p className="text-sm text-gray-300">
-              Rund um die Uhr erreichbar. Besonders für Hotelgäste und Frühflüge wichtig.
+              Für Sie erreichbar – besonders für Hotelgäste und Frühflüge wichtig.
             </p>
           </div>
           <div className="space-y-2">
